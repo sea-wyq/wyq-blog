@@ -13,8 +13,8 @@
 # use grunt task `build` to synchronize assets
 
 baseURL = "https://sea-wyq.github.io"
-languageCode = "en-us"
-defaultContentLanguage = "en-us"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
 title = "Hugo tranquilpeak theme"
 theme = "hugo-tranquilpeak-theme"
 disqusShortname = "hugo-tranquilpeak-theme"
@@ -44,15 +44,15 @@ canonifyurls = true
 # Author
 # ------
 [author]
-  name = "Firstname Lastname"
-  bio = "Super bio with markdown support **COOL**"
+  name = "WYQ SEA"
+  bio = "For fear of losing you,I would never cry."
   job = "Your job title"
-  location = "France"
+  location = "Chinese"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
-  gravatarEmail = "thibaud.lepretre@gmail.com"
+  gravatarEmail = "3236961631@qq.com"
   # Your profile picture
   # Overwritten by your gravatar image if `author.gravatarEmail` is filled
-  picture = "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
+  picture = "images/th.jpg"
   # Your Twitter username without the @. E.g : thibaudlepretre
   # twitter = "thibaudlepretre"
   # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
@@ -98,6 +98,7 @@ canonifyurls = true
   name = "GitHub"
   pre = "<i class=\"sidebar-button-icon fab fa-lg fa-github\" aria-hidden=\"true\"></i>"
   url = "https://github.com/kakawait"
+  
 [[menu.links]]
   weight = 2
   identifier = "stackoverflow"
@@ -106,7 +107,7 @@ canonifyurls = true
   url = "https://stackoverflow.com/users/636472/kakawait"
 
 [[menu.misc]]
-  weight = 1
+  weight = 3
   identifier = "rss"
   name = "RSS"
   pre = "<i class=\"sidebar-button-icon fas fa-lg fa-rss\" aria-hidden=\"true\"></i>"
@@ -126,6 +127,7 @@ canonifyurls = true
   # ------------------
   # Syntax highlighter, possible choice between: "highlight.js" and "prism.js"
   # You can comment it to disable syntax highlighting
+
   syntaxHighlighter = "highlight.js"
 
   # -----------
@@ -144,10 +146,12 @@ canonifyurls = true
   #  keywords = ["development", "next-gen"]
 
   # Hide sidebar on all article page to let article take full width to improve reading, and enjoy wide images and cover images. (true: enable, false: disable)
+
   clearReading = true
 
   # Define categories will create hierarchy between parents: `categories = ["foo", "bar"]` will consider "bar" a sub-category of "foo".
   # If false it will flat categories.
+
   hierarchicalCategories = true
 
   # Display `Next` on left side of the pagination, and `Prev` on right side one.
@@ -170,7 +174,8 @@ canonifyurls = true
   #    large sidebar is swiped on all lower screens
   # 5: Display header bar on all screens and large sidebar is swiped on large screen
   # 6: Display header bar on all screens and medium sidebar is swiped
-  sidebarBehavior = 1
+
+  sidebarBehavior = 5
 
   # Customize link of author avatar in sidebar
   #  [params.sidebar.profile]
@@ -185,13 +190,17 @@ canonifyurls = true
   # Current image is on AWS S3 and delivered by AWS CloudFront.
   # Otherwise put your image, for example `cover.jpg` in folder `static/images/`,
   # and use relative url : `images/cover.jpg`
+
   coverImage = "images/cover.jpg"
 
   # Display an image gallery at the end of a post which have photos variables (false: disabled, true: enabled)
+
   imageGallery = true
 
   # Display thumbnail image of each post on index pages (false: disabled, true: enabled)
+
   thumbnailImage = true
+
   # Display thumbnail image at the right of title in index pages (`right`, `left` or `bottom`)
   # Set this value to `right` if you have old posts to keep the old style on them
   # and define `thumbnailImagePosition` on a post to overwrite this setting
@@ -199,6 +208,7 @@ canonifyurls = true
   # Automatically select the cover image or the first photo from the gallery of a post if there is no thumbnail image as the thumbnail image
   # Set this value to `true` if you have old posts that use the cover image or the first photo as the thumbnail image
   # and set `autoThumbnailImage` to `false` on a post to overwrite this setting
+  
   autoThumbnailImage = true
 
   # Your favicon path, default is "/favicon.png"
