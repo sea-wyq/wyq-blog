@@ -5,8 +5,17 @@
     <link>https://sea-wyq.github.io/</link>
     <description>Recent content on Hugo tranquilpeak theme</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jun 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 22 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>github&#43;hugo搭建个人博客</title>
+      <link>https://sea-wyq.github.io/2022/06/github-hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Wed, 22 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sea-wyq.github.io/2022/06/github-hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>&lt;p&gt;在windows10上通过github和hugo实现个人博客的快速搭建。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Welcome to Tranquilpeak 0.5.3-BETA</title>
       <link>https://sea-wyq.github.io/2015/06/welcome-to-tranquilpeak-0.5.3-beta/</link>
