@@ -9,7 +9,7 @@
   "@type": "BlogPosting",
   "headline": "github+hugo搭建个人博客",
   
-  "image": "https://sea-wyq.github.io/images/th.jpg",
+  "image": "https://sea-wyq.github.io/img/main/th.jpg",
   
   "datePublished": "2022-06-22T00:00:00Z",
   "dateModified": "2022-06-22T00:00:00Z",
@@ -26,7 +26,7 @@
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Hugo tranquilpeak theme",
+    "name": "WYQ BLOG",
     
     "logo": {
       "@type": "ImageObject",
@@ -54,7 +54,7 @@
 <meta name="twitter:title" content="github&#43;hugo搭建个人博客">
 <meta property="og:url" content="https://sea-wyq.github.io/2022/06/github-hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
 <meta property="twitter:url" content="https://sea-wyq.github.io/2022/06/github-hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
-<meta property="og:site_name" content="Hugo tranquilpeak theme">
+<meta property="og:site_name" content="WYQ BLOG">
 <meta property="og:description" content="在windows10上通过github和hugo实现个人博客的快速搭建。">
 <meta name="twitter:description" content="在windows10上通过github和hugo实现个人博客的快速搭建。">
 <meta property="og:locale" content="zh-cn">
@@ -95,8 +95,8 @@
 
 
 
-  <meta property="og:image" content="https://sea-wyq.github.io/images/th.jpg">
-  <meta property="twitter:image" content="https://sea-wyq.github.io/images/th.jpg">
+  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th.jpg">
+  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th.jpg">
 
 
     <title>github&#43;hugo搭建个人博客</title>
@@ -129,7 +129,7 @@
       <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://sea-wyq.github.io/" aria-label="去首页">Hugo tranquilpeak theme</a>
+    <a class="header-title-link" href="https://sea-wyq.github.io/" aria-label="去首页">WYQ BLOG</a>
   </div>
   
     
@@ -308,7 +308,7 @@ hugo version   #判断是否安装成功
 <pre tabindex="0"><code>hugo new site blog(网站文件夹名)
 cd blog
 </code></pre><h5 id="32-进入blog站点目录默认文件目录结构如下">3.2 进入blog站点目录，默认文件目录结构如下：</h5>
-<p><img src="https://sea-wyq.github.io/img/mm.png" alt="Tranquilpeak">
+<p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm.png" alt="Tranquilpeak">
 config.toml : 网站的配置文件，可配置网站名称、关键字、插件等。<br>
 content : 文章存放目录。<br>
 themes : 网站主题存放目录。<br>
@@ -325,27 +325,27 @@ git clone https://github.com/kakawait/hugo-tranquilpeak-theme.git
 <h5 id="53-启动-hugo-server">5.3 启动 Hugo server。</h5>
 <pre tabindex="0"><code>hugo server -D   #在站点根目录bolg下运行
 </code></pre><h5 id="54-在浏览器中打开-httplocalhost1313-预览">5.4 在浏览器中打开 http://localhost:1313 预览。</h5>
-<p><img src="https://sea-wyq.github.io/img/mm-1.png" alt="Tranquilpeak"></p>
+<p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-1.png" alt="Tranquilpeak"></p>
 <h2 id="6-自动化站点部署github-pages">6. 自动化站点部署（github pages）</h2>
 <p>为了确保个人站点文章（markdown文件）的相对安全，采取将站点源码仓库和站点分开，即：站点源码仓库设置为私有，站点 GitHub Pages 仓库设为公开。</p>
 <h5 id="61-新建github仓库用来存放网站源码如wyq-blog">6.1 新建github仓库用来存放网站源码，如：wyq-blog。</h5>
 <p>注：wyq-blog为示例仓库，故设置为公开仓库，实践中建议设置为私有仓库。</p>
-<p><img src="https://sea-wyq.github.io/img/mm-2.png" alt="Tranquilpeak"></p>
+<p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-2.png" alt="Tranquilpeak"></p>
 <h5 id="62--新建一个-github-repository库名为usernamegithubio其中-username-是你的-github-账号例如sea-wyqgithubio">6.2  新建一个 GitHub repository，库名为<!-- raw HTML omitted -->.github.io，其中 username 是你的 GitHub 账号。例如：sea-wyq.github.io。</h5>
-<p><img src="https://sea-wyq.github.io/img/mm-3.png" alt="Tranquilpeak"></p>
+<p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-3.png" alt="Tranquilpeak"></p>
 <h5 id="63-克隆wyq-blog仓库到本地目录然后将blog文件下的文件拷贝到仓库根目录中">6.3 克隆wyq-blog仓库到本地目录，然后将blog文件下的文件拷贝到仓库根目录中</h5>
 <pre tabindex="0"><code>git clone https://github.com/sea-wyq/wyq-blog.git
 </code></pre><p>注：1. 将wyq-blog目录下 .gitignore文件中中的thems/删除。
 2. 将wyq-blog\themes\hugo-tranquilpeak-theme目录下的.git文件删除。</p>
 <h5 id="64-构建-hugo-网站">6.4 构建 Hugo 网站</h5>
 <p>在本地仓库（wyq-blog）下执行 hugo 命令构建</p>
-<p><img src="https://sea-wyq.github.io/img/mm-4.png" alt="Tranquilpeak"></p>
+<p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-4.png" alt="Tranquilpeak"></p>
 <h5 id="74--创建github-token-并在wyq-blog和sea-wyqgithubio-添加secret">7.4  创建github token 并在wyq-blog和sea-wyq.github.io 添加secret</h5>
 <p>github token创建流程：github用户画像-&gt; Settings-&gt;Developer settings -&gt;Personal 
 access tokens -&gt;Generate new token</p>
-<p><img src="https://sea-wyq.github.io/img/mm-5.png" alt="Tranquilpeak"></p>
+<p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-5.png" alt="Tranquilpeak"></p>
 <p>secret创建：仓库Settings -&gt;Secret -&gt;actions -&gt; new respository secret</p>
-<p><img src="https://sea-wyq.github.io/img/mm-6.png" alt="Tranquilpeak"></p>
+<p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-6.png" alt="Tranquilpeak"></p>
 <h5 id="75-利用-github-actions实现将站点源文件如wyq-blog自动化部署到-github-pages-如sea-wyqgithubio-上">7.5 利用 Github Actions实现将站点源文件（如：wyq-blog）自动化部署到 GitHub Pages （如：sea-wyq.github.io ）上。</h5>
 <p>在站点源文件根目录创建 .github/workflows/deploy.yml 文件：</p>
 <pre tabindex="0"><code>name: github pages # 名字自取
@@ -385,9 +385,9 @@ jobs:
 git commit -m &#34;first commit&#34;
 git push origin main
 </code></pre><h5 id="66-查看wyq-log仓库显示代码提交成功">6.6 查看wyq-log仓库，显示代码提交成功</h5>
-<p><img src="https://sea-wyq.github.io/img/mm-9.png" alt="Tranquilpeak"></p>
+<p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-9.png" alt="Tranquilpeak"></p>
 <p>访问https://sea-wyq.github.io</p>
-<p><img src="https://sea-wyq.github.io/img/mm-10.png" alt="Tranquilpeak"></p>
+<p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-10.png" alt="Tranquilpeak"></p>
 <p>搭建成功！！!</p>
               
 
@@ -423,7 +423,7 @@ git push origin main
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2015/06/welcome-to-tranquilpeak-0.5.3-beta/" data-tooltip="Welcome to Tranquilpeak 0.5.3-BETA" aria-label="上一篇: Welcome to Tranquilpeak 0.5.3-BETA">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8sealos%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2k8s%E9%9B%86%E7%BE%A4/" data-tooltip="使用sealos在阿里云服务器上部署k8s集群" aria-label="上一篇: 使用sealos在阿里云服务器上部署k8s集群">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -530,7 +530,7 @@ git push origin main
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2015/06/welcome-to-tranquilpeak-0.5.3-beta/" data-tooltip="Welcome to Tranquilpeak 0.5.3-BETA" aria-label="上一篇: Welcome to Tranquilpeak 0.5.3-BETA">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8sealos%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2k8s%E9%9B%86%E7%BE%A4/" data-tooltip="使用sealos在阿里云服务器上部署k8s集群" aria-label="上一篇: 使用sealos在阿里云服务器上部署k8s集群">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>

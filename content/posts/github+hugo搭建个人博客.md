@@ -7,7 +7,7 @@ categories:
 tags:
 - 其他
 thumbnailImagePosition: right
-thumbnailImage: images/th.jpg
+thumbnailImage: img/main/th.jpg
 ---
 
 在windows10上通过github和hugo实现个人博客的快速搭建。
@@ -38,7 +38,7 @@ cd blog
 ```
 ##### 3.2 进入blog站点目录，默认文件目录结构如下：
 
-![Tranquilpeak](/img/mm.png)
+![Tranquilpeak](/img/main-blog/blog-1/mm.png)
 config.toml : 网站的配置文件，可配置网站名称、关键字、插件等。  
 content : 文章存放目录。  
 themes : 网站主题存放目录。  
@@ -67,7 +67,7 @@ hugo server -D   #在站点根目录bolg下运行
 ##### 5.4 在浏览器中打开 http://localhost:1313 预览。  
 
 
-![Tranquilpeak](/img/mm-1.png)
+![Tranquilpeak](/img/main-blog/blog-1/mm-1.png)
 
 
 ## 6. 自动化站点部署（github pages）
@@ -76,12 +76,12 @@ hugo server -D   #在站点根目录bolg下运行
 ##### 6.1 新建github仓库用来存放网站源码，如：wyq-blog。
 注：wyq-blog为示例仓库，故设置为公开仓库，实践中建议设置为私有仓库。  
 
-![Tranquilpeak](/img/mm-2.png)
+![Tranquilpeak](/img/main-blog/blog-1/mm-2.png)
 
 
 ##### 6.2  新建一个 GitHub repository，库名为<username>.github.io，其中 username 是你的 GitHub 账号。例如：sea-wyq.github.io。
 
-![Tranquilpeak](/img/mm-3.png)
+![Tranquilpeak](/img/main-blog/blog-1/mm-3.png)
 
 
 ##### 6.3 克隆wyq-blog仓库到本地目录，然后将blog文件下的文件拷贝到仓库根目录中
@@ -97,19 +97,19 @@ git clone https://github.com/sea-wyq/wyq-blog.git
 
 在本地仓库（wyq-blog）下执行 hugo 命令构建  
 
-![Tranquilpeak](/img/mm-4.png)
+![Tranquilpeak](/img/main-blog/blog-1/mm-4.png)
 
 ##### 7.4  创建github token 并在wyq-blog和sea-wyq.github.io 添加secret  
 
 github token创建流程：github用户画像-> Settings->Developer settings ->Personal 
 access tokens ->Generate new token  
 
-![Tranquilpeak](/img/mm-5.png)
+![Tranquilpeak](/img/main-blog/blog-1/mm-5.png)
 
 
 secret创建：仓库Settings ->Secret ->actions -> new respository secret
 
-![Tranquilpeak](/img/mm-6.png)
+![Tranquilpeak](/img/main-blog/blog-1/mm-6.png)
 
 
 ##### 7.5 利用 Github Actions实现将站点源文件（如：wyq-blog）自动化部署到 GitHub Pages （如：sea-wyq.github.io ）上。  
@@ -160,11 +160,11 @@ git push origin main
 
 ##### 6.6 查看wyq-log仓库，显示代码提交成功
 
-![Tranquilpeak](/img/mm-9.png)
+![Tranquilpeak](/img/main-blog/blog-1/mm-9.png)
 
 访问https://sea-wyq.github.io 
 
-![Tranquilpeak](/img/mm-10.png)
+![Tranquilpeak](/img/main-blog/blog-1/mm-10.png)
 
 搭建成功！！!
 
