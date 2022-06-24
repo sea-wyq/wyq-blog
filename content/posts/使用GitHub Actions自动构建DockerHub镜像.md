@@ -3,7 +3,7 @@ title: "使用GitHub Actions自动构建DockerHub镜像"
 date: 2022-06-24
 categories:
 - github action
-- docker
+- docker hub
 tags:
 - 其他
 thumbnailImagePosition: right
@@ -89,5 +89,12 @@ jobs:
 ![Tranquilpeak](/img/main-blog/blog-3/img-4.png)
 
 
+## 7. 查看docker search 能否正常使用
+
+
+![Tranquilpeak](/img/main-blog/blog-3/img-5.png)
+
+
+呼叫 "over over over" .
 
 
