@@ -6,7 +6,7 @@ categories:
 - sealos
 tags:
 - 其他
-thumbnailImagePosition: left
+thumbnailImagePosition: right
 thumbnailImage: img/main/th-2.jpeg
 ---
 

@@ -1,8 +1,8 @@
 ---
-title: "github+hugo搭建个人博客"
+title: "github pages + hugo搭建个人博客"
 date: 2022-06-22
 categories:
-- github
+- github pages
 - hugo
 tags:
 - 其他
@@ -10,7 +10,7 @@ thumbnailImagePosition: right
 thumbnailImage: img/main/th.jpg
 ---
 
-在windows10上通过github和hugo实现个人博客的快速搭建。
+在windows10上通过github pages和hugo实现个人博客的快速搭建。
 
 <!--more-->
 
