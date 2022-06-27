@@ -72,6 +72,7 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+        file: ./Dockerfile                          #指定执行的dockefile的文件
 ```
 
 ## 4. 在当前仓库Settings下建立secret

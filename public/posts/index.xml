@@ -6,7 +6,24 @@
     <description>Recent content in Posts on WYQ BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 24 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>终端复用工具-Tmux</title>
+      <link>https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/</link>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/</guid>
+      <description>&lt;p&gt;主要有两个作用：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
     <item>
       <title>使用GitHub Actions自动构建DockerHub镜像</title>
       <link>https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/</link>

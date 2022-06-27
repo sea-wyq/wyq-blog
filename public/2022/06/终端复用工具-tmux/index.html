@@ -7,12 +7,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "使用GitHub Actions自动构建DockerHub镜像",
+  "headline": "终端复用工具-Tmux",
   
-  "image": "https://sea-wyq.github.io/img/main/th-3.jpeg",
+  "image": "https://sea-wyq.github.io/img/main-blog/blog-4/img-2.jpeg",
   
-  "datePublished": "2022-06-24T00:00:00Z",
-  "dateModified": "2022-06-24T00:00:00Z",
+  "datePublished": "2022-06-27T00:00:00Z",
+  "dateModified": "2022-06-27T00:00:00Z",
   "author": {
     "@type": "Person",
     "name": "WYQ SEA",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/sea-wyq.github.io\/2022\/06\/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F\/" 
+    "@id": "https:\/\/sea-wyq.github.io\/2022\/06\/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "GitHub Actions持续集成服务自动构建发布镜像到DockerHub，目前GitHub Actions是免费开放的，所以Github上的项目都可以使用它来发布、测试、部署等等，非常方便。\n",
+  "description": "主要有两个作用：\n有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。\n调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。\n",
   "keywords": []
 }
 
@@ -45,37 +45,67 @@
 <meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="WYQ SEA">
 <meta name="keywords" content="">
-<meta name="description" content="GitHub Actions持续集成服务自动构建发布镜像到DockerHub，目前GitHub Actions是免费开放的，所以Github上的项目都可以使用它来发布、测试、部署等等，非常方便。">
+<meta name="description" content="主要有两个作用：
 
 
-<meta property="og:description" content="GitHub Actions持续集成服务自动构建发布镜像到DockerHub，目前GitHub Actions是免费开放的，所以Github上的项目都可以使用它来发布、测试、部署等等，非常方便。">
+有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。
+
+
+调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。
+
+">
+
+
+<meta property="og:description" content="主要有两个作用：
+
+
+有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。
+
+
+调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。
+
+">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用GitHub Actions自动构建DockerHub镜像">
-<meta name="twitter:title" content="使用GitHub Actions自动构建DockerHub镜像">
-<meta property="og:url" content="https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/">
-<meta property="twitter:url" content="https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/">
+<meta property="og:title" content="终端复用工具-Tmux">
+<meta name="twitter:title" content="终端复用工具-Tmux">
+<meta property="og:url" content="https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/">
+<meta property="twitter:url" content="https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/">
 <meta property="og:site_name" content="WYQ BLOG">
-<meta property="og:description" content="GitHub Actions持续集成服务自动构建发布镜像到DockerHub，目前GitHub Actions是免费开放的，所以Github上的项目都可以使用它来发布、测试、部署等等，非常方便。">
-<meta name="twitter:description" content="GitHub Actions持续集成服务自动构建发布镜像到DockerHub，目前GitHub Actions是免费开放的，所以Github上的项目都可以使用它来发布、测试、部署等等，非常方便。">
+<meta property="og:description" content="主要有两个作用：
+
+
+有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。
+
+
+调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。
+
+">
+<meta name="twitter:description" content="主要有两个作用：
+
+
+有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。
+
+
+调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。
+
+">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2022-06-24T00:00:00">
+    <meta property="article:published_time" content="2022-06-27T00:00:00">
   
   
-    <meta property="article:modified_time" content="2022-06-24T00:00:00">
+    <meta property="article:modified_time" content="2022-06-27T00:00:00">
   
   
   
     
-      <meta property="article:section" content="github action">
-    
-      <meta property="article:section" content="docker hub">
+      <meta property="article:section" content="其它">
     
   
   
     
-      <meta property="article:tag" content="其他">
+      <meta property="article:tag" content="其它">
     
   
 
@@ -94,19 +124,22 @@
 
 
 
+  <meta property="og:image" content="https://sea-wyq.github.io/img/main-blog/blog-4/img-2.jpeg">
+  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main-blog/blog-4/img-2.jpeg">
 
-  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-3.jpeg">
-  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-3.jpeg">
+
+  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-4.jpeg">
+  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-4.jpeg">
 
 
-    <title>使用GitHub Actions自动构建DockerHub镜像</title>
+    <title>终端复用工具-Tmux</title>
 
     <link rel="icon" href="https://sea-wyq.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/">
+    <link rel="canonical" href="https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -255,26 +288,34 @@
 </nav>
 
       
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('/img/main-blog/blog-4/img-2.jpeg')"
+       data-behavior="5">
+    
+  </div>
+
 
       <div id="main" data-behavior="5"
-        class="
-               hasCoverMetaIn
+        class="hasCover
+               hasCoverMetaOut
                ">
         <article class="post" id="top">
           
           
-            <div class="post-header main-content-wrap text-left">
+            <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title">
-      使用GitHub Actions自动构建DockerHub镜像
+      终端复用工具-Tmux
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2022-06-24T00:00:00Z">
+      <time datetime="2022-06-27T00:00:00Z">
         
-  六月 24, 2022
+  六月 27, 2022
 
       </time>
     
@@ -283,9 +324,7 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://sea-wyq.github.io/categories/github-action">github action</a>, 
-    
-      <a class="category-link" href="https://sea-wyq.github.io/categories/docker-hub">docker hub</a>
+      <a class="category-link" href="https://sea-wyq.github.io/categories/%e5%85%b6%e5%ae%83">其它</a>
     
   
 
@@ -295,69 +334,34 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>GitHub Actions持续集成服务自动构建发布镜像到DockerHub，目前GitHub Actions是免费开放的，所以Github上的项目都可以使用它来发布、测试、部署等等，非常方便。</p>
-<h2 id="1-新建一个github仓库">1. 新建一个github仓库</h2>
-<p><img src="https://sea-wyq.github.io/img/main-blog/blog-3/img-1.png" alt="Tranquilpeak"></p>
-<h2 id="2-注册登录docker-hub并进行仓库创建">2. 注册登录docker hub并进行仓库创建</h2>
-<p>注册登录docker hub官网(<a href="https://hub.docker.com/)">https://hub.docker.com/)</a>, 需要翻墙访问&hellip;，然后创建自己的镜像仓库。</p>
-<p><img src="https://sea-wyq.github.io/img/main-blog/blog-3/img.png" alt="Tranquilpeak"></p>
-<h2 id="3-在github仓库下的建立githubworkflowsreleaseyml文件">3. 在github仓库下的建立.github/workflows/release.yml文件</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Docker Image CI</span>
+              <p>主要有两个作用：</p>
+<ul>
+<li>
+<p>有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。</p>
+</li>
+<li>
+<p>调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。</p>
+</li>
+</ul>
+<h2 id="效果图">效果图</h2>
+<p><img src="https://sea-wyq.github.io/img/main-blog/blog-4/img.png" alt="Tranquilpeak"></p>
+<h2 id="2-linux下安装">2. Linux下安装</h2>
+<pre tabindex="0"><code>  apt-get install tmux
+</code></pre><h2 id="3-常用指令">3. 常用指令</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">tmux   建立一个回话并进入回话</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">tmux new -s test 建立一个名字叫test的回话</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Ctrl-b + %  将屏幕左右分为两个终端</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">ctrl-b + &#34;  将屏幕分为上下两个终端</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">ctrl-b + o  切换终端</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">ctrl-b + x 关闭当前终端（会出现提示）</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">ctrl-b + &amp;  关闭整个页面（会出现提示）</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>: [ <span style="color:#ae81ff">main ]</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">tags</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#39;*&#39;</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">build</span>:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v3</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Set up QEMU</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">docker/setup-qemu-action@v2</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Set up Docker Buildx</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">id</span>: <span style="color:#ae81ff">buildx</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">docker/setup-buildx-action@v2           </span> <span style="color:#75715e">#使用buildx进行构建镜像</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Log in to Docker Hub</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">if</span>: <span style="color:#ae81ff">github.event_name != &#39;pull_request&#39;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">docker/login-action@v2                  </span> <span style="color:#75715e">#登录docker hub </span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">username</span>: <span style="color:#ae81ff">${{ secrets.DOCKERHUB_USERNAME }} </span> <span style="color:#75715e">#用户名</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">password</span>: <span style="color:#ae81ff">${{ secrets.DOCKERHUB_TOKEN }}    </span> <span style="color:#75715e">#密码</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Extract metadata (tags, labels) for Docker</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">id</span>: <span style="color:#ae81ff">meta</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">docker/metadata-action@v4</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">images</span>: <span style="color:#ae81ff">seawyq/aiges-gpu                     </span> <span style="color:#75715e"># docker hub下建立的镜像仓库名</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build and push Docker image</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">docker/build-push-action@v3</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">context</span>: <span style="color:#ae81ff">.</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">push</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">tags</span>: <span style="color:#ae81ff">${{ steps.meta.outputs.tags }}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">labels</span>: <span style="color:#ae81ff">${{ steps.meta.outputs.labels }}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">file</span>: <span style="color:#ae81ff">./Dockerfile                         </span> <span style="color:#75715e">#指定执行的dockefile的文件</span>
-</span></span></code></pre></div><h2 id="4-在当前仓库settings下建立secret">4. 在当前仓库Settings下建立secret</h2>
-<p><img src="https://sea-wyq.github.io/img/main-blog/blog-3/img-3.png" alt="Tranquilpeak"></p>
-<h2 id="5-编写dockerfile文件并进行上传">5. 编写dockerfile文件并进行上传</h2>
-<p>在本地仓库的根目录下创建dockerfile文件</p>
-<h2 id="6-查看镜像是否自动化构建成功">6. 查看镜像是否自动化构建成功</h2>
-<p><img src="https://sea-wyq.github.io/img/main-blog/blog-3/img-4.png" alt="Tranquilpeak"></p>
-<h2 id="7-查看docker-search-能否正常使用">7. 查看docker search 能否正常使用</h2>
-<p><img src="https://sea-wyq.github.io/img/main-blog/blog-3/img-5.png" alt="Tranquilpeak"></p>
-<p>呼叫 &ldquo;over over over&rdquo; .</p>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">tmux ls  显示回话列表</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">tmux a  连接上一个回话</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">tmux a -t session_name 连接指定名称的回话</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">tmux kill-session -t s1   关闭回话s1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">tmux kill-server   关闭所以回话</span>
+</span></span></code></pre></div>
               
 
 
@@ -371,7 +375,7 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://sea-wyq.github.io/tags/%E5%85%B6%E4%BB%96/">其他</a>
+  <a class="tag tag--primary tag--small" href="https://sea-wyq.github.io/tags/%E5%85%B6%E5%AE%83/">其它</a>
 
                   </div>
                 
@@ -384,7 +388,7 @@
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" data-tooltip="终端复用工具-Tmux" aria-label="下一篇: 终端复用工具-Tmux">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -392,7 +396,7 @@
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/github-pages--hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-tooltip="github pages &#43; hugo搭建个人博客" aria-label="上一篇: github pages &#43; hugo搭建个人博客">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/" data-tooltip="使用GitHub Actions自动构建DockerHub镜像" aria-label="上一篇: 使用GitHub Actions自动构建DockerHub镜像">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -410,19 +414,19 @@
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -453,9 +457,9 @@
     </div>
     <script type="text/javascript">
       var disqus_config = function() {
-        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/06\/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F\/';
+        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/06\/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux\/';
         
-          this.page.identifier = '\/2022\/06\/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F\/'
+          this.page.identifier = '\/2022\/06\/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux\/'
         
       };
       (function() {
@@ -491,7 +495,7 @@
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" data-tooltip="终端复用工具-Tmux" aria-label="下一篇: 终端复用工具-Tmux">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -499,7 +503,7 @@
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/github-pages--hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-tooltip="github pages &#43; hugo搭建个人博客" aria-label="上一篇: github pages &#43; hugo搭建个人博客">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/" data-tooltip="使用GitHub Actions自动构建DockerHub镜像" aria-label="上一篇: 使用GitHub Actions自动构建DockerHub镜像">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -517,19 +521,19 @@
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -560,19 +564,19 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2F%25E4%25BD%25BF%25E7%2594%25A8github-actions%25E8%2587%25AA%25E5%258A%25A8%25E6%259E%2584%25E5%25BB%25BAdockerhub%25E9%2595%259C%25E5%2583%258F%2F" aria-label="分享到 Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2F%25E7%25BB%2588%25E7%25AB%25AF%25E5%25A4%258D%25E7%2594%25A8%25E5%25B7%25A5%25E5%2585%25B7-tmux%2F" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2F%25E4%25BD%25BF%25E7%2594%25A8github-actions%25E8%2587%25AA%25E5%258A%25A8%25E6%259E%2584%25E5%25BB%25BAdockerhub%25E9%2595%259C%25E5%2583%258F%2F" aria-label="分享到 Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2F%25E7%25BB%2588%25E7%25AB%25AF%25E5%25A4%258D%25E7%2594%25A8%25E5%25B7%25A5%25E5%2585%25B7-tmux%2F" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2F%25E4%25BD%25BF%25E7%2594%25A8github-actions%25E8%2587%25AA%25E5%258A%25A8%25E6%259E%2584%25E5%25BB%25BAdockerhub%25E9%2595%259C%25E5%2583%258F%2F" aria-label="分享到 Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2F%25E7%25BB%2588%25E7%25AB%25AF%25E5%25A4%258D%25E7%2594%25A8%25E5%25B7%25A5%25E5%2585%25B7-tmux%2F" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
         </a>
       </li>
