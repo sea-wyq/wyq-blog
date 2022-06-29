@@ -296,6 +296,42 @@
           <div class="post-content markdown">
             <div class="main-content-wrap">
               <p>在windows10上通过github pages和hugo实现个人博客的快速搭建。</p>
+<h1 id="table-of-contents">目录</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-安装choco">1. 安装choco</a></li>
+        <li><a href="#2-安装hugo">2. 安装hugo</a></li>
+        <li><a href="#3-新建-hugo-网站">3. 新建 Hugo 网站</a>
+          <ul>
+            <li><a href="#31-新建一个目录用于存放-hugo-网站的文件">3.1 新建一个目录，用于存放 Hugo 网站的文件</a></li>
+            <li><a href="#32-进入blog站点目录默认文件目录结构如下">3.2 进入blog站点目录，默认文件目录结构如下：</a></li>
+          </ul>
+        </li>
+        <li><a href="#4-选择-hugo-主题">4. 选择 Hugo 主题</a></li>
+        <li><a href="#5-配置hugo站点并本地预览">5. 配置Hugo站点并本地预览</a>
+          <ul>
+            <li><a href="#51-启动-hugo-server">5.1 启动 Hugo server。</a></li>
+            <li><a href="#52-在浏览器中打开-httplocalhost1313-预览">5.2 在浏览器中打开 http://localhost:1313 预览。</a></li>
+          </ul>
+        </li>
+        <li><a href="#6-自动化站点部署github-pages">6. 自动化站点部署（github pages）</a>
+          <ul>
+            <li><a href="#61-新建github仓库用来存放网站源码">6.1 新建github仓库用来存放网站源码</a></li>
+            <li><a href="#63-克隆wyq-blog仓库到本地目录然后将blog文件下的文件拷贝到仓库根目录中">6.3 克隆wyq-blog仓库到本地目录，然后将blog文件下的文件拷贝到仓库根目录中</a></li>
+            <li><a href="#64-构建-hugo-网站">6.4 构建 Hugo 网站</a></li>
+            <li><a href="#65--创建github-token-并在wyq-blog和sea-wyqgithubio-添加secret">6.5  创建github token 并在wyq-blog和sea-wyq.github.io 添加secret</a></li>
+            <li><a href="#66-利用-github-actions实现将站点源文件如wyq-blog自动化部署到-github-pages-如sea-wyqgithubio-上">6.6 利用 Github Actions实现将站点源文件（如：wyq-blog）自动化部署到 GitHub Pages （如：sea-wyq.github.io ）上。</a></li>
+            <li><a href="#67-将本地仓库wyq-blog的修改进行提交">6.7 将本地仓库wyq-blog的修改进行提交</a></li>
+            <li><a href="#68-查看wyq-log仓库显示代码提交成功">6.8 查看wyq-log仓库，显示代码提交成功</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
 <h2 id="1-安装choco">1. 安装choco</h2>
 <p>以管理员身份执行cmd ,终端下执行</p>
 <pre tabindex="0"><code>@powershell -NoProfile -ExecutionPolicy unrestricted -Command &#34;iex ((new-object net.webclient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))&#34; &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
@@ -304,87 +340,99 @@ choco help
 <pre tabindex="0"><code>choco install hugo -confirm
 hugo version   #判断是否安装成功
 </code></pre><h2 id="3-新建-hugo-网站">3. 新建 Hugo 网站</h2>
-<h5 id="31-新建一个目录用于存放-hugo-网站的文件">3.1 新建一个目录，用于存放 Hugo 网站的文件</h5>
+<h3 id="31-新建一个目录用于存放-hugo-网站的文件">3.1 新建一个目录，用于存放 Hugo 网站的文件</h3>
 <pre tabindex="0"><code>hugo new site blog(网站文件夹名)
 cd blog
-</code></pre><h5 id="32-进入blog站点目录默认文件目录结构如下">3.2 进入blog站点目录，默认文件目录结构如下：</h5>
-<p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm.png" alt="Tranquilpeak">
-config.toml : 网站的配置文件，可配置网站名称、关键字、插件等。<br>
-content : 文章存放目录。<br>
-themes : 网站主题存放目录。<br>
-static : 静态资源存放目录, 如：图片、样式文件、脚本文件等。</p>
+</code></pre><h3 id="32-进入blog站点目录默认文件目录结构如下">3.2 进入blog站点目录，默认文件目录结构如下：</h3>
+<p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm.png" alt="Tranquilpeak"></p>
+<ul>
+<li>config.toml : 网站的配置文件，可配置网站名称、关键字、插件等。</li>
+<li>content : 文章存放目录。</li>
+<li>themes : 网站主题存放目录。</li>
+<li>static : 静态资源存放目录, 如：图片、样式文件、脚本文件等。</li>
+</ul>
 <h2 id="4-选择-hugo-主题">4. 选择 Hugo 主题</h2>
 <p>打开 Hugo Themes: <a href="https://themes.gohugo.io">https://themes.gohugo.io</a> 。<br>
 选择合适的主题，以Tranquilpeak 举例。 将选中的主题下载到thems文件夹中。</p>
 <pre tabindex="0"><code>cd themes
 git clone https://github.com/kakawait/hugo-tranquilpeak-theme.git
 </code></pre><h2 id="5-配置hugo站点并本地预览">5. 配置Hugo站点并本地预览</h2>
-<h5 id="51-将主题-hugo-tranquilpeak-theme-中示例站点-examplesite-文件夹的内容全部复制到你的blog站点根目录">5.1 将主题 hugo-tranquilpeak-theme 中示例站点 exampleSite 文件夹的内容，全部复制到你的blog站点根目录。</h5>
-<h5 id="52-修改站点配置文件-configtoml">5.2 修改站点配置文件 config.toml,</h5>
-<p>修改站点的 baseurl，可修改为你的 Github Pages 地址，如：https://sea-wyq.github.io</p>
-<h5 id="53-启动-hugo-server">5.3 启动 Hugo server。</h5>
+<ul>
+<li>
+<p>将主题 hugo-tranquilpeak-theme 中示例站点 exampleSite 文件夹的内容，全部复制到你的blog站点根目录。</p>
+</li>
+<li>
+<p>修改站点配置文件 config.toml,修改站点的 baseurl，可修改为你的 Github Pages 地址，如：https://sea-wyq.github.io</p>
+</li>
+</ul>
+<h3 id="51-启动-hugo-server">5.1 启动 Hugo server。</h3>
 <pre tabindex="0"><code>hugo server -D   #在站点根目录bolg下运行
-</code></pre><h5 id="54-在浏览器中打开-httplocalhost1313-预览">5.4 在浏览器中打开 http://localhost:1313 预览。</h5>
+</code></pre><h3 id="52-在浏览器中打开-httplocalhost1313-预览">5.2 在浏览器中打开 http://localhost:1313 预览。</h3>
 <p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-1.png" alt="Tranquilpeak"></p>
 <h2 id="6-自动化站点部署github-pages">6. 自动化站点部署（github pages）</h2>
 <p>为了确保个人站点文章（markdown文件）的相对安全，采取将站点源码仓库和站点分开，即：站点源码仓库设置为私有，站点 GitHub Pages 仓库设为公开。</p>
-<h5 id="61-新建github仓库用来存放网站源码如wyq-blog">6.1 新建github仓库用来存放网站源码，如：wyq-blog。</h5>
+<h3 id="61-新建github仓库用来存放网站源码">6.1 新建github仓库用来存放网站源码</h3>
 <p>注：wyq-blog为示例仓库，故设置为公开仓库，实践中建议设置为私有仓库。</p>
 <p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-2.png" alt="Tranquilpeak"></p>
 <h5 id="62--新建一个-github-repository库名为usernamegithubio其中-username-是你的-github-账号例如sea-wyqgithubio">6.2  新建一个 GitHub repository，库名为<!-- raw HTML omitted -->.github.io，其中 username 是你的 GitHub 账号。例如：sea-wyq.github.io。</h5>
 <p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-3.png" alt="Tranquilpeak"></p>
-<h5 id="63-克隆wyq-blog仓库到本地目录然后将blog文件下的文件拷贝到仓库根目录中">6.3 克隆wyq-blog仓库到本地目录，然后将blog文件下的文件拷贝到仓库根目录中</h5>
+<h3 id="63-克隆wyq-blog仓库到本地目录然后将blog文件下的文件拷贝到仓库根目录中">6.3 克隆wyq-blog仓库到本地目录，然后将blog文件下的文件拷贝到仓库根目录中</h3>
 <pre tabindex="0"><code>git clone https://github.com/sea-wyq/wyq-blog.git
-</code></pre><p>注：1. 将wyq-blog目录下 .gitignore文件中中的thems/删除。
-2. 将wyq-blog\themes\hugo-tranquilpeak-theme目录下的.git文件删除。</p>
-<h5 id="64-构建-hugo-网站">6.4 构建 Hugo 网站</h5>
+</code></pre><ul>
+<li>将wyq-blog目录下 .gitignore文件中中的thems/删除。</li>
+<li>将wyq-blog\themes\hugo-tranquilpeak-theme目录下的.git文件删除。</li>
+</ul>
+<h3 id="64-构建-hugo-网站">6.4 构建 Hugo 网站</h3>
 <p>在本地仓库（wyq-blog）下执行 hugo 命令构建</p>
 <p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-4.png" alt="Tranquilpeak"></p>
-<h5 id="74--创建github-token-并在wyq-blog和sea-wyqgithubio-添加secret">7.4  创建github token 并在wyq-blog和sea-wyq.github.io 添加secret</h5>
-<p>github token创建流程：github用户画像-&gt; Settings-&gt;Developer settings -&gt;Personal 
-access tokens -&gt;Generate new token</p>
+<h3 id="65--创建github-token-并在wyq-blog和sea-wyqgithubio-添加secret">6.5  创建github token 并在wyq-blog和sea-wyq.github.io 添加secret</h3>
+<blockquote>
+<p>github token创建流程：github用户画像-&gt; Settings-&gt;Developer settings -&gt;Personal access tokens -&gt;Generate new token</p>
+</blockquote>
 <p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-5.png" alt="Tranquilpeak"></p>
+<blockquote>
 <p>secret创建：仓库Settings -&gt;Secret -&gt;actions -&gt; new respository secret</p>
+</blockquote>
 <p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-6.png" alt="Tranquilpeak"></p>
-<h5 id="75-利用-github-actions实现将站点源文件如wyq-blog自动化部署到-github-pages-如sea-wyqgithubio-上">7.5 利用 Github Actions实现将站点源文件（如：wyq-blog）自动化部署到 GitHub Pages （如：sea-wyq.github.io ）上。</h5>
+<h3 id="66-利用-github-actions实现将站点源文件如wyq-blog自动化部署到-github-pages-如sea-wyqgithubio-上">6.6 利用 Github Actions实现将站点源文件（如：wyq-blog）自动化部署到 GitHub Pages （如：sea-wyq.github.io ）上。</h3>
 <p>在站点源文件根目录创建 .github/workflows/deploy.yml 文件：</p>
-<pre tabindex="0"><code>name: github pages # 名字自取
-
-on:
-  push:
-    branches:
-      - main
-jobs:
-  deploy: # 任务名自取
-    runs-on: ubuntu-18.04 # 在什么环境运行任务
-    steps:
-      - uses: actions/checkout@v2 # 引用actions/checkout这个action，与所在的github仓库同名
-        with:
-          submodules: true  # Fetch Hugo themes (true OR recursive) 获取submodule主题
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-      - name: Setup Hugo  # 步骤名自取
-        uses: peaceiris/actions-hugo@v2 # hugo官方提供的action，用于在任务环境中获取hugo
-        with:
-          hugo-version: &#39;latest&#39;  # 获取最新版本的hugo
-          # extended: true
-
-      - name: Build
-        run: hugo --minify  # 使用hugo构建静态网页
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3 # 一个自动发布github pages的action
-        with:
-          # github_token: ${{ secrets.HUGO_TOKEN }} 该项适用于发布到源码相同repo的情况，不能用于发布到其他repo
-          external_repository: sea-wyq/sea-wyq.github.io # 发布到哪个repo
-          personal_token: ${{ secrets.HUGO_TOKEN }} # 发布到其他repo需要提供上面生成的personal access token
-          publish_dir: ./public # 注意这里指的是要发布哪个文件夹的内容，而不是指发布到目的仓库的什么位置，因为hugo默认生成静态网页到public文件夹，所以这里发布public文件夹里的内容
-          publish_branch: main  # 发布到哪个branch
-</code></pre><h5 id="65-将本地仓库wyq-blog的修改进行提交">6.5. 将本地仓库wyq-blog的修改进行提交</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>name: github pages <span style="color:#75715e"># 名字自取</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>on:
+</span></span><span style="display:flex;"><span>  push:
+</span></span><span style="display:flex;"><span>    branches:
+</span></span><span style="display:flex;"><span>      - main
+</span></span><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>  deploy: <span style="color:#75715e"># 任务名自取</span>
+</span></span><span style="display:flex;"><span>    runs-on: ubuntu-18.04 <span style="color:#75715e"># 在什么环境运行任务</span>
+</span></span><span style="display:flex;"><span>    steps:
+</span></span><span style="display:flex;"><span>      - uses: actions/checkout@v2 <span style="color:#75715e"># 引用actions/checkout这个action，与所在的github仓库同名</span>
+</span></span><span style="display:flex;"><span>        with:
+</span></span><span style="display:flex;"><span>          submodules: true  <span style="color:#75715e"># Fetch Hugo themes (true OR recursive) 获取submodule主题</span>
+</span></span><span style="display:flex;"><span>          fetch-depth: <span style="color:#ae81ff">0</span>    <span style="color:#75715e"># Fetch all history for .GitInfo and .Lastmod</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - name: Setup Hugo  <span style="color:#75715e"># 步骤名自取</span>
+</span></span><span style="display:flex;"><span>        uses: peaceiris/actions-hugo@v2 <span style="color:#75715e"># hugo官方提供的action，用于在任务环境中获取hugo</span>
+</span></span><span style="display:flex;"><span>        with:
+</span></span><span style="display:flex;"><span>          hugo-version: <span style="color:#e6db74">&#39;latest&#39;</span>  <span style="color:#75715e"># 获取最新版本的hugo</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># extended: true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - name: Build
+</span></span><span style="display:flex;"><span>        run: hugo --minify  <span style="color:#75715e"># 使用hugo构建静态网页</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - name: Deploy
+</span></span><span style="display:flex;"><span>        uses: peaceiris/actions-gh-pages@v3 <span style="color:#75715e"># 一个自动发布github pages的action</span>
+</span></span><span style="display:flex;"><span>        with:
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># github_token: ${{ secrets.HUGO_TOKEN }} 该项适用于发布到源码相同repo的情况，不能用于发布到其他repo</span>
+</span></span><span style="display:flex;"><span>          external_repository: sea-wyq/sea-wyq.github.io <span style="color:#75715e"># 发布到哪个repo</span>
+</span></span><span style="display:flex;"><span>          personal_token: <span style="color:#e6db74">${</span>{ secrets.HUGO_TOKEN <span style="color:#e6db74">}</span><span style="color:#f92672">}</span> <span style="color:#75715e"># 发布到其他repo需要提供上面生成的personal access token</span>
+</span></span><span style="display:flex;"><span>          publish_dir: ./public <span style="color:#75715e"># 注意这里指的是要发布哪个文件夹的内容，而不是指发布到目的仓库的什么位置，因为hugo默认生成静态网页到public文件夹，所以这里发布public文件夹里的内容</span>
+</span></span><span style="display:flex;"><span>          publish_branch: main  <span style="color:#75715e"># 发布到哪个branch</span>
+</span></span></code></pre></div><h3 id="67-将本地仓库wyq-blog的修改进行提交">6.7 将本地仓库wyq-blog的修改进行提交</h3>
 <pre tabindex="0"><code>git add .
 git commit -m &#34;first commit&#34;
 git push origin main
-</code></pre><h5 id="66-查看wyq-log仓库显示代码提交成功">6.6 查看wyq-log仓库，显示代码提交成功</h5>
+</code></pre><h3 id="68-查看wyq-log仓库显示代码提交成功">6.8 查看wyq-log仓库，显示代码提交成功</h3>
 <p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-9.png" alt="Tranquilpeak"></p>
 <p>访问https://sea-wyq.github.io</p>
 <p><img src="https://sea-wyq.github.io/img/main-blog/blog-1/mm-10.png" alt="Tranquilpeak"></p>

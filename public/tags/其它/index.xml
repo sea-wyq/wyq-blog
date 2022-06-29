@@ -6,7 +6,16 @@
     <description>Recent content in 其它 on WYQ BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 27 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/tags/%E5%85%B6%E5%AE%83/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/tags/%E5%85%B6%E5%AE%83/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>对象存储工具-S3cmd</title>
+      <link>https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;s3cmd&lt;/strong&gt; 是用于创建S3桶，上传，检索和管理数据到对象存储命令行实用程序。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>终端复用工具-Tmux</title>
       <link>https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/</link>

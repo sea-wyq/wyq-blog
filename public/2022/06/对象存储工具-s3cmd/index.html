@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "对象存储工具-S3cmd",
+  
+  "image": "https://sea-wyq.github.io/img/main-blog/blog-5/img.jpg",
+  
+  "datePublished": "2022-06-29T00:00:00Z",
+  "dateModified": "2022-06-29T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "WYQ SEA",
+    
+    "image": "https://www.gravatar.com/avatar/acbdf3cc25912293cad956163956ce8a"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "https:\/\/sea-wyq.github.io\/2022\/06\/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "WYQ BLOG",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gravatar.com/avatar/acbdf3cc25912293cad956163956ce8a"
+    }
+    
+  },
+  "description": "s3cmd 是用于创建S3桶，上传，检索和管理数据到对象存储命令行实用程序。\n",
+  "keywords": []
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="WYQ SEA">
+<meta name="keywords" content="">
+<meta name="description" content="s3cmd 是用于创建S3桶，上传，检索和管理数据到对象存储命令行实用程序。">
+
+
+<meta property="og:description" content="s3cmd 是用于创建S3桶，上传，检索和管理数据到对象存储命令行实用程序。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对象存储工具-S3cmd">
+<meta name="twitter:title" content="对象存储工具-S3cmd">
+<meta property="og:url" content="https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/">
+<meta property="twitter:url" content="https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/">
+<meta property="og:site_name" content="WYQ BLOG">
+<meta property="og:description" content="s3cmd 是用于创建S3桶，上传，检索和管理数据到对象存储命令行实用程序。">
+<meta name="twitter:description" content="s3cmd 是用于创建S3桶，上传，检索和管理数据到对象存储命令行实用程序。">
+<meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2022-06-29T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2022-06-29T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="其它">
+    
+  
+  
+    
+      <meta property="article:tag" content="其它">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/acbdf3cc25912293cad956163956ce8a?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/acbdf3cc25912293cad956163956ce8a?s=640">
+
+
+
+
+  <meta property="og:image" content="https://sea-wyq.github.io/img/main-blog/blog-5/img.jpg">
+  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main-blog/blog-5/img.jpg">
+
+
+  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-5.jpeg">
+  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-5.jpeg">
+
+
+    <title>对象存储工具-S3cmd</title>
+
+    <link rel="icon" href="https://sea-wyq.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://sea-wyq.github.io/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://sea-wyq.github.io/" aria-label="去首页">WYQ BLOG</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://sea-wyq.github.io/#about" aria-label="打开链接: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/acbdf3cc25912293cad956163956ce8a?s=90" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://sea-wyq.github.io/#about" aria-label="阅读有关作者的更多信息">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/acbdf3cc25912293cad956163956ce8a?s=110" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">WYQ SEA</h4>
+        
+          <h5 class="sidebar-profile-bio">For fear of losing you,I would never cry.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://sea-wyq.github.io/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://sea-wyq.github.io/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">分类</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://sea-wyq.github.io/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://sea-wyq.github.io/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://sea-wyq.github.io/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/kakawait" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait" target="_blank" rel="noopener" title="Stack Overflow">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-stack-overflow" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://sea-wyq.github.io/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('/img/main-blog/blog-5/img.jpg')"
+       data-behavior="5">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title">
+      对象存储工具-S3cmd
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2022-06-29T00:00:00Z">
+        
+  六月 29, 2022
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://sea-wyq.github.io/categories/%e5%85%b6%e5%ae%83">其它</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p><strong>s3cmd</strong> 是用于创建S3桶，上传，检索和管理数据到对象存储命令行实用程序。</p>
+<h1 id="table-of-contents">目录</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-安装s3cmd-以ubuntu系统为例">1. 安装s3cmd （以ubuntu系统为例）</a></li>
+        <li><a href="#2-配置s3cmd">2. 配置s3cmd</a></li>
+        <li><a href="#3-常用命令">3. 常用命令</a>
+          <ul>
+            <li><a href="#31-列举所有bucketsbucket相当于根文件夹">3.1 列举所有buckets(bucket相当于根文件夹)</a></li>
+            <li><a href="#32-创建bucketbucket名称唯一不能重复">3.2 创建bucket(bucket名称唯一，不能重复)</a></li>
+            <li><a href="#33-删除空bucket">3.3 删除空bucket</a></li>
+            <li><a href="#34-上传某个文件到bucket">3.4 上传某个文件到bucket</a></li>
+            <li><a href="#35-列举bucket中的内容">3.5 列举bucket中的内容</a></li>
+            <li><a href="#36-下载文件">3.6 下载文件</a></li>
+            <li><a href="#37-删除文件">3.7 删除文件</a></li>
+            <li><a href="#38-获取对应的bucket所占用的的空间大小">3.8 获取对应的bucket所占用的的空间大小</a></li>
+            <li><a href="#39-查看更多关于bucket和文件的信息">3.9 查看更多关于bucket和文件的信息</a></li>
+            <li><a href="#310-复制bucket或文件">3.10 复制bucket或文件</a></li>
+            <li><a href="#311-移动文件">3.11 移动文件</a></li>
+            <li><a href="#312-同步当前目录下所有的文件">3.12 同步当前目录下所有的文件</a></li>
+            <li><a href="#313-列出需要同步的项目但不进行同步">3.13 列出需要同步的项目，但不进行同步</a></li>
+            <li><a href="#314-在bucket中删除本地不存在的文件">3.14 在bucket中删除本地不存在的文件</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<h2 id="1-安装s3cmd-以ubuntu系统为例">1. 安装s3cmd （以ubuntu系统为例）</h2>
+<pre tabindex="0"><code>  apt-get install s3cmd
+</code></pre><h2 id="2-配置s3cmd">2. 配置s3cmd</h2>
+<p>执行$ s3cmd &ndash;configure生成配置文件，一路Enter，注意跳过认证并保存配置</p>
+<pre tabindex="0"><code>......
+...
+Test access with supplied credentials? [Y/n] n
+Save settings? [y/N] y
+Configuration saved to &#39;/root/.s3cfg&#39;
+</code></pre><p>修改一下几项：</p>
+<pre tabindex="0"><code>$ vim /root/.s3cfg
+access_key = xxx
+secret_key = xxx
+host_base = ip:port
+host_bucket = ip/kucketname
+use_https = False
+</code></pre><ul>
+<li>其中，access_key和secret_key是在本地创建S3用户时获得，host_base是S3服务所使用的ip地址（包括端口 号）,host_bucket为S3用户下的一个bucket(可在配置之后再创建，但该字段不能为空)</li>
+</ul>
+<h2 id="3-常用命令">3. 常用命令</h2>
+<h3 id="31-列举所有bucketsbucket相当于根文件夹">3.1 列举所有buckets(bucket相当于根文件夹)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@node4:/home# s3cmd ls
+</span></span><span style="display:flex;"><span>2016-09-18 03:51  s3://my-bucket
+</span></span><span style="display:flex;"><span>2016-09-18 02:02  s3://my-new-bucket-node4
+</span></span><span style="display:flex;"><span>2016-09-18 07:17  s3://zhangbo
+</span></span></code></pre></div><h3 id="32-创建bucketbucket名称唯一不能重复">3.2 创建bucket(bucket名称唯一，不能重复)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>命令：s3cmd mb s3://<span style="color:#f92672">{</span>$BUCKETNAME<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>root@node4:/home# s3cmd mb s3://zhangbo1
+</span></span><span style="display:flex;"><span>Bucket <span style="color:#e6db74">&#39;s3://zhangbo1/&#39;</span> created
+</span></span></code></pre></div><h3 id="33-删除空bucket">3.3 删除空bucket</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>命令：s3cmd rb s3://<span style="color:#f92672">{</span>$BUCKETNAME<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>root@node4:/home# s3cmd rb s3://zhangbo1
+</span></span><span style="display:flex;"><span>Bucket <span style="color:#e6db74">&#39;s3://zhangbo1/&#39;</span> removed
+</span></span></code></pre></div><h3 id="34-上传某个文件到bucket">3.4 上传某个文件到bucket</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>命令：s3cmd put <span style="color:#f92672">{</span>$FILENAME<span style="color:#f92672">}</span> s3://<span style="color:#f92672">{</span>$BUCKETNAME<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>root@node4:~# s3cmd put s3cmd-1.5.2.tar.gz s3://zhangbo
+</span></span><span style="display:flex;"><span>s3cmd-1.5.2.tar.gz -&gt; s3://zhangbo/s3cmd-1.5.2.tar.gz  <span style="color:#f92672">[</span><span style="color:#ae81ff">1</span> of 1<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">94760</span> of <span style="color:#ae81ff">94760</span>   100% in    0s   598.02 kB/s  <span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><h3 id="35-列举bucket中的内容">3.5 列举bucket中的内容</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>命令：s3cmd ls s3://<span style="color:#f92672">{</span>$BUCKETNAME<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>root@node4:~# s3cmd ls s3://zhangbo
+</span></span><span style="display:flex;"><span>2016-09-18 07:30     <span style="color:#ae81ff">94760</span>   s3://zhangbo/s3cmd-1.5.2.tar.gz
+</span></span><span style="display:flex;"><span>2016-09-18 07:30         <span style="color:#ae81ff">8</span>   s3://zhangbo/test.txt
+</span></span></code></pre></div><h3 id="36-下载文件">3.6 下载文件</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>命令：s3cmd get s3://<span style="color:#f92672">{</span>路径+文件名<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>root@node4:~# s3cmd get s3://zhangbo/s3cmd-1.5.2.tar.gz
+</span></span><span style="display:flex;"><span>s3://zhangbo/s3cmd-1.5.2.tar.gz -&gt; ./s3cmd-1.5.2.tar.gz  <span style="color:#f92672">[</span><span style="color:#ae81ff">1</span> of 1<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>s3://zhangbo/s3cmd-1.5.2.tar.gz -&gt; ./s3cmd-1.5.2.tar.gz  <span style="color:#f92672">[</span><span style="color:#ae81ff">1</span> of 1<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">94760</span> of <span style="color:#ae81ff">94760</span>   100% in    0s     9.24 MB/s  <span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><h3 id="37-删除文件">3.7 删除文件</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>命令：s3cmd del/rm s3://<span style="color:#f92672">{</span>路径+文件名<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>root@node4:~# s3cmd del s3://zhangbo/test.txt
+</span></span><span style="display:flex;"><span>File s3://zhangbo/test.txt deleted
+</span></span></code></pre></div><h3 id="38-获取对应的bucket所占用的的空间大小">3.8 获取对应的bucket所占用的的空间大小</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>命令：s3cmd du -H s3://<span style="color:#f92672">{</span>目录<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>root@node4:~# s3cmd du -H s3://zhangbo
+</span></span><span style="display:flex;"><span>185k     s3://zhangbo/
+</span></span><span style="display:flex;"><span>root@node4:~# s3cmd du -H s3://zhangbo/hehe
+</span></span><span style="display:flex;"><span>92k      s3://zhangbo/hehe
+</span></span></code></pre></div><h3 id="39-查看更多关于bucket和文件的信息">3.9 查看更多关于bucket和文件的信息</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>命令：s3cmd info s3://BUCKET<span style="color:#f92672">[</span>/OBJECT<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>root@node4:~# s3cmd info s3://zhangbo/s3cmd-1.5.2.tar.gz
+</span></span><span style="display:flex;"><span>s3://zhangbo/s3cmd-1.5.2.tar.gz <span style="color:#f92672">(</span>object<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>File size: <span style="color:#ae81ff">94760</span>
+</span></span><span style="display:flex;"><span>Last mod:  Sun, <span style="color:#ae81ff">18</span> Sep <span style="color:#ae81ff">2016</span> 08:33:39 GMT
+</span></span><span style="display:flex;"><span>MIME type: application/gzip
+</span></span><span style="display:flex;"><span>MD5 sum:   3153116dc62c817a724ea58080968383
+</span></span><span style="display:flex;"><span>SSE:       NONE
+</span></span><span style="display:flex;"><span>policy:
+</span></span><span style="display:flex;"><span>ACL: zhangbo: FULL_CONTROL
+</span></span></code></pre></div><h3 id="310-复制bucket或文件">3.10 复制bucket或文件</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>命令：s3cmd cp <span style="color:#f92672">[</span>--recursive<span style="color:#f92672">]</span> s3://BUCKET1/OBJECT1 s3://BUCKET2<span style="color:#f92672">[</span>/OBJECT2<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>root@node4:~# s3cmd cp --recursive s3://zhangbo  s3://zhangbo1
+</span></span><span style="display:flex;"><span>File s3://zhangbo/hehe/s3cmd-1.5.2.tar.gz copied to s3://zhangbo1/hehe/s3cmd-1.5.2.tar.gz
+</span></span><span style="display:flex;"><span>File s3://zhangbo/s3cmd-1.5.2.tar.gz copied to s3://zhangbo1/s3cmd-1.5.2.tar.gz
+</span></span><span style="display:flex;"><span>root@node4:~# s3cmd cp s3://zhangbo/s3cmd-1.5.2.tar.gz s3://zhangbo2
+</span></span><span style="display:flex;"><span>File s3://zhangbo/s3cmd-1.5.2.tar.gz copied to s3://zhangbo2/s3cmd-1.5.2.tar.gz
+</span></span></code></pre></div><h3 id="311-移动文件">3.11 移动文件</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>命令：s3cmd mv <span style="color:#f92672">[</span>--recursive<span style="color:#f92672">]</span> s3://BUCKET1/OBJECT1 s3://BUCKET2<span style="color:#f92672">[</span>/OBJECT2<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>root@node4:~# s3cmd mv --recursive s3://zhangbo s3://zhangbo2
+</span></span><span style="display:flex;"><span>File s3://zhangbo/hehe/s3cmd-1.5.2.tar.gz moved to s3://zhangbo2/hehe/s3cmd-1.5.2.tar.gz
+</span></span><span style="display:flex;"><span>File s3://zhangbo/s3cmd-1.5.2.tar.gz moved to s3://zhangbo2/s3cmd-1.5.2.tar.gz
+</span></span><span style="display:flex;"><span>root@node4:~# s3cmd mv s3://zhangbo2/s3cmd-1.5.2.tar.gz s3://zhangbo
+</span></span><span style="display:flex;"><span>File s3://zhangbo2/s3cmd-1.5.2.tar.gz moved to s3://zhangbo/s3cmd-1.5.2.tar.gz
+</span></span></code></pre></div><h3 id="312-同步当前目录下所有的文件">3.12 同步当前目录下所有的文件</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>命令：s3cmd sync ./ s3://<span style="color:#f92672">{</span>BUCKETNAME<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>root@node4:~# s3cmd sync ./ s3://zhangbo2
+</span></span><span style="display:flex;"><span>./.bash_history -&gt; s3://zhangbo2/.bash_history  <span style="color:#f92672">[</span><span style="color:#ae81ff">1</span> of 8<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4446</span> of <span style="color:#ae81ff">4446</span>   100% in    0s    82.48 kB/s  <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>./.bashrc -&gt; s3://zhangbo2/.bashrc  <span style="color:#f92672">[</span><span style="color:#ae81ff">2</span> of 8<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3106</span> of <span style="color:#ae81ff">3106</span>   100% in    0s    58.82 kB/s  <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>./.cache/motd.legal-displayed -&gt; s3://zhangbo2/.cache/motd.legal-displayed  <span style="color:#f92672">[</span><span style="color:#ae81ff">3</span> of 8<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> of <span style="color:#ae81ff">0</span>     0% in    0s     0.00 B/s  <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>./.profile -&gt; s3://zhangbo2/.profile  <span style="color:#f92672">[</span><span style="color:#ae81ff">4</span> of 8<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">140</span> of <span style="color:#ae81ff">140</span>   100% in    0s     2.44 kB/s  <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>./.s3cfg -&gt; s3://zhangbo2/.s3cfg  <span style="color:#f92672">[</span><span style="color:#ae81ff">5</span> of 8<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1769</span> of <span style="color:#ae81ff">1769</span>   100% in    0s    31.63 kB/s  <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>./.viminfo -&gt; s3://zhangbo2/.viminfo  <span style="color:#f92672">[</span><span style="color:#ae81ff">6</span> of 8<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">11480</span> of <span style="color:#ae81ff">11480</span>   100% in    0s   221.65 kB/s  <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>./test.txt -&gt; s3://zhangbo2/test.txt  <span style="color:#f92672">[</span><span style="color:#ae81ff">7</span> of 8<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span> of <span style="color:#ae81ff">8</span>   100% in    0s   160.86 B/s  <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>./hehe/s3cmd-1.5.2.tar.gz -&gt; s3://zhangbo2/hehe/s3cmd-1.5.2.tar.gz  <span style="color:#f92672">[</span><span style="color:#ae81ff">8</span> of 8<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">94760</span> of <span style="color:#ae81ff">94760</span>   100% in    0s  1677.16 kB/s  <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>remote copy: hehe/s3cmd-1.5.2.tar.gz -&gt; s3cmd-1.5.2.tar.gz
+</span></span><span style="display:flex;"><span>Done. Uploaded <span style="color:#ae81ff">115709</span> bytes in 1.0 seconds, 113.00 kB/s. Copied <span style="color:#ae81ff">1</span> files saving <span style="color:#ae81ff">94760</span> bytes transfer.
+</span></span></code></pre></div><h3 id="313-列出需要同步的项目但不进行同步">3.13 列出需要同步的项目，但不进行同步</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>命令：s3cmd sync --dry-run ./ s3://<span style="color:#f92672">{</span>BUCKETNAME<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>root@node4:~# s3cmd sync --dry-run ./ s3://zhangbo2
+</span></span><span style="display:flex;"><span>upload: ./aaa -&gt; s3://zhangbo2/aaa
+</span></span><span style="display:flex;"><span>WARNING: Exiting now because of --dry-run
+</span></span></code></pre></div><h3 id="314-在bucket中删除本地不存在的文件">3.14 在bucket中删除本地不存在的文件</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>命令<span style="color:#960050;background-color:#1e0010">：</span>s3cmd sync <span style="color:#f92672">--</span>delete<span style="color:#f92672">-</span>removed <span style="color:#f92672">./</span> s3:<span style="color:#f92672">//</span>{BUCKETNAME}
+</span></span><span style="display:flex;"><span>root<span style="color:#a6e22e">@node4</span>:<span style="color:#f92672">~</span><span style="color:#75715e"># s3cmd sync --delete-removed ./ s3://zhangbo2</span>
+</span></span><span style="display:flex;"><span>File s3:<span style="color:#f92672">//</span>zhangbo2<span style="color:#f92672">/</span>aaa deleted
+</span></span></code></pre></div>
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://sea-wyq.github.io/tags/%E5%85%B6%E5%AE%83/">其它</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" data-tooltip="终端复用工具-Tmux" aria-label="上一篇: 终端复用工具-Tmux">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享这个帖子">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/" title="分享到 Facebook" aria-label="分享到 Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/" title="分享到 Twitter" aria-label="分享到 Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="发表评论">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="回到顶部">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/06\/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd\/';
+        
+          this.page.identifier = '\/2022\/06\/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'hugo-tranquilpeak-theme';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2022 WYQ SEA. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" data-tooltip="终端复用工具-Tmux" aria-label="上一篇: 终端复用工具-Tmux">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享这个帖子">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/" title="分享到 Facebook" aria-label="分享到 Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/" title="分享到 Twitter" aria-label="分享到 Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="发表评论">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="回到顶部">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2F%25E5%25AF%25B9%25E8%25B1%25A1%25E5%25AD%2598%25E5%2582%25A8%25E5%25B7%25A5%25E5%2585%25B7-s3cmd%2F" aria-label="分享到 Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2F%25E5%25AF%25B9%25E8%25B1%25A1%25E5%25AD%2598%25E5%2582%25A8%25E5%25B7%25A5%25E5%2585%25B7-s3cmd%2F" aria-label="分享到 Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2F%25E5%25AF%25B9%25E8%25B1%25A1%25E5%25AD%2598%25E5%2582%25A8%25E5%25B7%25A5%25E5%2585%25B7-s3cmd%2F" aria-label="分享到 Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/acbdf3cc25912293cad956163956ce8a?s=110" alt="作者的图片" />
+    
+    <h4 id="about-card-name">WYQ SEA</h4>
+    
+      <div id="about-card-bio">For fear of losing you,I would never cry.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Your job title
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Chinese
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://sea-wyq.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://sea-wyq.github.io/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

@@ -296,41 +296,68 @@
           <div class="post-content markdown">
             <div class="main-content-wrap">
               <p>使用sealos在阿里云上进行k8s集群快捷部署。</p>
-<h3 id="1-申请阿里云服务器3台">1. 申请阿里云服务器（3台）</h3>
+<h1 id="table-of-contents">目录</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-申请阿里云服务器3台">1. 申请阿里云服务器（3台）</a></li>
+        <li><a href="#2-集群环境初始化">2. 集群环境初始化</a>
+          <ul>
+            <li><a href="#21-关闭防火墙和selinux">2.1 关闭防火墙和selinux</a></li>
+            <li><a href="#22-在各节点配置主机名">2.2 在各节点配置主机名</a></li>
+            <li><a href="#23-在master节点上配置hosts文件">2.3 在master节点上配置hosts文件</a></li>
+            <li><a href="#24-配置master免密登录node1和node2">2.4 配置master免密登录node1和node2</a></li>
+          </ul>
+        </li>
+        <li><a href="#3-sealos集群搭建">3. Sealos集群搭建</a>
+          <ul>
+            <li><a href="#31-各节点下载并安装sealos">3.1 各节点下载并安装sealos</a></li>
+            <li><a href="#32-在master上创建集群一主俩从">3.2 在master上创建集群（一主俩从）</a></li>
+            <li><a href="#33-在master上安装helm">3.3 在master上安装helm</a></li>
+          </ul>
+        </li>
+        <li><a href="#4-k8s服务器集群搭建成功">4. k8s服务器集群搭建成功</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<h2 id="1-申请阿里云服务器3台">1. 申请阿里云服务器（3台）</h2>
 <p><img src="https://sea-wyq.github.io/img/main-blog/blog-2/img.png" alt="img.png"></p>
-<h3 id="2-集群环境初始化">2. 集群环境初始化</h3>
+<h2 id="2-集群环境初始化">2. 集群环境初始化</h2>
 <p>点击服务器实例的远程链接按钮进入WorkBench控制台。</p>
-<h4 id="21-关闭防火墙和selinux">2.1 关闭防火墙和selinux</h4>
+<h3 id="21-关闭防火墙和selinux">2.1 关闭防火墙和selinux</h3>
 <pre tabindex="0"><code>systemctl stop firewalld 
 systemctl disable firewalld 
 setenforce 0
-</code></pre><h4 id="22-在各节点配置主机名">2.2 在各节点配置主机名</h4>
+</code></pre><h3 id="22-在各节点配置主机名">2.2 在各节点配置主机名</h3>
 <pre tabindex="0"><code>hostnamectl set-hostname master 
 hostnamectl set-hostname node1
 hostnamectl set-hostname node2
-</code></pre><h4 id="23-在master节点上配置hosts文件">2.3 在master节点上配置hosts文件</h4>
+</code></pre><h3 id="23-在master节点上配置hosts文件">2.3 在master节点上配置hosts文件</h3>
 <p>各节点的ip地址可以通过ifconfig命令获取并修改</p>
 <pre tabindex="0"><code>cat &lt;&lt;EOF &gt;&gt; /etc/hosts  
 172.24.253.78 master   
 172.24.253.80 node1  
 172.24.253.79 node2  
 EOF
-</code></pre><h4 id="24-配置master免密登录node1和node2">2.4 配置master免密登录node1和node2</h4>
+</code></pre><h3 id="24-配置master免密登录node1和node2">2.4 配置master免密登录node1和node2</h3>
 <pre tabindex="0"><code>ssh-keygen   #一路回车即可
 ssh-copy-id root@master 
 ssh-copy-id root@node1 
 ssh-copy-id root@node2 
-</code></pre><h3 id="3-sealos集群搭建">3. Sealos集群搭建</h3>
-<h4 id="31-各节点下载并安装sealos">3.1 各节点下载并安装sealos</h4>
+</code></pre><h2 id="3-sealos集群搭建">3. Sealos集群搭建</h2>
+<h3 id="31-各节点下载并安装sealos">3.1 各节点下载并安装sealos</h3>
 <pre tabindex="0"><code>wget -c https://sealyun-home.oss-cn-beijing.aliyuncs.com/sealos-4.0/latest/sealos-amd64 -O sealos &amp;&amp; \
     chmod +x sealos &amp;&amp; mv sealos /usr/bin   
-</code></pre><h4 id="32-在master上创建集群一主俩从">3.2 在master上创建集群（一主俩从）</h4>
+</code></pre><h3 id="32-在master上创建集群一主俩从">3.2 在master上创建集群（一主俩从）</h3>
 <pre tabindex="0"><code> sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1 \
      --masters 172.24.253.78 \
      --nodes 172.24.253.80,172.24.253.79 -p “自定义密码”
-</code></pre><h4 id="33-在master上安装helm">3.3 在master上安装helm</h4>
+</code></pre><h3 id="33-在master上安装helm">3.3 在master上安装helm</h3>
 <pre tabindex="0"><code> sealos run labring/helm:v3.8.2 # install helm
-</code></pre><h3 id="k8s服务器集群搭建成功">k8s服务器集群搭建成功</h3>
+</code></pre><h2 id="4-k8s服务器集群搭建成功">4. k8s服务器集群搭建成功</h2>
 <p><img src="https://sea-wyq.github.io/img/main-blog/blog-2/img-1.png" alt="img_1.png"></p>
               
 

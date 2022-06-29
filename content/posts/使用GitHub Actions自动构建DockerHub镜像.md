@@ -14,6 +14,8 @@ GitHub Actions持续集成服务自动构建发布镜像到DockerHub，目前Git
 
 <!--more-->
 
+{{< toc >}}
+
 ## 1. 新建一个github仓库
 
 ![Tranquilpeak](/img/main-blog/blog-3/img-1.png)
