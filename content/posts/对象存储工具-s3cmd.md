@@ -6,7 +6,7 @@ categories:
 tags:
 - 其它
 autoThumbnailImage: false
-thumbnailImagePosition: top
+thumbnailImagePosition: right
 thumbnailImage: img/main/th-5.jpeg
 coverImage: /img/main-blog/blog-5/img.jpg
 metaAlignment: center
