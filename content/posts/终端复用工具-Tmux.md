@@ -21,11 +21,13 @@ tags:
 
 <!--more-->
 
-## 效果图
+{{< toc >}} 
+
+## 1. 效果图
 
 ![Tranquilpeak](/img/main-blog/blog-4/img.png)
 
-## 2. Linux下安装
+## 2. Tmux安装
 
 ```
   apt-get install tmux

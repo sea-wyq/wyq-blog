@@ -8,7 +8,7 @@ tags:
 autoThumbnailImage: false
 thumbnailImagePosition: right
 thumbnailImage: img/main/th-5.jpeg
-coverImage: /img/main-blog/blog-5/img.jpg
+coverImage: /img/main-blog/blog-5/img.jpeg
 metaAlignment: center
 ---
 
