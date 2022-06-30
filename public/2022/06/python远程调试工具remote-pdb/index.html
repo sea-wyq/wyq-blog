@@ -7,12 +7,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "终端复用工具-Tmux",
+  "headline": "python远程调试工具remote-pdb",
   
-  "image": "https://sea-wyq.github.io/img/main-blog/blog-4/img-2.jpeg",
+  "image": "https://sea-wyq.github.io/img/main-blog/blog-5/img.jpeg",
   
-  "datePublished": "2022-06-27T00:00:00Z",
-  "dateModified": "2022-06-27T00:00:00Z",
+  "datePublished": "2022-06-29T00:00:00Z",
+  "dateModified": "2022-06-29T00:00:00Z",
   "author": {
     "@type": "Person",
     "name": "WYQ SEA",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/sea-wyq.github.io\/2022\/06\/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux\/" 
+    "@id": "https:\/\/sea-wyq.github.io\/2022\/06\/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "主要有两个作用：\n有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。\n调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。\n",
+  "description": "使用remote-pdb + telent实现在远程服务器上进行Python文件调试\n",
   "keywords": []
 }
 
@@ -45,57 +45,25 @@
 <meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="WYQ SEA">
 <meta name="keywords" content="">
-<meta name="description" content="主要有两个作用：
+<meta name="description" content="使用remote-pdb &#43; telent实现在远程服务器上进行Python文件调试">
 
 
-有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。
-
-
-调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。
-
-">
-
-
-<meta property="og:description" content="主要有两个作用：
-
-
-有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。
-
-
-调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。
-
-">
+<meta property="og:description" content="使用remote-pdb &#43; telent实现在远程服务器上进行Python文件调试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="终端复用工具-Tmux">
-<meta name="twitter:title" content="终端复用工具-Tmux">
-<meta property="og:url" content="https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/">
-<meta property="twitter:url" content="https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/">
+<meta property="og:title" content="python远程调试工具remote-pdb">
+<meta name="twitter:title" content="python远程调试工具remote-pdb">
+<meta property="og:url" content="https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/">
+<meta property="twitter:url" content="https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/">
 <meta property="og:site_name" content="WYQ BLOG">
-<meta property="og:description" content="主要有两个作用：
-
-
-有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。
-
-
-调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。
-
-">
-<meta name="twitter:description" content="主要有两个作用：
-
-
-有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。
-
-
-调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。
-
-">
+<meta property="og:description" content="使用remote-pdb &#43; telent实现在远程服务器上进行Python文件调试">
+<meta name="twitter:description" content="使用remote-pdb &#43; telent实现在远程服务器上进行Python文件调试">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2022-06-27T00:00:00">
+    <meta property="article:published_time" content="2022-06-29T00:00:00">
   
   
-    <meta property="article:modified_time" content="2022-06-27T00:00:00">
+    <meta property="article:modified_time" content="2022-06-29T00:00:00">
   
   
   
@@ -124,22 +92,22 @@
 
 
 
-  <meta property="og:image" content="https://sea-wyq.github.io/img/main-blog/blog-4/img-2.jpeg">
-  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main-blog/blog-4/img-2.jpeg">
+  <meta property="og:image" content="https://sea-wyq.github.io/img/main-blog/blog-5/img.jpeg">
+  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main-blog/blog-5/img.jpeg">
 
 
-  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-4.jpeg">
-  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-4.jpeg">
+  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-5.jpeg">
+  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-5.jpeg">
 
 
-    <title>终端复用工具-Tmux</title>
+    <title>python远程调试工具remote-pdb</title>
 
     <link rel="icon" href="https://sea-wyq.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/">
+    <link rel="canonical" href="https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -291,31 +259,21 @@
   <div class="post-header-cover
               text-center
               "
-       style="background-image:url('/img/main-blog/blog-4/img-2.jpeg')"
+       style="background-image:url('/img/main-blog/blog-5/img.jpeg')"
        data-behavior="5">
     
-  </div>
-
-
-      <div id="main" data-behavior="5"
-        class="hasCover
-               hasCoverMetaOut
-               ">
-        <article class="post" id="top">
-          
-          
-            <div class="post-header main-content-wrap text-center">
+      <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title">
-      终端复用工具-Tmux
+      python远程调试工具remote-pdb
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2022-06-27T00:00:00Z">
+      <time datetime="2022-06-29T00:00:00Z">
         
-  六月 27, 2022
+  六月 29, 2022
 
       </time>
     
@@ -331,49 +289,51 @@
   </div>
 
 </div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>主要有两个作用：</p>
-<ul>
-<li>
-<p>有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。</p>
-</li>
-<li>
-<p>调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。</p>
-</li>
-</ul>
+              <p>使用remote-pdb + telent实现在远程服务器上进行Python文件调试</p>
 <h1 id="table-of-contents">目录</h1>
 <nav id="TableOfContents">
   <ul>
     <li>
       <ul>
-        <li><a href="#1-效果图">1. 效果图</a></li>
-        <li><a href="#2-tmux安装">2. Tmux安装</a></li>
-        <li><a href="#3-常用指令">3. 常用指令</a></li>
+        <li><a href="#1-安装remote-pdb">1. 安装remote-pdb</a></li>
+        <li><a href="#2-常用指令">2. 常用指令</a></li>
+        <li><a href="#3-使用流程">3. 使用流程</a>
+          <ul>
+            <li><a href="#31-在需要调试的python文件添加代码块">3.1 在需要调试的python文件添加代码块</a></li>
+            <li><a href="#32-执行python文件">3.2 执行python文件</a></li>
+            <li><a href="#33-使用telent进行调试">3.3 使用telent进行调试</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
 </nav>
 
-<h2 id="1-效果图">1. 效果图</h2>
-<p><img src="https://sea-wyq.github.io/img/main-blog/blog-4/img.png" alt="Tranquilpeak"></p>
-<h2 id="2-tmux安装">2. Tmux安装</h2>
-<pre tabindex="0"><code>  apt-get install tmux
-</code></pre><h2 id="3-常用指令">3. 常用指令</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">tmux   建立一个回话并进入回话</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">tmux new -s test 建立一个名字叫test的回话</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Ctrl-b + %  将屏幕左右分为两个终端</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">ctrl-b + &#34;  将屏幕分为上下两个终端</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">ctrl-b + o  切换终端</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">ctrl-b + x 关闭当前终端（会出现提示）</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">ctrl-b + &amp;  关闭整个页面（会出现提示）</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">tmux ls  显示回话列表</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">tmux a  连接上一个回话</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">tmux a -t session_name 连接指定名称的回话</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">tmux kill-session -t s1   关闭回话s1</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">tmux kill-server   关闭所以回话</span>
+<h2 id="1-安装remote-pdb">1. 安装remote-pdb</h2>
+<pre tabindex="0"><code>  pip install remote-pdb
+  pip install telent
+</code></pre><h2 id="2-常用指令">2. 常用指令</h2>
+<p><img src="https://sea-wyq.github.io/img/main-blog/blog-6/img.png" alt="img.png"></p>
+<h2 id="3-使用流程">3. 使用流程</h2>
+<h3 id="31-在需要调试的python文件添加代码块">3.1 在需要调试的python文件添加代码块</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#f92672">import</span> pdb
+</span></span><span style="display:flex;"><span>  pdb<span style="color:#f92672">.</span>set_trace(port<span style="color:#f92672">=</span><span style="color:#ae81ff">4444</span>)     
+</span></span></code></pre></div><h3 id="32-执行python文件">3.2 执行python文件</h3>
+<h3 id="33-使用telent进行调试">3.3 使用telent进行调试</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>telent 127.0.0.1 <span style="color:#ae81ff">4444</span>
 </span></span></code></pre></div>
               
 
@@ -401,7 +361,7 @@
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/" data-tooltip="对象存储工具-S3cmd" aria-label="下一篇: 对象存储工具-S3cmd">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -409,7 +369,7 @@
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/" data-tooltip="使用GitHub Actions自动构建DockerHub镜像" aria-label="上一篇: 使用GitHub Actions自动构建DockerHub镜像">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/" data-tooltip="对象存储工具-S3cmd" aria-label="上一篇: 对象存储工具-S3cmd">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -427,19 +387,19 @@
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -470,9 +430,9 @@
     </div>
     <script type="text/javascript">
       var disqus_config = function() {
-        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/06\/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux\/';
+        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/06\/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb\/';
         
-          this.page.identifier = '\/2022\/06\/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux\/'
+          this.page.identifier = '\/2022\/06\/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb\/'
         
       };
       (function() {
@@ -508,7 +468,7 @@
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/" data-tooltip="对象存储工具-S3cmd" aria-label="下一篇: 对象存储工具-S3cmd">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -516,7 +476,7 @@
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/" data-tooltip="使用GitHub Actions自动构建DockerHub镜像" aria-label="上一篇: 使用GitHub Actions自动构建DockerHub镜像">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/" data-tooltip="对象存储工具-S3cmd" aria-label="上一篇: 对象存储工具-S3cmd">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -534,19 +494,19 @@
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -577,19 +537,19 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2F%25E7%25BB%2588%25E7%25AB%25AF%25E5%25A4%258D%25E7%2594%25A8%25E5%25B7%25A5%25E5%2585%25B7-tmux%2F" aria-label="分享到 Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2Fpython%25E8%25BF%259C%25E7%25A8%258B%25E8%25B0%2583%25E8%25AF%2595%25E5%25B7%25A5%25E5%2585%25B7remote-pdb%2F" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2F%25E7%25BB%2588%25E7%25AB%25AF%25E5%25A4%258D%25E7%2594%25A8%25E5%25B7%25A5%25E5%2585%25B7-tmux%2F" aria-label="分享到 Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2Fpython%25E8%25BF%259C%25E7%25A8%258B%25E8%25B0%2583%25E8%25AF%2595%25E5%25B7%25A5%25E5%2585%25B7remote-pdb%2F" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2F%25E7%25BB%2588%25E7%25AB%25AF%25E5%25A4%258D%25E7%2594%25A8%25E5%25B7%25A5%25E5%2585%25B7-tmux%2F" aria-label="分享到 Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2Fpython%25E8%25BF%259C%25E7%25A8%258B%25E8%25B0%2583%25E8%25AF%2595%25E5%25B7%25A5%25E5%2585%25B7remote-pdb%2F" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
         </a>
       </li>
