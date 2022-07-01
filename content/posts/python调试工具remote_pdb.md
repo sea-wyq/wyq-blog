@@ -7,7 +7,7 @@ tags:
 - 其它
 autoThumbnailImage: false
 thumbnailImagePosition: right
-thumbnailImage: img/main/th-5.jpeg
+thumbnailImage: img/main/th-1.jpeg
 coverImage: /img/main-blog/blog-5/img.jpeg
 metaAlignment: center
 ---
