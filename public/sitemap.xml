@@ -3,18 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://sea-wyq.github.io/categories/</loc>
-    <lastmod>2022-06-29T00:00:00+00:00</lastmod>
+    <lastmod>2022-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sea-wyq.github.io/categories/docker/</loc>
+    <lastmod>2022-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sea-wyq.github.io/categories/k8s/</loc>
+    <lastmod>2022-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</loc>
+    <lastmod>2022-07-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://sea-wyq.github.io/posts/</loc>
-    <lastmod>2022-06-29T00:00:00+00:00</lastmod>
+    <lastmod>2022-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sea-wyq.github.io/</loc>
+    <lastmod>2022-07-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/</loc>
     <lastmod>2022-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://sea-wyq.github.io/tags/</loc>
-    <lastmod>2022-06-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sea-wyq.github.io/</loc>
     <lastmod>2022-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/</loc>
@@ -50,38 +59,11 @@
     <loc>https://sea-wyq.github.io/categories/hugo/</loc>
     <lastmod>2022-06-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://sea-wyq.github.io/categories/docker/</loc>
-    <lastmod>2022-06-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://sea-wyq.github.io/categories/sealos/</loc>
     <lastmod>2022-06-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8sealos%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2k8s%E9%9B%86%E7%BE%A4/</loc>
     <lastmod>2022-06-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sea-wyq.github.io/tags/disqus/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sea-wyq.github.io/tags/google-analytics/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sea-wyq.github.io/tags/gravatar/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sea-wyq.github.io/tags/hexo-theme/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sea-wyq.github.io/categories/releases/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sea-wyq.github.io/tags/responsive/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sea-wyq.github.io/categories/tranquilpeak/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sea-wyq.github.io/2015/06/welcome-to-tranquilpeak-0.5.3-beta/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://sea-wyq.github.io/2015/05/elements-showcase/</loc>
     <lastmod>2015-05-28T00:00:00+00:00</lastmod>
@@ -93,6 +75,9 @@
     <lastmod>2015-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://sea-wyq.github.io/tags/markdown/</loc>
+    <lastmod>2015-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sea-wyq.github.io/categories/tranquilpeak/</loc>
     <lastmod>2015-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://sea-wyq.github.io/tags/cover-image/</loc>

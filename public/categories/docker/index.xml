@@ -6,7 +6,16 @@
     <description>Recent content in docker on WYQ BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 20 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>k8s-Pod基础组件解析</title>
+      <link>https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Sun, 10 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <description>&lt;p&gt;本章讲述k8s的一些基本组件和用法。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>使用sealos在阿里云服务器上部署k8s集群</title>
       <link>https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8sealos%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2k8s%E9%9B%86%E7%BE%A4/</link>

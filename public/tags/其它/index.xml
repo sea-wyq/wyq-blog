@@ -13,7 +13,7 @@
       <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/</guid>
-      <description>&lt;p&gt;使用remote-pdb + telent实现在远程服务器上进行Python文件调试&lt;/p&gt;</description>
+      <description>&lt;p&gt;使用remote-pdb + telnet实现在远程服务器上进行Python文件调试&lt;/p&gt;</description>
     </item>
     
     <item>

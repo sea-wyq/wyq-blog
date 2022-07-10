@@ -6,14 +6,23 @@
     <description>Recent content in Posts on WYQ BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 29 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>k8s-Pod基础组件解析</title>
+      <link>https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Sun, 10 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <description>&lt;p&gt;本章讲述k8s的一些基本组件和用法。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>python远程调试工具remote-pdb</title>
       <link>https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/</link>
       <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/</guid>
-      <description>&lt;p&gt;使用remote-pdb + telent实现在远程服务器上进行Python文件调试&lt;/p&gt;</description>
+      <description>&lt;p&gt;使用remote-pdb + telnet实现在远程服务器上进行Python文件调试&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -67,15 +76,6 @@
       
       <guid>https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8sealos%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2k8s%E9%9B%86%E7%BE%A4/</guid>
       <description>&lt;p&gt;使用sealos在阿里云上进行k8s集群快捷部署。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Welcome to Tranquilpeak 0.5.3-BETA</title>
-      <link>https://sea-wyq.github.io/2015/06/welcome-to-tranquilpeak-0.5.3-beta/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://sea-wyq.github.io/2015/06/welcome-to-tranquilpeak-0.5.3-beta/</guid>
-      <description>&lt;p&gt;Tranquilpeak is a gorgeous responsive theme for Hugo blog framework. It has many features and integrated services to improve user experience.&lt;/p&gt;</description>
     </item>
     
     <item>

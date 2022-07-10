@@ -7,12 +7,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "python远程调试工具remote-pdb",
+  "headline": "k8s-Pod基础组件解析",
   
-  "image": "https://sea-wyq.github.io/img/main-blog/blog-5/img.jpeg",
+  "image": "https://sea-wyq.github.io/img/main/th-6.jpeg",
   
-  "datePublished": "2022-06-29T00:00:00Z",
-  "dateModified": "2022-06-29T00:00:00Z",
+  "datePublished": "2022-07-10T00:00:00Z",
+  "dateModified": "2022-07-10T00:00:00Z",
   "author": {
     "@type": "Person",
     "name": "WYQ SEA",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/sea-wyq.github.io\/2022\/06\/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb\/" 
+    "@id": "https:\/\/sea-wyq.github.io\/2022\/07\/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "使用remote-pdb + telnet实现在远程服务器上进行Python文件调试\n",
+  "description": "本章讲述k8s的一些基本组件和用法。\n",
   "keywords": []
 }
 
@@ -45,36 +45,34 @@
 <meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="WYQ SEA">
 <meta name="keywords" content="">
-<meta name="description" content="使用remote-pdb &#43; telnet实现在远程服务器上进行Python文件调试">
+<meta name="description" content="本章讲述k8s的一些基本组件和用法。">
 
 
-<meta property="og:description" content="使用remote-pdb &#43; telnet实现在远程服务器上进行Python文件调试">
+<meta property="og:description" content="本章讲述k8s的一些基本组件和用法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python远程调试工具remote-pdb">
-<meta name="twitter:title" content="python远程调试工具remote-pdb">
-<meta property="og:url" content="https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/">
-<meta property="twitter:url" content="https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/">
+<meta property="og:title" content="k8s-Pod基础组件解析">
+<meta name="twitter:title" content="k8s-Pod基础组件解析">
+<meta property="og:url" content="https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
+<meta property="twitter:url" content="https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
 <meta property="og:site_name" content="WYQ BLOG">
-<meta property="og:description" content="使用remote-pdb &#43; telnet实现在远程服务器上进行Python文件调试">
-<meta name="twitter:description" content="使用remote-pdb &#43; telnet实现在远程服务器上进行Python文件调试">
+<meta property="og:description" content="本章讲述k8s的一些基本组件和用法。">
+<meta name="twitter:description" content="本章讲述k8s的一些基本组件和用法。">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2022-06-29T00:00:00">
+    <meta property="article:published_time" content="2022-07-10T00:00:00">
   
   
-    <meta property="article:modified_time" content="2022-06-29T00:00:00">
+    <meta property="article:modified_time" content="2022-07-10T00:00:00">
   
-  
-  
-    
-      <meta property="article:section" content="其它">
-    
   
   
     
-      <meta property="article:tag" content="其它">
+      <meta property="article:section" content="k8s">
     
+      <meta property="article:section" content="docker">
+    
+  
   
 
 
@@ -92,22 +90,19 @@
 
 
 
-  <meta property="og:image" content="https://sea-wyq.github.io/img/main-blog/blog-5/img.jpeg">
-  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main-blog/blog-5/img.jpeg">
+
+  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-6.jpeg">
+  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-6.jpeg">
 
 
-  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-1.jpeg">
-  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-1.jpeg">
-
-
-    <title>python远程调试工具remote-pdb</title>
+    <title>k8s-Pod基础组件解析</title>
 
     <link rel="icon" href="https://sea-wyq.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/">
+    <link rel="canonical" href="https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -256,24 +251,26 @@
 </nav>
 
       
-  <div class="post-header-cover
-              text-center
-              "
-       style="background-image:url('/img/main-blog/blog-5/img.jpeg')"
-       data-behavior="5">
-    
-      <div class="post-header main-content-wrap text-center">
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      python远程调试工具remote-pdb
+      k8s-Pod基础组件解析
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2022-06-29T00:00:00Z">
+      <time datetime="2022-07-10T00:00:00Z">
         
-  六月 29, 2022
+  七月 10, 2022
 
       </time>
     
@@ -282,59 +279,128 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://sea-wyq.github.io/categories/%e5%85%b6%e5%ae%83">其它</a>
+      <a class="category-link" href="https://sea-wyq.github.io/categories/k8s">k8s</a>, 
+    
+      <a class="category-link" href="https://sea-wyq.github.io/categories/docker">docker</a>
     
   
 
   </div>
 
 </div>
-    
-  </div>
-
-
-      <div id="main" data-behavior="5"
-        class="hasCover
-               hasCoverMetaIn
-               ">
-        <article class="post" id="top">
-          
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>使用remote-pdb + telnet实现在远程服务器上进行Python文件调试</p>
+              <p>本章讲述k8s的一些基本组件和用法。</p>
 <h1 id="table-of-contents">目录</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#1-pod概述">1. Pod概述</a></li>
+    <li><a href="#2-pod-两种机制">2. Pod 两种机制</a>
       <ul>
-        <li><a href="#1-安装remote-pdb">1. 安装remote-pdb</a></li>
-        <li><a href="#2-常用指令">2. 常用指令</a></li>
-        <li><a href="#3-使用流程">3. 使用流程</a>
-          <ul>
-            <li><a href="#31-在需要调试的python文件添加代码块">3.1 在需要调试的python文件添加代码块</a></li>
-            <li><a href="#32-执行python文件">3.2 执行python文件</a></li>
-            <li><a href="#33-使用telent进行调试">3.3 使用telent进行调试</a></li>
-          </ul>
-        </li>
+        <li><a href="#21-pod-共享网络">2.1 Pod 共享网络</a></li>
+        <li><a href="#21-pod-共享存储">2.1 Pod 共享存储</a></li>
       </ul>
     </li>
+    <li><a href="#3-podyaml字段详解">3. Pod.yaml字段详解</a></li>
   </ul>
 </nav>
 
-<h2 id="1-安装remote-pdb">1. 安装remote-pdb</h2>
-<pre tabindex="0"><code>  pip install remote-pdb
-  pip install telnet
-</code></pre><h2 id="2-常用指令">2. 常用指令</h2>
-<p><img src="https://sea-wyq.github.io/img/main-blog/blog-6/img.png" alt="img.png"></p>
-<h2 id="3-使用流程">3. 使用流程</h2>
-<h3 id="31-在需要调试的python文件添加代码块">3.1 在需要调试的python文件添加代码块</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#f92672">from</span> remote_pdb <span style="color:#f92672">import</span> set_trace
-</span></span><span style="display:flex;"><span>  set_trace(port<span style="color:#f92672">=</span><span style="color:#ae81ff">4444</span>) <span style="color:#75715e"># you&#39;ll see the port number in the logs     </span>
-</span></span></code></pre></div><h3 id="32-执行python文件">3.2 执行python文件</h3>
-<h3 id="33-使用telent进行调试">3.3 使用telent进行调试</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>telent 127.0.0.1 <span style="color:#ae81ff">4444</span>
-</span></span></code></pre></div>
+<h1 id="1-pod概述">1. Pod概述</h1>
+<ul>
+<li>最小部署的单元。</li>
+<li>Pod里面是由一个或多个容器组成【一组容器的集合】。</li>
+<li>一个pod中的容器是共享网络命名空间。</li>
+<li>Pod是短暂的。</li>
+<li>每个Pod包含一个或多个紧密相关的用户业务容器。</li>
+</ul>
+<h1 id="2-pod-两种机制">2. Pod 两种机制</h1>
+<h2 id="21-pod-共享网络">2.1 Pod 共享网络</h2>
+<p>容器本身之间相互隔离的，一般是通过 namespace 和 group 进行隔离，那么Pod里面的容器如何实现通信？</p>
+<ul>
+<li>首先需要满足前提条件，也就是容器都在同一个namespace之间</li>
+</ul>
+<p>关于Pod实现原理，首先会在Pod会创建一个根容器： pause容器，然后我们在创建业务容器 【nginx，redis 等】，在我们创建业务容器的时候，会把它添加到 info容器中,而在 info容器 中会独立出 ip地址，mac地址，port 等信息，然后实现网络的共享</p>
+<p><img src="https://sea-wyq.github.io/img/main-blog/blog-7/img.png" alt="img.png"></p>
+<h2 id="21-pod-共享存储">2.1 Pod 共享存储</h2>
+<p>Pod持久化数据，专门存储到某个地方中
+<img src="https://sea-wyq.github.io/img/main-blog/blog-7/img-1.png" alt="img.png"></p>
+<p>使用 Volumn数据卷进行共享存储，案例如下所示
+<img src="https://sea-wyq.github.io/img/main-blog/blog-7/img-2.png" alt="img.png"></p>
+<h1 id="3-podyaml字段详解">3. Pod.yaml字段详解</h1>
+<pre tabindex="0"><code>apiVersion: v1 #指定api版本，此值必须在kubectl apiversion中
+kind: Pod #指定创建资源的角色/类型
+metadata: #资源的元数据/属性
+  name: web04-pod #资源的名字，在同一个namespace中必须唯一
+  labels: #设定资源的标签，详情请见http://blog.csdn.net/liyingke112/article/details/77482384
+    k8s-app: apache
+    version: v1
+    kubernetes.io/cluster-service: &#34;true&#34;
+  annotations:            #自定义注解列表
+    - name: String        #自定义注解名字
+spec:#specification of the resource content 指定该资源的内容，定义，规范，目标状态，用户定义
+  restartPolicy: Always #表明该容器一直运行，默认k8s的策略，在此容器退出后，会立即创建一个相同的容器
+  nodeSelector:     #节点选择，先给主机打标签kubectl label nodes kube-node1 zone=node1
+    zone: node1
+  containers:
+  - name: web04-pod #容器的名字
+    image: web:apache #容器使用的镜像地址
+    imagePullPolicy: Never #三个选择Always、Never、IfNotPresent，每次启动时检查和更新（从registery）images的策略，
+                           # Always，每次都检查
+                           # Never，每次都不检查（不管本地是否有）
+                           # IfNotPresent，如果本地有就不检查，如果没有就拉取
+    command: [&#39;sh&#39;] #启动容器的运行命令，将覆盖容器中的Entrypoint,对应Dockefile中的ENTRYPOINT
+    args: [&#34;$(str)&#34;] #启动容器的命令参数，对应Dockerfile中CMD参数
+    env: #指定容器中的环境变量
+    - name: str #变量的名字
+      value: &#34;/etc/run.sh&#34; #变量的值
+    resources: #资源管理，请求请见http://blog.csdn.net/liyingke112/article/details/77452630
+      requests: #容器运行时，最低资源需求，也就是说最少需要多少资源容器才能正常运行
+        cpu: 0.1 #CPU资源（核数），两种方式，浮点数或者是整数+m，0.1=100m，最少值为0.001核（1m）
+        memory: 32Mi #内存使用量
+      limits: #资源限制
+        cpu: 0.5
+        memory: 32Mi
+    ports:
+    - containerPort: 80 #容器开发对外的端口
+      name: httpd  #名称
+      protocol: TCP
+    livenessProbe: #pod内容器健康检查的设置，详情请见http://blog.csdn.net/liyingke112/article/details/77531584
+      httpGet: #通过httpget检查健康，返回200-399之间，则认为容器正常
+        path: / #URI地址
+        port: 80
+        #host: 127.0.0.1 #主机地址
+        scheme: HTTP
+      initialDelaySeconds: 180 #表明第一次检测在容器启动后多长时间后开始
+      timeoutSeconds: 5 #检测的超时时间
+      periodSeconds: 15  #检查间隔时间
+      #也可以用这种方法
+      #exec: 执行命令的方法进行监测，如果其退出码不为0，则认为容器正常
+      #  command:
+      #    - cat
+      #    - /tmp/health
+      #也可以用这种方法
+      #tcpSocket: //通过tcpSocket检查健康
+      #  port: number
+    lifecycle: #生命周期管理
+      postStart: #容器运行之前运行的任务
+        exec:
+          command:
+            - &#39;sh&#39;
+            - &#39;yum upgrade -y&#39;
+      preStop:#容器关闭之前运行的任务
+        exec:
+          command: [&#39;service httpd stop&#39;]
+    volumeMounts:  #详情请见http://blog.csdn.net/liyingke112/article/details/76577520
+    - name: volume #挂载设备的名字，与volumes[*].name 需要对应
+      mountPath: /data #挂载到容器的某个路径下
+      readOnly: True
+  volumes: #定义一组挂载设备
+  - name: volume #定义一个挂载设备的名字
+    #meptyDir: {}
+    hostPath:
+      path: /opt #挂载设备类型为hostPath，路径为宿主机下的/opt,这里设备类型支持很多种
+</code></pre>
               
 
 
@@ -342,16 +408,6 @@
           </div>
           <div id="post-footer" class="post-footer main-content-wrap">
             
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">标签</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://sea-wyq.github.io/tags/%E5%85%B6%E5%AE%83/">其它</a>
-
-                  </div>
-                
               
             
             
@@ -361,7 +417,7 @@
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-Pod基础组件解析" aria-label="下一篇: k8s-Pod基础组件解析">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -369,7 +425,7 @@
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/" data-tooltip="对象存储工具-S3cmd" aria-label="上一篇: 对象存储工具-S3cmd">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/" data-tooltip="python远程调试工具remote-pdb" aria-label="上一篇: python远程调试工具remote-pdb">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -387,19 +443,19 @@
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -430,9 +486,9 @@
     </div>
     <script type="text/javascript">
       var disqus_config = function() {
-        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/06\/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb\/';
+        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/07\/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/';
         
-          this.page.identifier = '\/2022\/06\/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb\/'
+          this.page.identifier = '\/2022\/07\/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/'
         
       };
       (function() {
@@ -468,7 +524,7 @@
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-Pod基础组件解析" aria-label="下一篇: k8s-Pod基础组件解析">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -476,7 +532,7 @@
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/" data-tooltip="对象存储工具-S3cmd" aria-label="上一篇: 对象存储工具-S3cmd">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/" data-tooltip="python远程调试工具remote-pdb" aria-label="上一篇: python远程调试工具remote-pdb">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -494,19 +550,19 @@
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -537,19 +593,19 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2Fpython%25E8%25BF%259C%25E7%25A8%258B%25E8%25B0%2583%25E8%25AF%2595%25E5%25B7%25A5%25E5%2585%25B7remote-pdb%2F" aria-label="分享到 Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-pod%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2Fpython%25E8%25BF%259C%25E7%25A8%258B%25E8%25B0%2583%25E8%25AF%2595%25E5%25B7%25A5%25E5%2585%25B7remote-pdb%2F" aria-label="分享到 Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-pod%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F06%2Fpython%25E8%25BF%259C%25E7%25A8%258B%25E8%25B0%2583%25E8%25AF%2595%25E5%25B7%25A5%25E5%2585%25B7remote-pdb%2F" aria-label="分享到 Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-pod%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
         </a>
       </li>

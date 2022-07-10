@@ -12,7 +12,7 @@ coverImage: /img/main-blog/blog-5/img.jpeg
 metaAlignment: center
 ---
 
-使用remote-pdb + telent实现在远程服务器上进行Python文件调试
+使用remote-pdb + telnet实现在远程服务器上进行Python文件调试
 
 <!--more-->
 
@@ -22,7 +22,7 @@ metaAlignment: center
 
 ```
   pip install remote-pdb
-  pip install telent
+  pip install telnet
 ```
 ## 2. 常用指令
 ![img.png](/img/main-blog/blog-6/img.png)
@@ -33,8 +33,8 @@ metaAlignment: center
 ### 3.1 在需要调试的python文件添加代码块
 
 ```python
-  import pdb
-  pdb.set_trace(port=4444)     
+  from remote_pdb import set_trace
+  set_trace(port=4444) # you'll see the port number in the logs     
 ```
 
 ### 3.2 执行python文件
