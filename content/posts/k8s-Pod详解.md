@@ -7,7 +7,7 @@ categories:
 thumbnailImagePosition: right
 thumbnailImage: img/main/th-6.jpeg
 ---
-本章讲述k8s Pod的一些基本组件和用法。
+
 <!--more-->
 
 {{< toc >}}
