@@ -4,8 +4,7 @@ date: 2022-07-10
 categories:
 - k8s
 - docker
-autoThumbnailImage: false
-thumbnailImagePosition: "top"
+thumbnailImagePosition: right
 thumbnailImage: img/main/th-6.jpeg
 ---
 本章讲述k8s的一些基本组件和用法。
