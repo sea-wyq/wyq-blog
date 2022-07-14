@@ -8,6 +8,10 @@ thumbnailImagePosition: right
 thumbnailImage: img/main/th-6.jpeg
 ---
 
+Pod是Kubernetes中能够创建和部署的最小单元，是Kubernetes集群中的一个应用实例。
+- 单容器Pod，最常见的应用方式。
+- 多容器Pod，对于多容器Pod，Kubernetes会保证所有的容器都在同一台物理主机或虚拟主机中运行。
+
 <!--more-->
 
 {{< toc >}}

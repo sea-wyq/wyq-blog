@@ -7,6 +7,8 @@ thumbnailImagePosition: right
 thumbnailImage: img/main/th-7.jpeg
 ---
 
+vim（vi improved）编辑器是从 vi 发展出来的一个文本编辑器。代码补完、编译及错误跳转、语法高亮等方便编程的功能特别丰富，在程序员中被广泛使用。
+
 <!--more-->
 
 {{< toc >}}

@@ -6,14 +6,23 @@
     <description>Recent content on WYQ BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 11 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>k8s-Deployment基础组件解析</title>
+      <link>https://sea-wyq.github.io/2022/07/k8s-deployment%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Thu, 14 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sea-wyq.github.io/2022/07/k8s-deployment%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <description>&lt;p&gt;Deployment对象，顾名思义，是用于部署应用的对象。它使Kubernetes中最常用的一个对象，它为ReplicaSet和Pod的创建提供了一种声明式的定义方法&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>vim 常用命令</title>
       <link>https://sea-wyq.github.io/2022/07/vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Mon, 11 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://sea-wyq.github.io/2022/07/vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
-      <description></description>
+      <description>&lt;p&gt;vim（vi improved）编辑器是从 vi 发展出来的一个文本编辑器。代码补完、编译及错误跳转、语法高亮等方便编程的功能特别丰富，在程序员中被广泛使用。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -22,7 +31,11 @@
       <pubDate>Sun, 10 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
-      <description></description>
+      <description>&lt;p&gt;Pod是Kubernetes中能够创建和部署的最小单元，是Kubernetes集群中的一个应用实例。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单容器Pod，最常见的应用方式。&lt;/li&gt;
+&lt;li&gt;多容器Pod，对于多容器Pod，Kubernetes会保证所有的容器都在同一台物理主机或虚拟主机中运行。&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
