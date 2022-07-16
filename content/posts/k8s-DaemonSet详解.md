@@ -5,7 +5,7 @@ categories:
 - k8s
 - docker
 thumbnailImagePosition: right
-thumbnailImage: img/main/th-6.jpeg
+thumbnailImage: img/main/th-10.jpeg
 ---
 
 DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。  

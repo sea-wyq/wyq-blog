@@ -5,7 +5,7 @@ categories:
 - k8s
 - docker
 thumbnailImagePosition: right
-thumbnailImage: img/main/th-6.jpeg
+thumbnailImage: img/main/th-9.jpeg
 ---
 
 应用场景

@@ -5,7 +5,7 @@ categories:
 - k8s
 - docker
 thumbnailImagePosition: right
-thumbnailImage: img/main/th-6.jpeg
+thumbnailImage: img/main/th-8.jpeg
 ---
 
 Deployment对象，顾名思义，是用于部署应用的对象。它使Kubernetes中最常用的一个对象，它为ReplicaSet和Pod的创建提供了一种声明式的定义方法
