@@ -23,6 +23,18 @@
     </item>
     
     <item>
+      <title>k8s-Secret&amp;ConfigMap基础组件解析</title>
+      <link>https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;ConfigMap是一个K8s存储资源，用于存储应用程序配置文件。&lt;/li&gt;
+&lt;li&gt;Secret主要存储敏感数据。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
       <title>k8s-Service基础组件解析</title>
       <link>https://sea-wyq.github.io/2022/07/k8s-service%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>

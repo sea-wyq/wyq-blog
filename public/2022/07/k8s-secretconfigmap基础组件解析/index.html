@@ -7,9 +7,9 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "k8s-DaemonSet基础组件解析",
+  "headline": "k8s-Secret\u0026ConfigMap基础组件解析",
   
-  "image": "https://sea-wyq.github.io/img/main/th-10.jpeg",
+  "image": "https://sea-wyq.github.io/img/main/th-12.jpeg",
   
   "datePublished": "2022-07-16T00:00:00Z",
   "dateModified": "2022-07-16T00:00:00Z",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/sea-wyq.github.io\/2022\/07\/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/" 
+    "@id": "https:\/\/sea-wyq.github.io\/2022\/07\/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。\n下面是常用的使用案例:\n集群守护进程，如Kured、node-problem-detector 日志收集守护进程，如fluentd、logstash 监控守护进程，如promethues node-exporter ",
+  "description": " ConfigMap是一个K8s存储资源，用于存储应用程序配置文件。 Secret主要存储敏感数据。 ",
   "keywords": []
 }
 
@@ -45,41 +45,29 @@
 <meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="WYQ SEA">
 <meta name="keywords" content="">
-<meta name="description" content="DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。
-下面是常用的使用案例:
-
-集群守护进程，如Kured、node-problem-detector
-日志收集守护进程，如fluentd、logstash
-监控守护进程，如promethues node-exporter
+<meta name="description" content="
+ConfigMap是一个K8s存储资源，用于存储应用程序配置文件。
+Secret主要存储敏感数据。
 ">
 
 
-<meta property="og:description" content="DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。
-下面是常用的使用案例:
-
-集群守护进程，如Kured、node-problem-detector
-日志收集守护进程，如fluentd、logstash
-监控守护进程，如promethues node-exporter
+<meta property="og:description" content="
+ConfigMap是一个K8s存储资源，用于存储应用程序配置文件。
+Secret主要存储敏感数据。
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="k8s-DaemonSet基础组件解析">
-<meta name="twitter:title" content="k8s-DaemonSet基础组件解析">
-<meta property="og:url" content="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
-<meta property="twitter:url" content="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
+<meta property="og:title" content="k8s-Secret&amp;ConfigMap基础组件解析">
+<meta name="twitter:title" content="k8s-Secret&amp;ConfigMap基础组件解析">
+<meta property="og:url" content="https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
+<meta property="twitter:url" content="https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
 <meta property="og:site_name" content="WYQ BLOG">
-<meta property="og:description" content="DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。
-下面是常用的使用案例:
-
-集群守护进程，如Kured、node-problem-detector
-日志收集守护进程，如fluentd、logstash
-监控守护进程，如promethues node-exporter
+<meta property="og:description" content="
+ConfigMap是一个K8s存储资源，用于存储应用程序配置文件。
+Secret主要存储敏感数据。
 ">
-<meta name="twitter:description" content="DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。
-下面是常用的使用案例:
-
-集群守护进程，如Kured、node-problem-detector
-日志收集守护进程，如fluentd、logstash
-监控守护进程，如promethues node-exporter
+<meta name="twitter:description" content="
+ConfigMap是一个K8s存储资源，用于存储应用程序配置文件。
+Secret主要存储敏感数据。
 ">
 <meta property="og:locale" content="zh-cn">
 
@@ -115,18 +103,18 @@
 
 
 
-  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-10.jpeg">
-  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-10.jpeg">
+  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-12.jpeg">
+  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-12.jpeg">
 
 
-    <title>k8s-DaemonSet基础组件解析</title>
+    <title>k8s-Secret&amp;ConfigMap基础组件解析</title>
 
     <link rel="icon" href="https://sea-wyq.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
+    <link rel="canonical" href="https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -286,7 +274,7 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      k8s-DaemonSet基础组件解析
+      k8s-Secret&amp;ConfigMap基础组件解析
     </h1>
   
   
@@ -315,115 +303,177 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。<br>
-下面是常用的使用案例:</p>
-<ul>
-<li>集群守护进程，如Kured、node-problem-detector</li>
-<li>日志收集守护进程，如fluentd、logstash</li>
-<li>监控守护进程，如promethues node-exporter</li>
+              <ul>
+<li>ConfigMap是一个K8s存储资源，用于存储应用程序配置文件。</li>
+<li>Secret主要存储敏感数据。</li>
 </ul>
 <h1 id="table-of-contents">目录</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#创建一个daemonset">创建一个DaemonSet</a>
+    <li><a href="#configmap">configmap</a>
       <ul>
-        <li><a href="#运行并查看运行情况">运行并查看运行情况</a></li>
-        <li><a href="#仅在某些节点上运行pod">仅在某些节点上运行Pod</a></li>
-        <li><a href="#taints-and-tolerations">Taints and Tolerations</a></li>
+        <li><a href="#通过环境变量引入使用-configmapkeyref">通过环境变量引入：使用 configMapKeyRef</a></li>
+        <li><a href="#通过环境变量引入使用-envfrom">通过环境变量引入：使用 envfrom</a></li>
+        <li><a href="#把configmap做成-volume挂载到-pod">把configmap做成 volume，挂载到 pod</a></li>
+      </ul>
+    </li>
+    <li><a href="#secret">Secret</a>
+      <ul>
+        <li><a href="#通过环境变量引入-secret">通过环境变量引入 Secret</a></li>
+        <li><a href="#通过-volume-挂载-secret">通过 volume 挂载 Secret</a></li>
       </ul>
     </li>
   </ul>
 </nav>
 
-<h1 id="创建一个daemonset">创建一个DaemonSet</h1>
-<pre tabindex="0"><code>apiVersion: apps/v1
-kind: DaemonSet
+<h1 id="configmap">configmap</h1>
+<h2 id="通过环境变量引入使用-configmapkeyref">通过环境变量引入：使用 configMapKeyRef</h2>
+<pre tabindex="0"><code>vim mysql-configmap.yaml                                            # 创建一个存储 mysql 配置的 configmap
+
+apiVersion: v1
+kind: ConfigMap
 metadata:
-  name: fluentd-elasticsearch
-  namespace: kube-system
+  name: mysql
   labels:
-    k8s-app: fluentd-logging
-spec:
-  selector:
-    matchLabels:
-      name: fluentd-elasticsearch
-  template:
-    metadata:
-      labels:
-        name: fluentd-elasticsearch
-    spec:
-      tolerations:
-      - key: node-role.kubernetes.io/master
-        effect: NoSchedule
-      containers:
-      - name: fluentd-elasticsearch
-        image: mirrorgooglecontainers/fluentd-elasticsearch:v2.4.0
-        resources:
-          limits:
-            memory: 200Mi
-          requests:
-            cpu: 100m
-            memory: 200Mi
-        volumeMounts:
-        - name: varlog
-          mountPath: /var/log
-        - name: varlibdockercontainers
-          mountPath: /var/lib/docker/containers
-          readOnly: true
-      terminationGracePeriodSeconds: 30
-      volumes:
-      - name: varlog
-        hostPath:
-          path: /var/log
-      - name: varlibdockercontainers
-        hostPath:
-          path: /var/lib/docker/containers
-</code></pre><h2 id="运行并查看运行情况">运行并查看运行情况</h2>
-<pre tabindex="0"><code>$ kubectl apply -f ds-els.yaml
+    app: mysql
+data:
+  log: &#34;1&#34;
+  lower: &#34;1&#34;
 
-$ kubectl get pod -n kube-system -l name=fluentd-elasticsearch                ## 单节点，所以只有一个pod运行了
+kubectl apply -f mysql-configmap.yaml                              # 应用configmap
 
-NAME                          READY   STATUS    RESTARTS   AGE
-fluentd-elasticsearch-nwqph   1/1     Running   0          4m11s
-
-$ kubectl get ds -n kube-system fluentd-elasticsearch
-NAME                    DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-fluentd-elasticsearch   1         1         1       1            1           &lt;none&gt;          27m
-</code></pre><h2 id="仅在某些节点上运行pod">仅在某些节点上运行Pod</h2>
-<p>如果想让DaemonSet在某个特定的Node上运行，可以使用nodeAffinity。</p>
-<pre tabindex="0"><code>apiVersion: v1
+apiVersion: v1
 kind: Pod
 metadata:
-  name: with-node-affinity
+  name: mysql-pod
 spec:
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: metadata.name
-            operator: In
-            values:
-            - node1
-</code></pre><h2 id="taints-and-tolerations">Taints and Tolerations</h2>
-<p>在k8s集群中，我们可以给Node打上污点，这样可以让pod避开那些不合适的node。在node上设置一个或多个Taint后，除非pod明确声明能够容忍这些污点，否则无法在这些node上运行。</p>
-<pre tabindex="0"><code>kubectl taint nodes node1 key=value:NoSchedule           //node1打上了一个污点，这将阻止pod调度到node1这个节点上。
-kubectl taint nodes node1 key:NoSchedule-                //移除污点
-</code></pre><p>如果我们想让pod运行在有污点的node节点上，我们需要在pod上声明Toleration，表明可以容忍具有该Taint的Node。</p>
-<pre tabindex="0"><code>apiVersion: v1
-kind: Pod
-metadata:
-  name: pod-taints
-spec:
-  tolerations:
-  - key: &#34;key&#34;
-    operator: &#34;Equal&#34;
-    value: &#34;value&#34;
-    effect: &#34;NoSchedule&#34;
   containers:
-    - name: pod-taints
-      image: busybox:latest
-</code></pre>
+  - name: mysql
+    image: busybox
+    command: [ &#34;/bin/sh&#34;, &#34;-c&#34;, &#34;sleep 3600&#34; ]
+    env:
+    - name: log_bin                                                # 定义环境变量 log_bin
+      valueFrom: 
+        configMapKeyRef:
+        name: mysql                                                # 指定 configmap 的名字
+        key: log                                                   # 指定 configmap 中的 key
+    - name: lower                                                  # 定义环境变量 lower
+      valueFrom:
+        configMapKeyRef:
+          name: mysql
+          key: lower
+  restartPolicy: Never
+</code></pre><h2 id="通过环境变量引入使用-envfrom">通过环境变量引入：使用 envfrom</h2>
+<pre tabindex="0"><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql-pod-envfrom
+spec:
+  containers:
+  - name: mysql
+    image: busybox
+    command: [ &#34;/bin/sh&#34;, &#34;-c&#34;, &#34;sleep 3600&#34; ]
+    envFrom: 
+    - configMapRef:
+      name: mysql                                                   # 指定 configmap 的名字
+  restartPolicy: Never
+</code></pre><h2 id="把configmap做成-volume挂载到-pod">把configmap做成 volume，挂载到 pod</h2>
+<pre tabindex="0"><code>apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql
+  labels:
+  app: mysql
+data:
+  log: &#34;1&#34;
+  lower: &#34;1&#34;
+  my.cnf: |
+    [mysqld]
+    Welcome=hello
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql-pod-volume
+spec:
+  containers:
+  - name: mysql
+    image: busybox
+    command: [ &#34;/bin/sh&#34;,&#34;-c&#34;,&#34;sleep 3600&#34; ]
+    volumeMounts:
+    - name: mysql-config
+      mountPath: /tmp/config
+  volumes:
+  - name: mysql-config
+    configMap:
+      name: mysql
+  restartPolicy: Never
+</code></pre><h1 id="secret">Secret</h1>
+<h2 id="通过环境变量引入-secret">通过环境变量引入 Secret</h2>
+<pre tabindex="0"><code>kubectl create secret generic mysql-password --from-literal=password=pod**lucky66
+kubectl describe secret mysql-password                              # 查看secret详细信息
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-secret
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp
+    image: ikubernetes/myapp:v1
+    ports:
+    - name: http
+      containerPort: 80
+    env:
+    - name: MYSQL_ROOT_PASSWORD                                     # 它是 Pod 启动成功后,Pod 中容器的环境变量名.
+      valueFrom:
+        secretKeyRef:
+          name: mysql-password                                      # 这是 secret 的对象名
+          key: password                                             # 它是 secret 中的 key 名
+</code></pre><p>进入pod查看环境变量 MYSQL_ROOT_PASSWORD 的值为pod**lucky66</p>
+<h2 id="通过-volume-挂载-secret">通过 volume 挂载 Secret</h2>
+<p>创建 Secret</p>
+<pre tabindex="0"><code># 手动加密，基于 base64 加密
+echo -n &#39;admin&#39; | base64
+YWRtaW4=
+
+echo -n &#39;xuegod123456f&#39; | base64
+eHVlZ29kMTIzNDU2Zg==
+
+#解密
+echo eHVlZ29kMTIzNDU2Zg== | base64 -d
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+type: Opaque
+data:
+  username: YWRtaW4=
+  password: eHVlZ29kMTIzNDU2Zg==
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-secret-volume
+spec:
+  containers:
+  - name: myapp
+    image: registry.cn-beijing.aliyuncs.com/google_registry/myapp:v1
+    volumeMounts:
+    - name: secret-volume
+      mountPath: /etc/secret
+      readOnly: true
+  volumes:
+  - name: secret-volume
+    secret:
+      secretName: mysecret
+</code></pre><p>进入pod可以看到/etc/secret下有password和username两个文件，查看内容和我们创建的secret内容吻合。</p>
               
 
 
@@ -440,7 +490,7 @@ spec:
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-DaemonSet基础组件解析" aria-label="下一篇: k8s-DaemonSet基础组件解析">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -448,7 +498,7 @@ spec:
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-Secret&amp;ConfigMap基础组件解析" aria-label="上一篇: k8s-Secret&amp;ConfigMap基础组件解析">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-service%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-Service基础组件解析" aria-label="上一篇: k8s-Service基础组件解析">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -466,19 +516,19 @@ spec:
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -509,9 +559,9 @@ spec:
     </div>
     <script type="text/javascript">
       var disqus_config = function() {
-        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/07\/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/';
+        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/07\/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/';
         
-          this.page.identifier = '\/2022\/07\/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/'
+          this.page.identifier = '\/2022\/07\/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/'
         
       };
       (function() {
@@ -547,7 +597,7 @@ spec:
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-DaemonSet基础组件解析" aria-label="下一篇: k8s-DaemonSet基础组件解析">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -555,7 +605,7 @@ spec:
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-Secret&amp;ConfigMap基础组件解析" aria-label="上一篇: k8s-Secret&amp;ConfigMap基础组件解析">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-service%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-Service基础组件解析" aria-label="上一篇: k8s-Service基础组件解析">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -573,19 +623,19 @@ spec:
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -616,19 +666,19 @@ spec:
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-daemonset%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-secretconfigmap%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-daemonset%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-secretconfigmap%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-daemonset%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-secretconfigmap%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
         </a>
       </li>
