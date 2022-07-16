@@ -6,7 +6,22 @@
     <description>Recent content on WYQ BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 14 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>k8s-StatefulSet基础组件解析</title>
+      <link>https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <description>&lt;p&gt;应用场景&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;稳定的不共享持久化存储：即每个pod的存储资源是不共享的，且pod重新调度后还是能访问到相同的持久化数据，基于pvc实现。&lt;/li&gt;
+&lt;li&gt;稳定的网络标志：即pod重新调度后其PodName和HostName不变，且PodName和HostName是相同的，基于Headless Service来实现的。&lt;/li&gt;
+&lt;li&gt;有序部署，有序扩展：即pod是有顺序的，在部署或者扩展的时候是根据定义的顺序依次依序部署的（即从0到N-1,在下一个Pod运行之前所有之前的pod必都是Running状态或者Ready状态），是基于init containers来实现的。&lt;/li&gt;
+&lt;li&gt;有序收缩：在pod删除时是从最后一个依次往前删除，即从N-1到0.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
     <item>
       <title>k8s-Deployment基础组件解析</title>
       <link>https://sea-wyq.github.io/2022/07/k8s-deployment%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>

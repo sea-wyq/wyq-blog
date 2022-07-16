@@ -242,6 +242,76 @@
     <div class="postShorten-header">
       <h1 class="postShorten-title">
       
+        <a class="link-unstyled" href="https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" aria-label="打开帖子: k8s-StatefulSet基础组件解析">
+      
+          k8s-StatefulSet基础组件解析
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2022-07-16T00:00:00Z">
+        
+  七月 16, 2022
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://sea-wyq.github.io/categories/k8s">k8s</a>, 
+    
+      <a class="category-link" href="https://sea-wyq.github.io/categories/docker">docker</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        <p>应用场景</p>
+<ul>
+<li>稳定的不共享持久化存储：即每个pod的存储资源是不共享的，且pod重新调度后还是能访问到相同的持久化数据，基于pvc实现。</li>
+<li>稳定的网络标志：即pod重新调度后其PodName和HostName不变，且PodName和HostName是相同的，基于Headless Service来实现的。</li>
+<li>有序部署，有序扩展：即pod是有顺序的，在部署或者扩展的时候是根据定义的顺序依次依序部署的（即从0到N-1,在下一个Pod运行之前所有之前的pod必都是Running状态或者Ready状态），是基于init containers来实现的。</li>
+<li>有序收缩：在pod删除时是从最后一个依次往前删除，即从N-1到0.</li>
+</ul>
+      
+      <p>
+        
+          <a href="https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" class="postShorten-excerpt_link link" aria-label="打开帖子: k8s-StatefulSet基础组件解析">阅读全文</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" aria-label="打开帖子: k8s-StatefulSet基础组件解析">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://sea-wyq.github.io/img/main/th-6.jpeg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-right">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
         <a class="link-unstyled" href="https://sea-wyq.github.io/2022/07/k8s-deployment%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" aria-label="打开帖子: k8s-Deployment基础组件解析">
       
           k8s-Deployment基础组件解析
