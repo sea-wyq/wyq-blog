@@ -7,7 +7,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "k8s-StatefulSet基础组件解析",
+  "headline": "k8s-DaemonSet基础组件解析",
   
   "image": "https://sea-wyq.github.io/img/main/th-6.jpeg",
   
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/sea-wyq.github.io\/2022\/07\/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/" 
+    "@id": "https:\/\/sea-wyq.github.io\/2022\/07\/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "应用场景\n稳定的不共享持久化存储：即每个pod的存储资源是不共享的，且pod重新调度后还是能访问到相同的持久化数据，基于pvc实现。 稳定的网络标志：即pod重新调度后其PodName和HostName不变，且PodName和HostName是相同的，基于Headless Service来实现的。 有序部署，有序扩展：即pod是有顺序的，在部署或者扩展的时候是根据定义的顺序依次依序部署的（即从0到N-1,在下一个Pod运行之前所有之前的pod必都是Running状态或者Ready状态），是基于init containers来实现的。 有序收缩：在pod删除时是从最后一个依次往前删除，即从N-1到0. ",
+  "description": "DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。\n下面是常用的使用案例:\n集群守护进程，如Kured、node-problem-detector 日志收集守护进程，如fluentd、logstash 监控守护进程，如promethues node-exporter ",
   "keywords": []
 }
 
@@ -45,41 +45,41 @@
 <meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="WYQ SEA">
 <meta name="keywords" content="">
-<meta name="description" content="应用场景
+<meta name="description" content="DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。
+下面是常用的使用案例:
 
-稳定的不共享持久化存储：即每个pod的存储资源是不共享的，且pod重新调度后还是能访问到相同的持久化数据，基于pvc实现。
-稳定的网络标志：即pod重新调度后其PodName和HostName不变，且PodName和HostName是相同的，基于Headless Service来实现的。
-有序部署，有序扩展：即pod是有顺序的，在部署或者扩展的时候是根据定义的顺序依次依序部署的（即从0到N-1,在下一个Pod运行之前所有之前的pod必都是Running状态或者Ready状态），是基于init containers来实现的。
-有序收缩：在pod删除时是从最后一个依次往前删除，即从N-1到0.
+集群守护进程，如Kured、node-problem-detector
+日志收集守护进程，如fluentd、logstash
+监控守护进程，如promethues node-exporter
 ">
 
 
-<meta property="og:description" content="应用场景
+<meta property="og:description" content="DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。
+下面是常用的使用案例:
 
-稳定的不共享持久化存储：即每个pod的存储资源是不共享的，且pod重新调度后还是能访问到相同的持久化数据，基于pvc实现。
-稳定的网络标志：即pod重新调度后其PodName和HostName不变，且PodName和HostName是相同的，基于Headless Service来实现的。
-有序部署，有序扩展：即pod是有顺序的，在部署或者扩展的时候是根据定义的顺序依次依序部署的（即从0到N-1,在下一个Pod运行之前所有之前的pod必都是Running状态或者Ready状态），是基于init containers来实现的。
-有序收缩：在pod删除时是从最后一个依次往前删除，即从N-1到0.
+集群守护进程，如Kured、node-problem-detector
+日志收集守护进程，如fluentd、logstash
+监控守护进程，如promethues node-exporter
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="k8s-StatefulSet基础组件解析">
-<meta name="twitter:title" content="k8s-StatefulSet基础组件解析">
-<meta property="og:url" content="https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
-<meta property="twitter:url" content="https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
+<meta property="og:title" content="k8s-DaemonSet基础组件解析">
+<meta name="twitter:title" content="k8s-DaemonSet基础组件解析">
+<meta property="og:url" content="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
+<meta property="twitter:url" content="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
 <meta property="og:site_name" content="WYQ BLOG">
-<meta property="og:description" content="应用场景
+<meta property="og:description" content="DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。
+下面是常用的使用案例:
 
-稳定的不共享持久化存储：即每个pod的存储资源是不共享的，且pod重新调度后还是能访问到相同的持久化数据，基于pvc实现。
-稳定的网络标志：即pod重新调度后其PodName和HostName不变，且PodName和HostName是相同的，基于Headless Service来实现的。
-有序部署，有序扩展：即pod是有顺序的，在部署或者扩展的时候是根据定义的顺序依次依序部署的（即从0到N-1,在下一个Pod运行之前所有之前的pod必都是Running状态或者Ready状态），是基于init containers来实现的。
-有序收缩：在pod删除时是从最后一个依次往前删除，即从N-1到0.
+集群守护进程，如Kured、node-problem-detector
+日志收集守护进程，如fluentd、logstash
+监控守护进程，如promethues node-exporter
 ">
-<meta name="twitter:description" content="应用场景
+<meta name="twitter:description" content="DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。
+下面是常用的使用案例:
 
-稳定的不共享持久化存储：即每个pod的存储资源是不共享的，且pod重新调度后还是能访问到相同的持久化数据，基于pvc实现。
-稳定的网络标志：即pod重新调度后其PodName和HostName不变，且PodName和HostName是相同的，基于Headless Service来实现的。
-有序部署，有序扩展：即pod是有顺序的，在部署或者扩展的时候是根据定义的顺序依次依序部署的（即从0到N-1,在下一个Pod运行之前所有之前的pod必都是Running状态或者Ready状态），是基于init containers来实现的。
-有序收缩：在pod删除时是从最后一个依次往前删除，即从N-1到0.
+集群守护进程，如Kured、node-problem-detector
+日志收集守护进程，如fluentd、logstash
+监控守护进程，如promethues node-exporter
 ">
 <meta property="og:locale" content="zh-cn">
 
@@ -119,14 +119,14 @@
   <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-6.jpeg">
 
 
-    <title>k8s-StatefulSet基础组件解析</title>
+    <title>k8s-DaemonSet基础组件解析</title>
 
     <link rel="icon" href="https://sea-wyq.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
+    <link rel="canonical" href="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -286,7 +286,7 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      k8s-StatefulSet基础组件解析
+      k8s-DaemonSet基础组件解析
     </h1>
   
   
@@ -315,106 +315,115 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>应用场景</p>
+              <p>DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。<br>
+下面是常用的使用案例:</p>
 <ul>
-<li>稳定的不共享持久化存储：即每个pod的存储资源是不共享的，且pod重新调度后还是能访问到相同的持久化数据，基于pvc实现。</li>
-<li>稳定的网络标志：即pod重新调度后其PodName和HostName不变，且PodName和HostName是相同的，基于Headless Service来实现的。</li>
-<li>有序部署，有序扩展：即pod是有顺序的，在部署或者扩展的时候是根据定义的顺序依次依序部署的（即从0到N-1,在下一个Pod运行之前所有之前的pod必都是Running状态或者Ready状态），是基于init containers来实现的。</li>
-<li>有序收缩：在pod删除时是从最后一个依次往前删除，即从N-1到0.</li>
+<li>集群守护进程，如Kured、node-problem-detector</li>
+<li>日志收集守护进程，如fluentd、logstash</li>
+<li>监控守护进程，如promethues node-exporter</li>
 </ul>
 <h1 id="table-of-contents">目录</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#创建yaml文件">创建yaml文件</a>
+    <li><a href="#创建一个daemonset">创建一个DaemonSet</a>
       <ul>
-        <li><a href="#应用yaml文件">应用yaml文件</a></li>
-        <li><a href="#查看资源清单">查看资源清单</a></li>
-        <li><a href="#扩缩容">扩缩容</a></li>
-        <li><a href="#查看资源清单-1">查看资源清单</a></li>
-        <li><a href="#小结">小结</a></li>
+        <li><a href="#运行并查看运行情况">运行并查看运行情况</a></li>
+        <li><a href="#仅在某些节点上运行pod">仅在某些节点上运行Pod</a></li>
+        <li><a href="#taints-and-tolerations">Taints and Tolerations</a></li>
       </ul>
     </li>
   </ul>
 </nav>
 
-<h1 id="创建yaml文件">创建yaml文件</h1>
-<pre tabindex="0"><code>[root@vm21 opt]# vi statefulset-demo.yaml
-apiVersion: v1
-kind: Service
+<h1 id="创建一个daemonset">创建一个DaemonSet</h1>
+<pre tabindex="0"><code>apiVersion: apps/v1
+kind: DaemonSet
 metadata:
-  name: nginx
+  name: fluentd-elasticsearch
+  namespace: kube-system
   labels:
-    app: nginx
+    k8s-app: fluentd-logging
 spec:
-  ports:
-  - port: 80
-    name: web
-  clusterIP: None                                 # 要点1，可以不用指定clusterIP
-  selector:
-    app: nginx
----
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: web
-spec:
-  serviceName: &#34;nginx&#34;                           # 要点2，指定serviceName名称
-  replicas: 2
   selector:
     matchLabels:
-      app: nginx
+      name: fluentd-elasticsearch
   template:
     metadata:
       labels:
-        app: nginx
+        name: fluentd-elasticsearch
     spec:
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
       containers:
-      - name: nginx
-        image: nginx:alpine
-        ports:
-        - containerPort: 80
-          name: web
-</code></pre><h2 id="应用yaml文件">应用yaml文件</h2>
-<pre tabindex="0"><code>[root@vm21 opt]# kubectl apply -f statefulset-demo.yaml
-service/nginx created
-statefulset.apps/web created
-</code></pre><h2 id="查看资源清单">查看资源清单</h2>
-<pre tabindex="0"><code>[root@vm21 opt]# kubectl get pods,svc,sts
-NAME        READY   STATUS    RESTARTS   AGE
-pod/web-0   1/1     Running   0          10m
-pod/web-1   1/1     Running   0          10m
+      - name: fluentd-elasticsearch
+        image: mirrorgooglecontainers/fluentd-elasticsearch:v2.4.0
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        volumeMounts:
+        - name: varlog
+          mountPath: /var/log
+        - name: varlibdockercontainers
+          mountPath: /var/lib/docker/containers
+          readOnly: true
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: varlog
+        hostPath:
+          path: /var/log
+      - name: varlibdockercontainers
+        hostPath:
+          path: /var/lib/docker/containers
+</code></pre><h2 id="运行并查看运行情况">运行并查看运行情况</h2>
+<pre tabindex="0"><code>$ kubectl apply -f ds-els.yaml
 
-NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
-service/kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP   109m
-service/nginx        ClusterIP   None         &lt;none&gt;        80/TCP    10m
+$ kubectl get pod -n kube-system -l name=fluentd-elasticsearch                ## 单节点，所以只有一个pod运行了
 
-NAME                   READY   AGE
-statefulset.apps/web   2/2     10m
-</code></pre><h2 id="扩缩容">扩缩容</h2>
-<pre tabindex="0"><code># 增加一个pod
-[root@vm21 opt]# kubectl scale --replicas=3 sts web
-statefulset.apps/web scaled
-</code></pre><h2 id="查看资源清单-1">查看资源清单</h2>
-<pre tabindex="0"><code>[root@vm21 opt]# kubectl get pods,svc,sts
-NAME        READY   STATUS    RESTARTS   AGE
-pod/web-0   1/1     Running   0          10m
-pod/web-1   1/1     Running   0          10m
-pod/web-2   1/1     Running   0          5m51s                             # 扩容后增加的pod
+NAME                          READY   STATUS    RESTARTS   AGE
+fluentd-elasticsearch-nwqph   1/1     Running   0          4m11s
 
-NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
-service/kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP   109m
-service/nginx        ClusterIP   None         &lt;none&gt;        80/TCP    10m
-
-NAME                   READY   AGE
-statefulset.apps/web   3/3     10m
-</code></pre><h2 id="小结">小结</h2>
-<ul>
-<li>1)有序索引
-对于具有 N 个副本的 StatefulSet，StatefulSet 中的每个 Pod 将被分配一个整数序号， 从 0 到 N-1，该序号在 StatefulSet 上是唯一的。比如sts name=nginx，replicas=3则对应的pod名称依次为nginx-0、nginx-1、nginx-2。</li>
-<li>2)稳定的网络ID
-StatefulSet 可以使用 &ldquo;无头服务&rdquo; 控制它的 Pod 的网络域。管理域的这个服务的格式为： $(服务名称).$(命名空间).svc.cluster.local
-其中 cluster.local 是集群域。 一旦每个 Pod 创建成功，就会得到一个匹配的 DNS 子域，格式为： $(pod 名称).$(所属服务的 DNS 域名) 其中所属服务由 StatefulSet 的 serviceName 域来设定。</li>
-</ul>
+$ kubectl get ds -n kube-system fluentd-elasticsearch
+NAME                    DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+fluentd-elasticsearch   1         1         1       1            1           &lt;none&gt;          27m
+</code></pre><h2 id="仅在某些节点上运行pod">仅在某些节点上运行Pod</h2>
+<p>如果想让DaemonSet在某个特定的Node上运行，可以使用nodeAffinity。</p>
+<pre tabindex="0"><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: with-node-affinity
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: metadata.name
+            operator: In
+            values:
+            - node1
+</code></pre><h2 id="taints-and-tolerations">Taints and Tolerations</h2>
+<p>在k8s集群中，我们可以给Node打上污点，这样可以让pod避开那些不合适的node。在node上设置一个或多个Taint后，除非pod明确声明能够容忍这些污点，否则无法在这些node上运行。</p>
+<pre tabindex="0"><code>kubectl taint nodes node1 key=value:NoSchedule           //node1打上了一个污点，这将阻止pod调度到node1这个节点上。
+kubectl taint nodes node1 key:NoSchedule-                //移除污点
+</code></pre><p>如果我们想让pod运行在有污点的node节点上，我们需要在pod上声明Toleration，表明可以容忍具有该Taint的Node。</p>
+<pre tabindex="0"><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-taints
+spec:
+  tolerations:
+  - key: &#34;key&#34;
+    operator: &#34;Equal&#34;
+    value: &#34;value&#34;
+    effect: &#34;NoSchedule&#34;
+  containers:
+    - name: pod-taints
+      image: busybox:latest
+</code></pre>
               
 
 
@@ -431,7 +440,7 @@ StatefulSet 可以使用 &ldquo;无头服务&rdquo; 控制它的 Pod 的网络�
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-DaemonSet基础组件解析" aria-label="下一篇: k8s-DaemonSet基础组件解析">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -439,7 +448,7 @@ StatefulSet 可以使用 &ldquo;无头服务&rdquo; 控制它的 Pod 的网络�
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-deployment%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-Deployment基础组件解析" aria-label="上一篇: k8s-Deployment基础组件解析">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-StatefulSet基础组件解析" aria-label="上一篇: k8s-StatefulSet基础组件解析">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -457,19 +466,19 @@ StatefulSet 可以使用 &ldquo;无头服务&rdquo; 控制它的 Pod 的网络�
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -500,9 +509,9 @@ StatefulSet 可以使用 &ldquo;无头服务&rdquo; 控制它的 Pod 的网络�
     </div>
     <script type="text/javascript">
       var disqus_config = function() {
-        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/07\/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/';
+        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/07\/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/';
         
-          this.page.identifier = '\/2022\/07\/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/'
+          this.page.identifier = '\/2022\/07\/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/'
         
       };
       (function() {
@@ -538,7 +547,7 @@ StatefulSet 可以使用 &ldquo;无头服务&rdquo; 控制它的 Pod 的网络�
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-DaemonSet基础组件解析" aria-label="下一篇: k8s-DaemonSet基础组件解析">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -546,7 +555,7 @@ StatefulSet 可以使用 &ldquo;无头服务&rdquo; 控制它的 Pod 的网络�
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-deployment%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-Deployment基础组件解析" aria-label="上一篇: k8s-Deployment基础组件解析">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-StatefulSet基础组件解析" aria-label="上一篇: k8s-StatefulSet基础组件解析">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -564,19 +573,19 @@ StatefulSet 可以使用 &ldquo;无头服务&rdquo; 控制它的 Pod 的网络�
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -607,19 +616,19 @@ StatefulSet 可以使用 &ldquo;无头服务&rdquo; 控制它的 Pod 的网络�
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-statefulset%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-daemonset%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-statefulset%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-daemonset%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-statefulset%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-daemonset%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
         </a>
       </li>

@@ -8,6 +8,21 @@
     <language>zh-cn</language>
     <lastBuildDate>Sat, 16 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>k8s-DaemonSet基础组件解析</title>
+      <link>https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <description>&lt;p&gt;DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。&lt;br&gt;
+下面是常用的使用案例:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;集群守护进程，如Kured、node-problem-detector&lt;/li&gt;
+&lt;li&gt;日志收集守护进程，如fluentd、logstash&lt;/li&gt;
+&lt;li&gt;监控守护进程，如promethues node-exporter&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
       <title>k8s-StatefulSet基础组件解析</title>
       <link>https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
