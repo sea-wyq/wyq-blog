@@ -7,12 +7,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "k8s-DaemonSet基础组件解析",
+  "headline": "Helm解析",
   
-  "image": "https://sea-wyq.github.io/img/main/th-10.jpeg",
+  "image": "https://sea-wyq.github.io/img/main/th-13.jpeg",
   
-  "datePublished": "2022-07-16T00:00:00Z",
-  "dateModified": "2022-07-16T00:00:00Z",
+  "datePublished": "2022-07-17T00:00:00Z",
+  "dateModified": "2022-07-17T00:00:00Z",
   "author": {
     "@type": "Person",
     "name": "WYQ SEA",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/sea-wyq.github.io\/2022\/07\/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/" 
+    "@id": "https:\/\/sea-wyq.github.io\/2022\/07\/helm%E8%A7%A3%E6%9E%90\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。\n下面是常用的使用案例:\n集群守护进程，如Kured、node-problem-detector 日志收集守护进程，如fluentd、logstash 监控守护进程，如promethues node-exporter ",
+  "description": "Helm概念\nChart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。 仓库（Repository）： 归集和分享chart的地方。 发布（Release）：在Kubernetes集群中运行的chart实例。一个chart经常在同一个集群中被重复安装。每次安装都会生成新的发布。比如MySQL，如果想让两个数据库运行在集群中，可以将chart安装两次。每一个都会有自己的发布版本，并有自己的发布名称。 ",
   "keywords": []
 }
 
@@ -45,49 +45,45 @@
 <meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="WYQ SEA">
 <meta name="keywords" content="">
-<meta name="description" content="DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。
-下面是常用的使用案例:
+<meta name="description" content="Helm概念
 
-集群守护进程，如Kured、node-problem-detector
-日志收集守护进程，如fluentd、logstash
-监控守护进程，如promethues node-exporter
+Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。
+仓库（Repository）： 归集和分享chart的地方。
+发布（Release）：在Kubernetes集群中运行的chart实例。一个chart经常在同一个集群中被重复安装。每次安装都会生成新的发布。比如MySQL，如果想让两个数据库运行在集群中，可以将chart安装两次。每一个都会有自己的发布版本，并有自己的发布名称。
 ">
 
 
-<meta property="og:description" content="DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。
-下面是常用的使用案例:
+<meta property="og:description" content="Helm概念
 
-集群守护进程，如Kured、node-problem-detector
-日志收集守护进程，如fluentd、logstash
-监控守护进程，如promethues node-exporter
+Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。
+仓库（Repository）： 归集和分享chart的地方。
+发布（Release）：在Kubernetes集群中运行的chart实例。一个chart经常在同一个集群中被重复安装。每次安装都会生成新的发布。比如MySQL，如果想让两个数据库运行在集群中，可以将chart安装两次。每一个都会有自己的发布版本，并有自己的发布名称。
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="k8s-DaemonSet基础组件解析">
-<meta name="twitter:title" content="k8s-DaemonSet基础组件解析">
-<meta property="og:url" content="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
-<meta property="twitter:url" content="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
+<meta property="og:title" content="Helm解析">
+<meta name="twitter:title" content="Helm解析">
+<meta property="og:url" content="https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/">
+<meta property="twitter:url" content="https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/">
 <meta property="og:site_name" content="WYQ BLOG">
-<meta property="og:description" content="DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。
-下面是常用的使用案例:
+<meta property="og:description" content="Helm概念
 
-集群守护进程，如Kured、node-problem-detector
-日志收集守护进程，如fluentd、logstash
-监控守护进程，如promethues node-exporter
+Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。
+仓库（Repository）： 归集和分享chart的地方。
+发布（Release）：在Kubernetes集群中运行的chart实例。一个chart经常在同一个集群中被重复安装。每次安装都会生成新的发布。比如MySQL，如果想让两个数据库运行在集群中，可以将chart安装两次。每一个都会有自己的发布版本，并有自己的发布名称。
 ">
-<meta name="twitter:description" content="DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。
-下面是常用的使用案例:
+<meta name="twitter:description" content="Helm概念
 
-集群守护进程，如Kured、node-problem-detector
-日志收集守护进程，如fluentd、logstash
-监控守护进程，如promethues node-exporter
+Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。
+仓库（Repository）： 归集和分享chart的地方。
+发布（Release）：在Kubernetes集群中运行的chart实例。一个chart经常在同一个集群中被重复安装。每次安装都会生成新的发布。比如MySQL，如果想让两个数据库运行在集群中，可以将chart安装两次。每一个都会有自己的发布版本，并有自己的发布名称。
 ">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2022-07-16T00:00:00">
+    <meta property="article:published_time" content="2022-07-17T00:00:00">
   
   
-    <meta property="article:modified_time" content="2022-07-16T00:00:00">
+    <meta property="article:modified_time" content="2022-07-17T00:00:00">
   
   
   
@@ -115,18 +111,18 @@
 
 
 
-  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-10.jpeg">
-  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-10.jpeg">
+  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-13.jpeg">
+  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-13.jpeg">
 
 
-    <title>k8s-DaemonSet基础组件解析</title>
+    <title>Helm解析</title>
 
     <link rel="icon" href="https://sea-wyq.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/">
+    <link rel="canonical" href="https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -286,15 +282,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      k8s-DaemonSet基础组件解析
+      Helm解析
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2022-07-16T00:00:00Z">
+      <time datetime="2022-07-17T00:00:00Z">
         
-  七月 16, 2022
+  七月 17, 2022
 
       </time>
     
@@ -315,115 +311,14 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。<br>
-下面是常用的使用案例:</p>
+              <p>Helm概念</p>
 <ul>
-<li>集群守护进程，如Kured、node-problem-detector</li>
-<li>日志收集守护进程，如fluentd、logstash</li>
-<li>监控守护进程，如promethues node-exporter</li>
+<li>Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。</li>
+<li>仓库（Repository）： 归集和分享chart的地方。</li>
+<li>发布（Release）：在Kubernetes集群中运行的chart实例。一个chart经常在同一个集群中被重复安装。每次安装都会生成新的发布。比如MySQL，如果想让两个数据库运行在集群中，可以将chart安装两次。每一个都会有自己的发布版本，并有自己的发布名称。</li>
 </ul>
 <h1 id="table-of-contents">目录</h1>
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#创建一个daemonset">创建一个DaemonSet</a>
-      <ul>
-        <li><a href="#运行并查看运行情况">运行并查看运行情况</a></li>
-        <li><a href="#仅在某些节点上运行pod">仅在某些节点上运行Pod</a></li>
-        <li><a href="#taints-and-tolerations">Taints and Tolerations</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-<h1 id="创建一个daemonset">创建一个DaemonSet</h1>
-<pre tabindex="0"><code>apiVersion: apps/v1
-kind: DaemonSet
-metadata:
-  name: fluentd-elasticsearch
-  namespace: kube-system
-  labels:
-    k8s-app: fluentd-logging
-spec:
-  selector:
-    matchLabels:
-      name: fluentd-elasticsearch
-  template:
-    metadata:
-      labels:
-        name: fluentd-elasticsearch
-    spec:
-      tolerations:
-      - key: node-role.kubernetes.io/master
-        effect: NoSchedule
-      containers:
-      - name: fluentd-elasticsearch
-        image: mirrorgooglecontainers/fluentd-elasticsearch:v2.4.0
-        resources:
-          limits:
-            memory: 200Mi
-          requests:
-            cpu: 100m
-            memory: 200Mi
-        volumeMounts:
-        - name: varlog
-          mountPath: /var/log
-        - name: varlibdockercontainers
-          mountPath: /var/lib/docker/containers
-          readOnly: true
-      terminationGracePeriodSeconds: 30
-      volumes:
-      - name: varlog
-        hostPath:
-          path: /var/log
-      - name: varlibdockercontainers
-        hostPath:
-          path: /var/lib/docker/containers
-</code></pre><h2 id="运行并查看运行情况">运行并查看运行情况</h2>
-<pre tabindex="0"><code>$ kubectl apply -f ds-els.yaml
-
-$ kubectl get pod -n kube-system -l name=fluentd-elasticsearch                ## 单节点，所以只有一个pod运行了
-
-NAME                          READY   STATUS    RESTARTS   AGE
-fluentd-elasticsearch-nwqph   1/1     Running   0          4m11s
-
-$ kubectl get ds -n kube-system fluentd-elasticsearch
-NAME                    DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-fluentd-elasticsearch   1         1         1       1            1           &lt;none&gt;          27m
-</code></pre><h2 id="仅在某些节点上运行pod">仅在某些节点上运行Pod</h2>
-<p>如果想让DaemonSet在某个特定的Node上运行，可以使用nodeAffinity。</p>
-<pre tabindex="0"><code>apiVersion: v1
-kind: Pod
-metadata:
-  name: with-node-affinity
-spec:
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: metadata.name
-            operator: In
-            values:
-            - node1
-</code></pre><h2 id="taints-and-tolerations">Taints and Tolerations</h2>
-<p>在k8s集群中，我们可以给Node打上污点，这样可以让pod避开那些不合适的node。在node上设置一个或多个Taint后，除非pod明确声明能够容忍这些污点，否则无法在这些node上运行。</p>
-<pre tabindex="0"><code>kubectl taint nodes node1 key=value:NoSchedule           //node1打上了一个污点，这将阻止pod调度到node1这个节点上。
-kubectl taint nodes node1 key:NoSchedule-                //移除污点
-</code></pre><p>如果我们想让pod运行在有污点的node节点上，我们需要在pod上声明Toleration，表明可以容忍具有该Taint的Node。</p>
-<pre tabindex="0"><code>apiVersion: v1
-kind: Pod
-metadata:
-  name: pod-taints
-spec:
-  tolerations:
-  - key: &#34;key&#34;
-    operator: &#34;Equal&#34;
-    value: &#34;value&#34;
-    effect: &#34;NoSchedule&#34;
-  containers:
-    - name: pod-taints
-      image: busybox:latest
-</code></pre>
+<nav id="TableOfContents"></nav>
               
 
 
@@ -440,7 +335,7 @@ spec:
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" data-tooltip="Helm解析" aria-label="下一篇: Helm解析">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -448,7 +343,7 @@ spec:
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-Secret&amp;ConfigMap基础组件解析" aria-label="上一篇: k8s-Secret&amp;ConfigMap基础组件解析">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-DaemonSet基础组件解析" aria-label="上一篇: k8s-DaemonSet基础组件解析">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -466,19 +361,19 @@ spec:
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -509,9 +404,9 @@ spec:
     </div>
     <script type="text/javascript">
       var disqus_config = function() {
-        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/07\/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/';
+        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/07\/helm%E8%A7%A3%E6%9E%90\/';
         
-          this.page.identifier = '\/2022\/07\/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90\/'
+          this.page.identifier = '\/2022\/07\/helm%E8%A7%A3%E6%9E%90\/'
         
       };
       (function() {
@@ -547,7 +442,7 @@ spec:
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" data-tooltip="Helm解析" aria-label="下一篇: Helm解析">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -555,7 +450,7 @@ spec:
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-Secret&amp;ConfigMap基础组件解析" aria-label="上一篇: k8s-Secret&amp;ConfigMap基础组件解析">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-DaemonSet基础组件解析" aria-label="上一篇: k8s-DaemonSet基础组件解析">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -573,19 +468,19 @@ spec:
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -616,19 +511,19 @@ spec:
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-daemonset%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fhelm%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-daemonset%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fhelm%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fk8s-daemonset%25E5%259F%25BA%25E7%25A1%2580%25E7%25BB%2584%25E4%25BB%25B6%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fhelm%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
         </a>
       </li>

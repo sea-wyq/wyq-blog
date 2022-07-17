@@ -6,7 +6,21 @@
     <description>Recent content on WYQ BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 16 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Helm解析</title>
+      <link>https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/</guid>
+      <description>&lt;p&gt;Helm概念&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。&lt;/li&gt;
+&lt;li&gt;仓库（Repository）： 归集和分享chart的地方。&lt;/li&gt;
+&lt;li&gt;发布（Release）：在Kubernetes集群中运行的chart实例。一个chart经常在同一个集群中被重复安装。每次安装都会生成新的发布。比如MySQL，如果想让两个数据库运行在集群中，可以将chart安装两次。每一个都会有自己的发布版本，并有自己的发布名称。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
     <item>
       <title>k8s-DaemonSet基础组件解析</title>
       <link>https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
