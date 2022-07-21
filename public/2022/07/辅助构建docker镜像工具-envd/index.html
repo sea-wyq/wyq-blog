@@ -319,8 +319,8 @@
     <li><a href="#安装envd">安装Envd</a></li>
     <li><a href="#编写buildenvd文件">编写build.envd文件</a></li>
     <li><a href="#构建环境镜像">构建环境镜像</a></li>
-    <li><a href="#结果展示">结果展示</a></li>
     <li><a href="#构建容器">构建容器</a></li>
+    <li><a href="#支持cicd">支持CICD</a></li>
   </ul>
 </nav>
 
@@ -351,7 +351,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ docker version    <span style="color:#75715e"># 验证是否安装成功</span>
 </span></span></code></pre></div><h1 id="安装envd">安装Envd</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SHELL" data-lang="SHELL"><span style="display:flex;"><span>$ pip install --pre --upgrade envd
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SHELL" data-lang="SHELL"><span style="display:flex;"><span>$ pip3 install --pre --upgrade envd -i https://mirrors.sjtug.sjtu.edu.cn/pypi/web/simple
 </span></span><span style="display:flex;"><span>$ envd bootstrap
 </span></span></code></pre></div><blockquote>
 <p>您可以在运行时添加&ndash;dockerhub-mirror或-m标记envd bootstrap，为 docker.io 注册表配置镜像：<br>
@@ -366,6 +366,7 @@ envd bootstrap &ndash;dockerhub-mirror <a href="https://docker.mirrors.sjtug.sjt
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;torchvision&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;openmim&#34;</span>,
 </span></span><span style="display:flex;"><span>    ])
+</span></span><span style="display:flex;"><span>    install<span style="color:#f92672">.</span>python_packages(requirements<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;build.txt&#34;</span>)    <span style="color:#75715e"># 可以指定路径下进行requirments.txt安装</span>
 </span></span><span style="display:flex;"><span>    install<span style="color:#f92672">.</span>system_packages(name <span style="color:#f92672">=</span> [
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;libgl1-mesa-glx&#34;</span>                 
 </span></span><span style="display:flex;"><span>    ])
@@ -385,11 +386,43 @@ envd bootstrap &ndash;dockerhub-mirror <a href="https://docker.mirrors.sjtug.sjt
 </span></span><span style="display:flex;"><span>    config<span style="color:#f92672">.</span>pip_index(url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://pypi.tuna.tsinghua.edu.cn/simple&#34;</span>)
 </span></span></code></pre></div><h1 id="构建环境镜像">构建环境镜像</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ envd build                         <span style="color:#75715e"># 当前路径构建</span>
-</span></span><span style="display:flex;"><span>$ envd build --path examples/mnist   <span style="color:#75715e"># 指定路径构建</span>
-</span></span></code></pre></div><h1 id="结果展示">结果展示</h1>
-<h1 id="构建容器">构建容器</h1>
+</span></span><span style="display:flex;"><span>$ envd build --p examples/mnist      <span style="color:#75715e"># 指定路径构建</span>
+</span></span><span style="display:flex;"><span>$ envd build --t <span style="color:#e6db74">&#34;XXX：TAG&#34;</span>          <span style="color:#75715e"># 指定镜像Tag</span>
+</span></span><span style="display:flex;"><span>$ envd build --f build.envd          <span style="color:#75715e"># 指定envd文件进行构建</span>
+</span></span></code></pre></div><h1 id="构建容器">构建容器</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ docker run -ti --entrypoint bash 镜像名
-</span></span></code></pre></div>
+</span></span></code></pre></div><h1 id="支持cicd">支持CICD</h1>
+<ul>
+<li>将构建的镜像上传到Docker Hub</li>
+</ul>
+<pre tabindex="0"><code>name: ci
+
+on:
+  push:
+    tags: 
+      - &#39;v*&#39;
+
+env:
+  REGISTRY: seawyq
+  IMAGE_NAME: aiges_gpu
+
+jobs:
+  login:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Install envd
+        run: |
+          pip3 install --pre --upgrade envd -i https://mirrors.sjtug.sjtu.edu.cn/pypi/web/simple
+          envd bootstrap
+      - name: Build and push
+        run: envd build --output type=image,name=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }},push=true
+</code></pre>
               
 
 

@@ -98,3 +98,37 @@ $ envd build --f build.envd          # 指定envd文件进行构建
 ```shell
 $ docker run -ti --entrypoint bash 镜像名
 ```
+
+# 支持CICD
+- 将构建的镜像上传到Docker Hub
+```
+name: ci
+
+on:
+  push:
+    tags: 
+      - 'v*'
+
+env:
+  REGISTRY: seawyq
+  IMAGE_NAME: aiges_gpu
+
+jobs:
+  login:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Install envd
+        run: |
+          pip3 install --pre --upgrade envd -i https://mirrors.sjtug.sjtu.edu.cn/pypi/web/simple
+          envd bootstrap
+      - name: Build and push
+        run: envd build --output type=image,name=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }},push=true
+
+```
+
