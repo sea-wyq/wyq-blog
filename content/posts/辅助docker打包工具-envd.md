@@ -49,7 +49,7 @@ $ docker version    # 验证是否安装成功
 
 # 安装Envd
 ```SHELL
-$ pip install --pre --upgrade envd
+$ pip3 install --pre --upgrade envd -i https://mirrors.sjtug.sjtu.edu.cn/pypi/web/simple
 $ envd bootstrap
 ```
 > 您可以在运行时添加--dockerhub-mirror或-m标记envd bootstrap，为 docker.io 注册表配置镜像：  
@@ -66,6 +66,7 @@ def build():
         "torchvision",
         "openmim",
     ])
+    install.python_packages(requirements="build.txt")    # 可以指定路径下进行requirments.txt安装
     install.system_packages(name = [
         "libgl1-mesa-glx"                 
     ])
@@ -88,13 +89,10 @@ def mirror_config():
 # 构建环境镜像
 ``` shell
 $ envd build                         # 当前路径构建
-$ envd build --path examples/mnist   # 指定路径构建
+$ envd build --p examples/mnist      # 指定路径构建
+$ envd build --t "XXX：TAG"          # 指定镜像Tag
+$ envd build --f build.envd          # 指定envd文件进行构建
 ```
-
-# 结果展示
-
-
-
 
 # 构建容器
 ```shell
