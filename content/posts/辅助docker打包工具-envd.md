@@ -43,9 +43,11 @@ $ echo \
 $ sudo apt-get update
 
 $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+$ docker version    # 验证是否安装成功
 ```
 
-# 安装
+# 安装Envd
 ```SHELL
 $ pip install --pre --upgrade envd
 $ envd bootstrap
@@ -58,7 +60,7 @@ $ envd bootstrap
 ```python
 def build():
     mirror_config()
-    base(language="python", image="artifacts.iflytek.com/docker-private/atp/aiges-gpu:10.1-3.9.13-ubuntu1804-v1.0.0")   #加载基础镜像
+    base(language="python", image="public.ecr.aws/iflytek-open/aiges-gpu:10.1-1.17-3.9.13-ubuntu1804-v1.3.2")   #加载基础镜像
     install.python_packages(name = [      # 基础镜像需要提供pip
         "torch==1.10",
         "torchvision",
@@ -88,6 +90,11 @@ def mirror_config():
 $ envd build                         # 当前路径构建
 $ envd build --path examples/mnist   # 指定路径构建
 ```
+
+# 结果展示
+
+
+
 
 # 构建容器
 ```shell
