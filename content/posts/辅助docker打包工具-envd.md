@@ -109,7 +109,7 @@ on:
     tags: 
       - 'v*'
 
-env:
+env:              # 预先在docker hub上创建仓库
   REGISTRY: seawyq
   IMAGE_NAME: aiges_gpu
 
