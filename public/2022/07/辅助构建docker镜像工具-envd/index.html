@@ -7,12 +7,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Helm解析",
+  "headline": "辅助构建docker镜像工具-envd",
   
-  "image": "https://sea-wyq.github.io/img/main/th-13.jpeg",
+  "image": "https://sea-wyq.github.io/img/main/th-14.jpeg",
   
-  "datePublished": "2022-07-17T00:00:00Z",
-  "dateModified": "2022-07-17T00:00:00Z",
+  "datePublished": "2022-07-21T00:00:00Z",
+  "dateModified": "2022-07-21T00:00:00Z",
   "author": {
     "@type": "Person",
     "name": "WYQ SEA",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/sea-wyq.github.io\/2022\/07\/helm%E8%A7%A3%E6%9E%90\/" 
+    "@id": "https:\/\/sea-wyq.github.io\/2022\/07\/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "Helm概念\nChart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。 仓库（Repository）： 归集和分享chart的地方。 发布（Release）：在Kubernetes集群中运行的chart实例。一个chart经常在同一个集群中被重复安装。每次安装都会生成新的发布。比如MySQL，如果想让两个数据库运行在集群中，可以将chart安装两次。每一个都会有自己的发布版本，并有自己的发布名称。 ",
+  "description": "特性：\n通过编写python代码来构建docekr和开发环境的设置。 内置jupyter/Vscode。 ",
   "keywords": []
 }
 
@@ -45,54 +45,52 @@
 <meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="WYQ SEA">
 <meta name="keywords" content="">
-<meta name="description" content="Helm概念
+<meta name="description" content="特性：
 
-Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。
-仓库（Repository）： 归集和分享chart的地方。
-发布（Release）：在Kubernetes集群中运行的chart实例。一个chart经常在同一个集群中被重复安装。每次安装都会生成新的发布。比如MySQL，如果想让两个数据库运行在集群中，可以将chart安装两次。每一个都会有自己的发布版本，并有自己的发布名称。
+通过编写python代码来构建docekr和开发环境的设置。
+内置jupyter/Vscode。
 ">
 
 
-<meta property="og:description" content="Helm概念
+<meta property="og:description" content="特性：
 
-Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。
-仓库（Repository）： 归集和分享chart的地方。
-发布（Release）：在Kubernetes集群中运行的chart实例。一个chart经常在同一个集群中被重复安装。每次安装都会生成新的发布。比如MySQL，如果想让两个数据库运行在集群中，可以将chart安装两次。每一个都会有自己的发布版本，并有自己的发布名称。
+通过编写python代码来构建docekr和开发环境的设置。
+内置jupyter/Vscode。
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Helm解析">
-<meta name="twitter:title" content="Helm解析">
-<meta property="og:url" content="https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/">
-<meta property="twitter:url" content="https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/">
+<meta property="og:title" content="辅助构建docker镜像工具-envd">
+<meta name="twitter:title" content="辅助构建docker镜像工具-envd">
+<meta property="og:url" content="https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/">
+<meta property="twitter:url" content="https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/">
 <meta property="og:site_name" content="WYQ BLOG">
-<meta property="og:description" content="Helm概念
+<meta property="og:description" content="特性：
 
-Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。
-仓库（Repository）： 归集和分享chart的地方。
-发布（Release）：在Kubernetes集群中运行的chart实例。一个chart经常在同一个集群中被重复安装。每次安装都会生成新的发布。比如MySQL，如果想让两个数据库运行在集群中，可以将chart安装两次。每一个都会有自己的发布版本，并有自己的发布名称。
+通过编写python代码来构建docekr和开发环境的设置。
+内置jupyter/Vscode。
 ">
-<meta name="twitter:description" content="Helm概念
+<meta name="twitter:description" content="特性：
 
-Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。
-仓库（Repository）： 归集和分享chart的地方。
-发布（Release）：在Kubernetes集群中运行的chart实例。一个chart经常在同一个集群中被重复安装。每次安装都会生成新的发布。比如MySQL，如果想让两个数据库运行在集群中，可以将chart安装两次。每一个都会有自己的发布版本，并有自己的发布名称。
+通过编写python代码来构建docekr和开发环境的设置。
+内置jupyter/Vscode。
 ">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2022-07-17T00:00:00">
+    <meta property="article:published_time" content="2022-07-21T00:00:00">
   
   
-    <meta property="article:modified_time" content="2022-07-17T00:00:00">
+    <meta property="article:modified_time" content="2022-07-21T00:00:00">
   
   
   
-    
-      <meta property="article:section" content="k8s">
     
       <meta property="article:section" content="docker">
     
   
+  
+    
+      <meta property="article:tag" content="envd">
+    
   
 
 
@@ -111,18 +109,18 @@ Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工
 
 
 
-  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-13.jpeg">
-  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-13.jpeg">
+  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-14.jpeg">
+  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-14.jpeg">
 
 
-    <title>Helm解析</title>
+    <title>辅助构建docker镜像工具-envd</title>
 
     <link rel="icon" href="https://sea-wyq.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/">
+    <link rel="canonical" href="https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -282,15 +280,15 @@ Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      Helm解析
+      辅助构建docker镜像工具-envd
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2022-07-17T00:00:00Z">
+      <time datetime="2022-07-21T00:00:00Z">
         
-  七月 17, 2022
+  七月 21, 2022
 
       </time>
     
@@ -298,8 +296,6 @@ Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工
   
   
     <span>发布在</span>
-    
-      <a class="category-link" href="https://sea-wyq.github.io/categories/k8s">k8s</a>, 
     
       <a class="category-link" href="https://sea-wyq.github.io/categories/docker">docker</a>
     
@@ -311,14 +307,85 @@ Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>Helm概念</p>
+              <p>特性：</p>
 <ul>
-<li>Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。</li>
-<li>仓库（Repository）： 归集和分享chart的地方。</li>
-<li>发布（Release）：在Kubernetes集群中运行的chart实例。一个chart经常在同一个集群中被重复安装。每次安装都会生成新的发布。比如MySQL，如果想让两个数据库运行在集群中，可以将chart安装两次。每一个都会有自己的发布版本，并有自己的发布名称。</li>
+<li>通过编写python代码来构建docekr和开发环境的设置。</li>
+<li>内置jupyter/Vscode。</li>
 </ul>
 <h1 id="table-of-contents">目录</h1>
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装要求">安装要求</a></li>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#编写buildenvd文件">编写build.envd文件</a></li>
+    <li><a href="#构建环境镜像">构建环境镜像</a></li>
+    <li><a href="#构建容器">构建容器</a></li>
+  </ul>
+</nav>
+
+<h1 id="安装要求">安装要求</h1>
+<ul>
+<li>Docker (20.10.0 或以上)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 在Ubuntu上安装Docker</span>
+</span></span><span style="display:flex;"><span>$ sudo apt-get update
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo apt-get install <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    ca-certificates <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    curl <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    gnupg <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    lsb-release
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo mkdir -p /etc/apt/keyrings
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ echo <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  <span style="color:#e6db74">&#34;deb [arch=</span><span style="color:#66d9ef">$(</span>dpkg --print-architecture<span style="color:#66d9ef">)</span><span style="color:#e6db74"> signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> stable&#34;</span> | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo apt-get update
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+</span></span></code></pre></div><h1 id="安装">安装</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SHELL" data-lang="SHELL"><span style="display:flex;"><span>$ pip install --pre --upgrade envd
+</span></span><span style="display:flex;"><span>$ envd bootstrap
+</span></span></code></pre></div><blockquote>
+<p>您可以在运行时添加&ndash;dockerhub-mirror或-m标记envd bootstrap，为 docker.io 注册表配置镜像：<br>
+envd bootstrap &ndash;dockerhub-mirror <a href="https://docker.mirrors.sjtug.sjtu.edu.cn">https://docker.mirrors.sjtug.sjtu.edu.cn</a></p>
+</blockquote>
+<h1 id="编写buildenvd文件">编写build.envd文件</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">build</span>():
+</span></span><span style="display:flex;"><span>    mirror_config()
+</span></span><span style="display:flex;"><span>    base(language<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;python&#34;</span>, image<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;artifacts.iflytek.com/docker-private/atp/aiges-gpu:10.1-3.9.13-ubuntu1804-v1.0.0&#34;</span>)   <span style="color:#75715e">#加载基础镜像</span>
+</span></span><span style="display:flex;"><span>    install<span style="color:#f92672">.</span>python_packages(name <span style="color:#f92672">=</span> [      <span style="color:#75715e"># 基础镜像需要提供pip</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;torch==1.10&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;torchvision&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;openmim&#34;</span>,
+</span></span><span style="display:flex;"><span>    ])
+</span></span><span style="display:flex;"><span>    install<span style="color:#f92672">.</span>system_packages(name <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;libgl1-mesa-glx&#34;</span>                 
+</span></span><span style="display:flex;"><span>    ])
+</span></span><span style="display:flex;"><span>    run(commands<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;mim install mmcv-full&#34;</span>,            <span style="color:#75715e"># 通过第三方工具来进行安装</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;mim install mmdet==2.24.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    ])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mirror_config</span>():
+</span></span><span style="display:flex;"><span>    config<span style="color:#f92672">.</span>apt_source(source<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>    config<span style="color:#f92672">.</span>pip_index(url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://pypi.tuna.tsinghua.edu.cn/simple&#34;</span>)
+</span></span></code></pre></div><h1 id="构建环境镜像">构建环境镜像</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ envd build                         <span style="color:#75715e"># 当前路径构建</span>
+</span></span><span style="display:flex;"><span>$ envd build --path examples/mnist   <span style="color:#75715e"># 指定路径构建</span>
+</span></span></code></pre></div><h1 id="构建容器">构建容器</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ docker run -ti --entrypoint bash 镜像名
+</span></span></code></pre></div>
               
 
 
@@ -326,6 +393,16 @@ Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工
           </div>
           <div id="post-footer" class="post-footer main-content-wrap">
             
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://sea-wyq.github.io/tags/envd/">envd</a>
+
+                  </div>
+                
               
             
             
@@ -335,7 +412,7 @@ Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" data-tooltip="辅助构建docker镜像工具-envd" aria-label="下一篇: 辅助构建docker镜像工具-envd">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -343,7 +420,7 @@ Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-DaemonSet基础组件解析" aria-label="上一篇: k8s-DaemonSet基础组件解析">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" data-tooltip="Helm解析" aria-label="上一篇: Helm解析">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -361,19 +438,19 @@ Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -404,9 +481,9 @@ Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工
     </div>
     <script type="text/javascript">
       var disqus_config = function() {
-        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/07\/helm%E8%A7%A3%E6%9E%90\/';
+        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/07\/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd\/';
         
-          this.page.identifier = '\/2022\/07\/helm%E8%A7%A3%E6%9E%90\/'
+          this.page.identifier = '\/2022\/07\/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd\/'
         
       };
       (function() {
@@ -442,7 +519,7 @@ Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" data-tooltip="辅助构建docker镜像工具-envd" aria-label="下一篇: 辅助构建docker镜像工具-envd">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -450,7 +527,7 @@ Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/" data-tooltip="k8s-DaemonSet基础组件解析" aria-label="上一篇: k8s-DaemonSet基础组件解析">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" data-tooltip="Helm解析" aria-label="上一篇: Helm解析">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -468,19 +545,19 @@ Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -511,19 +588,19 @@ Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fhelm%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2F%25E8%25BE%2585%25E5%258A%25A9%25E6%259E%2584%25E5%25BB%25BAdocker%25E9%2595%259C%25E5%2583%258F%25E5%25B7%25A5%25E5%2585%25B7-envd%2F" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fhelm%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2F%25E8%25BE%2585%25E5%258A%25A9%25E6%259E%2584%25E5%25BB%25BAdocker%25E9%2595%259C%25E5%2583%258F%25E5%25B7%25A5%25E5%2585%25B7-envd%2F" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2Fhelm%25E8%25A7%25A3%25E6%259E%2590%2F" aria-label="分享到 Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2F%25E8%25BE%2585%25E5%258A%25A9%25E6%259E%2584%25E5%25BB%25BAdocker%25E9%2595%259C%25E5%2583%258F%25E5%25B7%25A5%25E5%2585%25B7-envd%2F" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
         </a>
       </li>
