@@ -10,11 +10,12 @@ thumbnailImage: img/main/th-14.jpeg
 ---
 
 特性：
-- 通过编写python代码来构建docekr和开发环境的设置。
+- 通过编写python代码来构建docker和开发环境的设置。
 - 内置jupyter/Vscode。
 
-
 <!--more-->
+
+![Tranquilpeak](/img/main-blog/blog-8/img.png)
 
 {{< toc >}}
 
