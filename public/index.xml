@@ -6,7 +6,24 @@
     <description>Recent content on WYQ BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker 安装 Nginx 容器</title>
+      <link>https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/</link>
+      <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/</guid>
+      <description>&lt;p&gt;主要有两个作用：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
     <item>
       <title>辅助构建docker镜像工具-envd</title>
       <link>https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/</link>

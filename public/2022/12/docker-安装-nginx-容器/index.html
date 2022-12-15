@@ -7,12 +7,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "辅助构建docker镜像工具-envd",
+  "headline": "Docker 安装 Nginx 容器",
   
-  "image": "https://sea-wyq.github.io/img/main/th-14.jpeg",
+  "image": "https://sea-wyq.github.io/img/main-blog/blog-4/img-2.jpeg",
   
-  "datePublished": "2022-07-21T00:00:00Z",
-  "dateModified": "2022-07-21T00:00:00Z",
+  "datePublished": "2022-12-15T00:00:00Z",
+  "dateModified": "2022-12-15T00:00:00Z",
   "author": {
     "@type": "Person",
     "name": "WYQ SEA",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/sea-wyq.github.io\/2022\/07\/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd\/" 
+    "@id": "https:\/\/sea-wyq.github.io\/2022\/12\/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "特性：\n通过编写python代码来构建docker和开发环境的设置。 内置jupyter/Vscode。 ",
+  "description": "主要有两个作用：\n有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。\n调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。\n",
   "keywords": []
 }
 
@@ -45,51 +45,67 @@
 <meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="WYQ SEA">
 <meta name="keywords" content="">
-<meta name="description" content="特性：
+<meta name="description" content="主要有两个作用：
 
-通过编写python代码来构建docker和开发环境的设置。
-内置jupyter/Vscode。
+
+有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。
+
+
+调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。
+
 ">
 
 
-<meta property="og:description" content="特性：
+<meta property="og:description" content="主要有两个作用：
 
-通过编写python代码来构建docker和开发环境的设置。
-内置jupyter/Vscode。
+
+有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。
+
+
+调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。
+
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="辅助构建docker镜像工具-envd">
-<meta name="twitter:title" content="辅助构建docker镜像工具-envd">
-<meta property="og:url" content="https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/">
-<meta property="twitter:url" content="https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/">
+<meta property="og:title" content="Docker 安装 Nginx 容器">
+<meta name="twitter:title" content="Docker 安装 Nginx 容器">
+<meta property="og:url" content="https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/">
+<meta property="twitter:url" content="https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/">
 <meta property="og:site_name" content="WYQ BLOG">
-<meta property="og:description" content="特性：
+<meta property="og:description" content="主要有两个作用：
 
-通过编写python代码来构建docker和开发环境的设置。
-内置jupyter/Vscode。
+
+有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。
+
+
+调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。
+
 ">
-<meta name="twitter:description" content="特性：
+<meta name="twitter:description" content="主要有两个作用：
 
-通过编写python代码来构建docker和开发环境的设置。
-内置jupyter/Vscode。
+
+有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。
+
+
+调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。
+
 ">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2022-07-21T00:00:00">
+    <meta property="article:published_time" content="2022-12-15T00:00:00">
   
   
-    <meta property="article:modified_time" content="2022-07-21T00:00:00">
+    <meta property="article:modified_time" content="2022-12-15T00:00:00">
   
-  
-  
-    
-      <meta property="article:section" content="docker">
-    
   
   
     
-      <meta property="article:tag" content="envd">
+      <meta property="article:section" content="nginx">
+    
+  
+  
+    
+      <meta property="article:tag" content="其它">
     
   
 
@@ -108,19 +124,22 @@
 
 
 
+  <meta property="og:image" content="https://sea-wyq.github.io/img/main-blog/blog-4/img-2.jpeg">
+  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main-blog/blog-4/img-2.jpeg">
 
-  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-14.jpeg">
-  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-14.jpeg">
+
+  <meta property="og:image" content="https://sea-wyq.github.io/img/main/th-4.jpeg">
+  <meta property="twitter:image" content="https://sea-wyq.github.io/img/main/th-4.jpeg">
 
 
-    <title>辅助构建docker镜像工具-envd</title>
+    <title>Docker 安装 Nginx 容器</title>
 
     <link rel="icon" href="https://sea-wyq.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/">
+    <link rel="canonical" href="https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -269,26 +288,34 @@
 </nav>
 
       
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('/img/main-blog/blog-4/img-2.jpeg')"
+       data-behavior="5">
+    
+  </div>
+
 
       <div id="main" data-behavior="5"
-        class="
-               hasCoverMetaIn
+        class="hasCover
+               hasCoverMetaOut
                ">
         <article class="post" id="top">
           
           
-            <div class="post-header main-content-wrap text-left">
+            <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title">
-      辅助构建docker镜像工具-envd
+      Docker 安装 Nginx 容器
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2022-07-21T00:00:00Z">
+      <time datetime="2022-12-15T00:00:00Z">
         
-  七月 21, 2022
+  十二月 15, 2022
 
       </time>
     
@@ -297,7 +324,7 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://sea-wyq.github.io/categories/docker">docker</a>
+      <a class="category-link" href="https://sea-wyq.github.io/categories/nginx">nginx</a>
     
   
 
@@ -307,123 +334,64 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>特性：</p>
+              <p>主要有两个作用：</p>
 <ul>
-<li>通过编写python代码来构建docker和开发环境的设置。</li>
-<li>内置jupyter/Vscode。</li>
+<li>
+<p>有的可执行的程序或者脚本我们经常需要使用nohup 来再后台运行防止关掉终端后程序就断开，使用tmux 可以替换nohup使程序 在后台运行。</p>
+</li>
+<li>
+<p>调试bug的时候，可能需要多个终端来回切换，使用tmux 我们可以在一个屏上，操作多个终端。详见开头使用效果。</p>
+</li>
 </ul>
-<p><img src="https://sea-wyq.github.io/img/main-blog/blog-8/img.png" alt="Tranquilpeak"></p>
 <h1 id="table-of-contents">目录</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#安装要求">安装要求</a></li>
-    <li><a href="#安装envd">安装Envd</a></li>
-    <li><a href="#编写buildenvd文件">编写build.envd文件</a></li>
-    <li><a href="#构建环境镜像">构建环境镜像</a></li>
-    <li><a href="#构建容器">构建容器</a></li>
-    <li><a href="#支持cicd">支持CICD</a></li>
+    <li><a href="#1-下载nginx镜像">1. 下载Nginx镜像</a></li>
+    <li><a href="#2-创建nginx配置文件">2. 创建Nginx配置文件</a></li>
+    <li><a href="#3-创建nginx容器并运行">3. 创建Nginx容器并运行</a></li>
+    <li><a href="#4-结果检测">4. 结果检测</a></li>
+    <li><a href="#5修改内容进行展示">5.修改内容进行展示</a></li>
   </ul>
 </nav>
 
-<h1 id="安装要求">安装要求</h1>
-<ul>
-<li>Docker (20.10.0 或以上)</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 在Ubuntu上安装Docker</span>
-</span></span><span style="display:flex;"><span>$ sudo apt-get update
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ sudo apt-get install <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    ca-certificates <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    curl <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    gnupg <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    lsb-release
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ sudo mkdir -p /etc/apt/keyrings
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ echo <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  <span style="color:#e6db74">&#34;deb [arch=</span><span style="color:#66d9ef">$(</span>dpkg --print-architecture<span style="color:#66d9ef">)</span><span style="color:#e6db74"> signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> stable&#34;</span> | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ sudo apt-get update
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ docker version    <span style="color:#75715e"># 验证是否安装成功</span>
-</span></span></code></pre></div><h1 id="安装envd">安装Envd</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SHELL" data-lang="SHELL"><span style="display:flex;"><span>$ pip3 install --pre --upgrade envd -i https://mirrors.sjtug.sjtu.edu.cn/pypi/web/simple
-</span></span><span style="display:flex;"><span>$ envd bootstrap
-</span></span></code></pre></div><blockquote>
-<p>您可以在运行时添加&ndash;dockerhub-mirror或-m标记envd bootstrap，为 docker.io 注册表配置镜像：<br>
-envd bootstrap &ndash;dockerhub-mirror <a href="https://docker.mirrors.sjtug.sjtu.edu.cn">https://docker.mirrors.sjtug.sjtu.edu.cn</a></p>
-</blockquote>
-<h1 id="编写buildenvd文件">编写build.envd文件</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">build</span>():
-</span></span><span style="display:flex;"><span>    mirror_config()
-</span></span><span style="display:flex;"><span>    base(language<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;python&#34;</span>, image<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;public.ecr.aws/iflytek-open/aiges-gpu:10.1-1.17-3.9.13-ubuntu1804-v1.3.2&#34;</span>)   <span style="color:#75715e">#加载基础镜像</span>
-</span></span><span style="display:flex;"><span>    install<span style="color:#f92672">.</span>python_packages(name <span style="color:#f92672">=</span> [      <span style="color:#75715e"># 基础镜像需要提供pip</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;torch==1.10&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;torchvision&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;openmim&#34;</span>,
-</span></span><span style="display:flex;"><span>    ])
-</span></span><span style="display:flex;"><span>    install<span style="color:#f92672">.</span>python_packages(requirements<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;build.txt&#34;</span>)    <span style="color:#75715e"># 可以指定路径下进行requirments.txt安装</span>
-</span></span><span style="display:flex;"><span>    install<span style="color:#f92672">.</span>system_packages(name <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;libgl1-mesa-glx&#34;</span>                 
-</span></span><span style="display:flex;"><span>    ])
-</span></span><span style="display:flex;"><span>    run(commands<span style="color:#f92672">=</span>[
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;mim install mmcv-full&#34;</span>,            <span style="color:#75715e"># 通过第三方工具来进行安装</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;mim install mmdet==2.24.0&#34;</span>,
-</span></span><span style="display:flex;"><span>    ])
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mirror_config</span>():
-</span></span><span style="display:flex;"><span>    config<span style="color:#f92672">.</span>apt_source(source<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>)
-</span></span><span style="display:flex;"><span>    config<span style="color:#f92672">.</span>pip_index(url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://pypi.tuna.tsinghua.edu.cn/simple&#34;</span>)
-</span></span></code></pre></div><h1 id="构建环境镜像">构建环境镜像</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ envd build                         <span style="color:#75715e"># 当前路径构建</span>
-</span></span><span style="display:flex;"><span>$ envd build --p examples/mnist      <span style="color:#75715e"># 指定路径构建</span>
-</span></span><span style="display:flex;"><span>$ envd build --t <span style="color:#e6db74">&#34;XXX：TAG&#34;</span>          <span style="color:#75715e"># 指定镜像Tag</span>
-</span></span><span style="display:flex;"><span>$ envd build --f build.envd          <span style="color:#75715e"># 指定envd文件进行构建</span>
-</span></span></code></pre></div><h1 id="构建容器">构建容器</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ docker run -ti --entrypoint bash 镜像名
-</span></span></code></pre></div><h1 id="支持cicd">支持CICD</h1>
-<ul>
-<li>将构建的镜像上传到Docker Hub</li>
-</ul>
-<pre tabindex="0"><code>name: ci
-
-on:
-  push:
-    tags: 
-      - &#39;v*&#39;
-
-env:              # 预先在docker hub上创建仓库
-  REGISTRY: seawyq
-  IMAGE_NAME: aiges_gpu
-
-jobs:
-  login:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Install envd
-        run: |
-          pip3 install --pre --upgrade envd -i https://mirrors.sjtug.sjtu.edu.cn/pypi/web/simple
-          envd bootstrap
-      - name: Build and push
-        run: envd build --output type=image,name=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }},push=true
-</code></pre>
+<h1 id="1-下载nginx镜像">1. 下载Nginx镜像</h1>
+<p>docker pull nginx下载最新版Nginx镜像 (其实此命令就等同于 : docker pull nginx:latest )
+docker pull nginx:xxx下载指定版本的Nginx镜像 (xxx指具体版本号)</p>
+<h1 id="2-创建nginx配置文件">2. 创建Nginx配置文件</h1>
+<p>启动前需要先创建Nginx外部挂载的配置文件（ /home/nginx/conf/nginx.conf）
+之所以要先创建 , 是因为Nginx本身容器只存在/etc/nginx 目录 , 本身就不创建 nginx.conf 文件
+当服务器和容器都不存在 nginx.conf 文件时, 执行启动命令的时候 docker会将nginx.conf 作为目录创建 , 这并不是我们想要的结果 。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 创建挂载目录</span>
+</span></span><span style="display:flex;"><span>mkdir -p /home/nginx/conf
+</span></span><span style="display:flex;"><span>mkdir -p /home/nginx/log
+</span></span><span style="display:flex;"><span>mkdir -p /home/nginx/html
+</span></span></code></pre></div><p>容器中的nginx.conf文件和conf.d文件夹复制到宿主机</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 生成容器</span>
+</span></span><span style="display:flex;"><span>docker run --name nginx -p 9001:80 -d nginx
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将容器nginx.conf文件复制到宿主机</span>
+</span></span><span style="display:flex;"><span>docker cp nginx:/etc/nginx/nginx.conf /home/nginx/conf/nginx.conf
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将容器default.conf文件复制到宿主机</span>
+</span></span><span style="display:flex;"><span>docker cp nginx:/etc/nginx/conf.d /home/nginx/conf/conf.d
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将容器中的html文件夹复制到宿主机</span>
+</span></span><span style="display:flex;"><span>docker cp nginx:/usr/share/nginx/html /home/nginx/
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 删除正在运行的nginx容器</span>
+</span></span><span style="display:flex;"><span>docker rm -f nginx
+</span></span></code></pre></div><h1 id="3-创建nginx容器并运行">3. 创建Nginx容器并运行</h1>
+<pre tabindex="0"><code>docker run \
+-p 9002:80 \
+--name nginx \
+-v /home/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \
+-v /home/nginx/conf/conf.d:/etc/nginx/conf.d \
+-v /home/nginx/log:/var/log/nginx \
+-v /home/nginx/html:/usr/share/nginx/html \
+-d nginx:latest
+</code></pre><h1 id="4-结果检测">4. 结果检测</h1>
+<p><img src="https://sea-wyq.github.io/img/main-blog/blog-9/1.png" alt="img.png"></p>
+<h1 id="5修改内容进行展示">5.修改内容进行展示</h1>
+<p>修改本地 html下的index.html
+<img src="https://sea-wyq.github.io/img/main-blog/blog-9/2.png" alt="img.png">
+测试
+<img src="https://sea-wyq.github.io/img/main-blog/blog-9/3.png" alt="img.png"></p>
               
 
 
@@ -437,7 +405,7 @@ jobs:
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://sea-wyq.github.io/tags/envd/">envd</a>
+  <a class="tag tag--primary tag--small" href="https://sea-wyq.github.io/tags/%E5%85%B6%E5%AE%83/">其它</a>
 
                   </div>
                 
@@ -450,7 +418,7 @@ jobs:
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/" data-tooltip="Docker 安装 Nginx 容器" aria-label="下一篇: Docker 安装 Nginx 容器">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -458,7 +426,7 @@ jobs:
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" data-tooltip="Helm解析" aria-label="上一篇: Helm解析">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" data-tooltip="辅助构建docker镜像工具-envd" aria-label="上一篇: 辅助构建docker镜像工具-envd">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -476,19 +444,19 @@ jobs:
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -519,9 +487,9 @@ jobs:
     </div>
     <script type="text/javascript">
       var disqus_config = function() {
-        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/07\/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd\/';
+        this.page.url = 'https:\/\/sea-wyq.github.io\/2022\/12\/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8\/';
         
-          this.page.identifier = '\/2022\/07\/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd\/'
+          this.page.identifier = '\/2022\/12\/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8\/'
         
       };
       (function() {
@@ -557,7 +525,7 @@ jobs:
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/" data-tooltip="Docker 安装 Nginx 容器" aria-label="下一篇: Docker 安装 Nginx 容器">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -565,7 +533,7 @@ jobs:
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/" data-tooltip="Helm解析" aria-label="上一篇: Helm解析">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" data-tooltip="辅助构建docker镜像工具-envd" aria-label="上一篇: 辅助构建docker镜像工具-envd">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -583,19 +551,19 @@ jobs:
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -626,19 +594,19 @@ jobs:
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2F%25E8%25BE%2585%25E5%258A%25A9%25E6%259E%2584%25E5%25BB%25BAdocker%25E9%2595%259C%25E5%2583%258F%25E5%25B7%25A5%25E5%2585%25B7-envd%2F" aria-label="分享到 Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F12%2Fdocker-%25E5%25AE%2589%25E8%25A3%2585-nginx-%25E5%25AE%25B9%25E5%2599%25A8%2F" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2F%25E8%25BE%2585%25E5%258A%25A9%25E6%259E%2584%25E5%25BB%25BAdocker%25E9%2595%259C%25E5%2583%258F%25E5%25B7%25A5%25E5%2585%25B7-envd%2F" aria-label="分享到 Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F12%2Fdocker-%25E5%25AE%2589%25E8%25A3%2585-nginx-%25E5%25AE%25B9%25E5%2599%25A8%2F" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F07%2F%25E8%25BE%2585%25E5%258A%25A9%25E6%259E%2584%25E5%25BB%25BAdocker%25E9%2595%259C%25E5%2583%258F%25E5%25B7%25A5%25E5%2585%25B7-envd%2F" aria-label="分享到 Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsea-wyq.github.io%2F2022%2F12%2Fdocker-%25E5%25AE%2589%25E8%25A3%2585-nginx-%25E5%25AE%25B9%25E5%2599%25A8%2F" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
         </a>
       </li>
