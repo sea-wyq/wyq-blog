@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>envd on WYQ BLOG</title>
-    <link>http://www.wyqiang.com/tags/envd/</link>
+    <link>https://sea-wyq.github.io/tags/envd/</link>
     <description>Recent content in envd on WYQ BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://www.wyqiang.com/tags/envd/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/tags/envd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>辅助构建docker镜像工具-envd</title>
-      <link>http://www.wyqiang.com/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/</link>
+      <link>https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/</link>
       <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://www.wyqiang.com/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/</guid>
+      <guid>https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/</guid>
       <description>&lt;p&gt;特性：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;通过编写python代码来构建docker和开发环境的设置。&lt;/li&gt;

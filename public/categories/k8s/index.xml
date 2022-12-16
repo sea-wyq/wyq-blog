@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>k8s on WYQ BLOG</title>
-    <link>http://www.wyqiang.com/categories/k8s/</link>
+    <link>https://sea-wyq.github.io/categories/k8s/</link>
     <description>Recent content in k8s on WYQ BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 17 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://www.wyqiang.com/categories/k8s/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/categories/k8s/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Helm解析</title>
-      <link>http://www.wyqiang.com/2022/07/helm%E8%A7%A3%E6%9E%90/</link>
+      <link>https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://www.wyqiang.com/2022/07/helm%E8%A7%A3%E6%9E%90/</guid>
+      <guid>https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;Helm概念&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。&lt;/li&gt;
@@ -23,10 +23,10 @@
     
     <item>
       <title>k8s-DaemonSet基础组件解析</title>
-      <link>http://www.wyqiang.com/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <link>https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://www.wyqiang.com/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <guid>https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。&lt;br&gt;
 下面是常用的使用案例:&lt;/p&gt;
 &lt;ul&gt;
@@ -38,10 +38,10 @@
     
     <item>
       <title>k8s-Secret&amp;ConfigMap基础组件解析</title>
-      <link>http://www.wyqiang.com/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <link>https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://www.wyqiang.com/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <guid>https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;ConfigMap是一个K8s存储资源，用于存储应用程序配置文件。&lt;/li&gt;
 &lt;li&gt;Secret主要存储敏感数据。&lt;/li&gt;
@@ -50,10 +50,10 @@
     
     <item>
       <title>k8s-Service基础组件解析</title>
-      <link>http://www.wyqiang.com/2022/07/k8s-service%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <link>https://sea-wyq.github.io/2022/07/k8s-service%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://www.wyqiang.com/2022/07/k8s-service%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <guid>https://sea-wyq.github.io/2022/07/k8s-service%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;Kubernetes 中Service有以下3种类型：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ClusterIP：默认类型，自动分配一个仅Cluster内部可以访问的虚拟IP&lt;/li&gt;
@@ -64,10 +64,10 @@
     
     <item>
       <title>k8s-StatefulSet基础组件解析</title>
-      <link>http://www.wyqiang.com/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <link>https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://www.wyqiang.com/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <guid>https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;应用场景&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;稳定的不共享持久化存储：即每个pod的存储资源是不共享的，且pod重新调度后还是能访问到相同的持久化数据，基于pvc实现。&lt;/li&gt;
@@ -79,19 +79,19 @@
     
     <item>
       <title>k8s-Deployment基础组件解析</title>
-      <link>http://www.wyqiang.com/2022/07/k8s-deployment%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <link>https://sea-wyq.github.io/2022/07/k8s-deployment%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Thu, 14 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://www.wyqiang.com/2022/07/k8s-deployment%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <guid>https://sea-wyq.github.io/2022/07/k8s-deployment%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;Deployment对象，顾名思义，是用于部署应用的对象。它使Kubernetes中最常用的一个对象，它为ReplicaSet和Pod的创建提供了一种声明式的定义方法&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>k8s-Pod基础组件解析</title>
-      <link>http://www.wyqiang.com/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <link>https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Sun, 10 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://www.wyqiang.com/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <guid>https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;Pod是Kubernetes中能够创建和部署的最小单元，是Kubernetes集群中的一个应用实例。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;单容器Pod，最常见的应用方式。&lt;/li&gt;

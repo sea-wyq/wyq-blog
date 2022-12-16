@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on WYQ BLOG</title>
-    <link>http://www.wyqiang.com/tags/</link>
+    <link>https://sea-wyq.github.io/tags/</link>
     <description>Recent content in Tags on WYQ BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 15 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://www.wyqiang.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>其它</title>
-      <link>http://www.wyqiang.com/tags/%E5%85%B6%E5%AE%83/</link>
+      <link>https://sea-wyq.github.io/tags/%E5%85%B6%E5%AE%83/</link>
       <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://www.wyqiang.com/tags/%E5%85%B6%E5%AE%83/</guid>
+      <guid>https://sea-wyq.github.io/tags/%E5%85%B6%E5%AE%83/</guid>
       <description></description>
     </item>
     
     <item>
       <title>envd</title>
-      <link>http://www.wyqiang.com/tags/envd/</link>
+      <link>https://sea-wyq.github.io/tags/envd/</link>
       <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://www.wyqiang.com/tags/envd/</guid>
+      <guid>https://sea-wyq.github.io/tags/envd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>其他</title>
-      <link>http://www.wyqiang.com/tags/%E5%85%B6%E4%BB%96/</link>
+      <link>https://sea-wyq.github.io/tags/%E5%85%B6%E4%BB%96/</link>
       <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://www.wyqiang.com/tags/%E5%85%B6%E4%BB%96/</guid>
+      <guid>https://sea-wyq.github.io/tags/%E5%85%B6%E4%BB%96/</guid>
       <description></description>
     </item>
     
