@@ -2,89 +2,89 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on WYQ BLOG</title>
-    <link>https://sea-wyq.github.io/categories/</link>
+    <link>http://www.wyqiang.com/categories/</link>
     <description>Recent content in Categories on WYQ BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 15 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://www.wyqiang.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>nginx</title>
-      <link>https://sea-wyq.github.io/categories/nginx/</link>
+      <link>http://www.wyqiang.com/categories/nginx/</link>
       <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/categories/nginx/</guid>
+      <guid>http://www.wyqiang.com/categories/nginx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker</title>
-      <link>https://sea-wyq.github.io/categories/docker/</link>
+      <link>http://www.wyqiang.com/categories/docker/</link>
       <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/categories/docker/</guid>
+      <guid>http://www.wyqiang.com/categories/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>k8s</title>
-      <link>https://sea-wyq.github.io/categories/k8s/</link>
+      <link>http://www.wyqiang.com/categories/k8s/</link>
       <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/categories/k8s/</guid>
+      <guid>http://www.wyqiang.com/categories/k8s/</guid>
       <description></description>
     </item>
     
     <item>
       <title>其它</title>
-      <link>https://sea-wyq.github.io/categories/%E5%85%B6%E5%AE%83/</link>
+      <link>http://www.wyqiang.com/categories/%E5%85%B6%E5%AE%83/</link>
       <pubDate>Mon, 11 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/categories/%E5%85%B6%E5%AE%83/</guid>
+      <guid>http://www.wyqiang.com/categories/%E5%85%B6%E5%AE%83/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker hub</title>
-      <link>https://sea-wyq.github.io/categories/docker-hub/</link>
+      <link>http://www.wyqiang.com/categories/docker-hub/</link>
       <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/categories/docker-hub/</guid>
+      <guid>http://www.wyqiang.com/categories/docker-hub/</guid>
       <description></description>
     </item>
     
     <item>
       <title>github action</title>
-      <link>https://sea-wyq.github.io/categories/github-action/</link>
+      <link>http://www.wyqiang.com/categories/github-action/</link>
       <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/categories/github-action/</guid>
+      <guid>http://www.wyqiang.com/categories/github-action/</guid>
       <description></description>
     </item>
     
     <item>
       <title>github pages</title>
-      <link>https://sea-wyq.github.io/categories/github-pages/</link>
+      <link>http://www.wyqiang.com/categories/github-pages/</link>
       <pubDate>Wed, 22 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/categories/github-pages/</guid>
+      <guid>http://www.wyqiang.com/categories/github-pages/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>https://sea-wyq.github.io/categories/hugo/</link>
+      <link>http://www.wyqiang.com/categories/hugo/</link>
       <pubDate>Wed, 22 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/categories/hugo/</guid>
+      <guid>http://www.wyqiang.com/categories/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sealos</title>
-      <link>https://sea-wyq.github.io/categories/sealos/</link>
+      <link>http://www.wyqiang.com/categories/sealos/</link>
       <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/categories/sealos/</guid>
+      <guid>http://www.wyqiang.com/categories/sealos/</guid>
       <description></description>
     </item>
     

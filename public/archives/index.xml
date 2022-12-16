@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Archives on WYQ BLOG</title>
-    <link>https://sea-wyq.github.io/archives/</link>
+    <link>http://www.wyqiang.com/archives/</link>
     <description>Recent content in Archives on WYQ BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="https://sea-wyq.github.io/archives/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language><atom:link href="http://www.wyqiang.com/archives/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WYQ BLOG</title>
-    <link>https://sea-wyq.github.io/</link>
+    <link>http://www.wyqiang.com/</link>
     <description>Recent content on WYQ BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 15 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sea-wyq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://www.wyqiang.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker 安装 Nginx 容器</title>
-      <link>https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/</link>
+      <link>http://www.wyqiang.com/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/</link>
       <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/</guid>
+      <guid>http://www.wyqiang.com/2022/12/docker-%E5%AE%89%E8%A3%85-nginx-%E5%AE%B9%E5%99%A8/</guid>
       <description></description>
     </item>
     
     <item>
       <title>辅助构建docker镜像工具-envd</title>
-      <link>https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/</link>
+      <link>http://www.wyqiang.com/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/</link>
       <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/</guid>
+      <guid>http://www.wyqiang.com/2022/07/%E8%BE%85%E5%8A%A9%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F%E5%B7%A5%E5%85%B7-envd/</guid>
       <description>&lt;p&gt;特性：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;通过编写python代码来构建docker和开发环境的设置。&lt;/li&gt;
@@ -31,10 +31,10 @@
     
     <item>
       <title>Helm解析</title>
-      <link>https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/</link>
+      <link>http://www.wyqiang.com/2022/07/helm%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/07/helm%E8%A7%A3%E6%9E%90/</guid>
+      <guid>http://www.wyqiang.com/2022/07/helm%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;Helm概念&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Chart 是一个Helm包，涵盖了需要在Kubernetes集群中运行应用，工具或者服务的资源定义。 把它想象成Kubernetes对应的Homebrew公式，Apt dpkg，或者是Yum RPM文件。&lt;/li&gt;
@@ -45,10 +45,10 @@
     
     <item>
       <title>k8s-DaemonSet基础组件解析</title>
-      <link>https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <link>http://www.wyqiang.com/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <guid>http://www.wyqiang.com/2022/07/k8s-daemonset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;DaemonSet 是一个确保全部或者某些节点上必须运行一个Pod的工作负载资源（守护进程），当有节点加入集群时，也会为他们新增一个Pod, 通过创建DaemonSet 可以确保守护进程pod 被调度到每个可用节点上运行。&lt;br&gt;
 下面是常用的使用案例:&lt;/p&gt;
 &lt;ul&gt;
@@ -60,10 +60,10 @@
     
     <item>
       <title>k8s-Secret&amp;ConfigMap基础组件解析</title>
-      <link>https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <link>http://www.wyqiang.com/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <guid>http://www.wyqiang.com/2022/07/k8s-secretconfigmap%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;ConfigMap是一个K8s存储资源，用于存储应用程序配置文件。&lt;/li&gt;
 &lt;li&gt;Secret主要存储敏感数据。&lt;/li&gt;
@@ -72,10 +72,10 @@
     
     <item>
       <title>k8s-Service基础组件解析</title>
-      <link>https://sea-wyq.github.io/2022/07/k8s-service%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <link>http://www.wyqiang.com/2022/07/k8s-service%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/07/k8s-service%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <guid>http://www.wyqiang.com/2022/07/k8s-service%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;Kubernetes 中Service有以下3种类型：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ClusterIP：默认类型，自动分配一个仅Cluster内部可以访问的虚拟IP&lt;/li&gt;
@@ -86,10 +86,10 @@
     
     <item>
       <title>k8s-StatefulSet基础组件解析</title>
-      <link>https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <link>http://www.wyqiang.com/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <guid>http://www.wyqiang.com/2022/07/k8s-statefulset%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;应用场景&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;稳定的不共享持久化存储：即每个pod的存储资源是不共享的，且pod重新调度后还是能访问到相同的持久化数据，基于pvc实现。&lt;/li&gt;
@@ -101,28 +101,28 @@
     
     <item>
       <title>k8s-Deployment基础组件解析</title>
-      <link>https://sea-wyq.github.io/2022/07/k8s-deployment%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <link>http://www.wyqiang.com/2022/07/k8s-deployment%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Thu, 14 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/07/k8s-deployment%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <guid>http://www.wyqiang.com/2022/07/k8s-deployment%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;Deployment对象，顾名思义，是用于部署应用的对象。它使Kubernetes中最常用的一个对象，它为ReplicaSet和Pod的创建提供了一种声明式的定义方法&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>vim 常用命令</title>
-      <link>https://sea-wyq.github.io/2022/07/vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <link>http://www.wyqiang.com/2022/07/vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Mon, 11 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/07/vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <guid>http://www.wyqiang.com/2022/07/vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
       <description>&lt;p&gt;vim（vi improved）编辑器是从 vi 发展出来的一个文本编辑器。代码补完、编译及错误跳转、语法高亮等方便编程的功能特别丰富，在程序员中被广泛使用。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>k8s-Pod基础组件解析</title>
-      <link>https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
+      <link>http://www.wyqiang.com/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Sun, 10 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
+      <guid>http://www.wyqiang.com/2022/07/k8s-pod%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;Pod是Kubernetes中能够创建和部署的最小单元，是Kubernetes集群中的一个应用实例。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;单容器Pod，最常见的应用方式。&lt;/li&gt;
@@ -132,28 +132,28 @@
     
     <item>
       <title>python远程调试工具remote-pdb</title>
-      <link>https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/</link>
+      <link>http://www.wyqiang.com/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/</link>
       <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/</guid>
+      <guid>http://www.wyqiang.com/2022/06/python%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7remote-pdb/</guid>
       <description>&lt;p&gt;使用remote-pdb + telnet实现在远程服务器上进行Python文件调试&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>对象存储工具-S3cmd</title>
-      <link>https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/</link>
+      <link>http://www.wyqiang.com/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/</link>
       <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/</guid>
+      <guid>http://www.wyqiang.com/2022/06/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%B7%A5%E5%85%B7-s3cmd/</guid>
       <description>&lt;p&gt;&lt;strong&gt;s3cmd&lt;/strong&gt; 是用于创建S3桶，上传，检索和管理数据到对象存储命令行实用程序。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>终端复用工具-Tmux</title>
-      <link>https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/</link>
+      <link>http://www.wyqiang.com/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/</link>
       <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/</guid>
+      <guid>http://www.wyqiang.com/2022/06/%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7-tmux/</guid>
       <description>&lt;p&gt;主要有两个作用：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -167,28 +167,28 @@
     
     <item>
       <title>使用GitHub Actions自动构建DockerHub镜像</title>
-      <link>https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/</link>
+      <link>http://www.wyqiang.com/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/</link>
       <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/</guid>
+      <guid>http://www.wyqiang.com/2022/06/%E4%BD%BF%E7%94%A8github-actions%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAdockerhub%E9%95%9C%E5%83%8F/</guid>
       <description>&lt;p&gt;GitHub Actions持续集成服务自动构建发布镜像到DockerHub，目前GitHub Actions是免费开放的，所以Github上的项目都可以使用它来发布、测试、部署等等，非常方便。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>github pages &#43; hugo搭建个人博客</title>
-      <link>https://sea-wyq.github.io/2022/06/github-pages--hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <link>http://www.wyqiang.com/2022/06/github-pages--hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Wed, 22 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/06/github-pages--hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>http://www.wyqiang.com/2022/06/github-pages--hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
       <description>&lt;p&gt;在windows10上通过github pages和hugo实现个人博客的快速搭建。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>使用sealos在阿里云服务器上部署k8s集群</title>
-      <link>https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8sealos%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2k8s%E9%9B%86%E7%BE%A4/</link>
+      <link>http://www.wyqiang.com/2022/06/%E4%BD%BF%E7%94%A8sealos%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2k8s%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sea-wyq.github.io/2022/06/%E4%BD%BF%E7%94%A8sealos%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2k8s%E9%9B%86%E7%BE%A4/</guid>
+      <guid>http://www.wyqiang.com/2022/06/%E4%BD%BF%E7%94%A8sealos%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2k8s%E9%9B%86%E7%BE%A4/</guid>
       <description>&lt;p&gt;使用sealos在阿里云上进行k8s集群快捷部署。&lt;/p&gt;</description>
     </item>
     
